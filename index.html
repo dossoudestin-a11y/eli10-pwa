@@ -1,52 +1,70 @@
-<!DOCTYPE html>
+DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELI10 Academy</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#6D28D9">
-  <style>
-    body{font-family:system-ui;background:#0F172A;color:#fff;margin:0;padding:24px;text-align:center}
-    .card{background:#1E293B;border-radius:16px;padding:24px;margin-top:20px;border:1px solid #6D28D9}
-    button{background:#FBBF24;color:#000;border:none;padding:14px 24px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;width:100%;margin-top:12px}
-    button:disabled{background:#475569;color:#94A3B8;cursor:not-allowed}
-    input{width:100%;padding:12px;border-radius:8px;border:1px solid #475569;background:#0F172A;color:#fff;margin-top:8px}
-    .locked{opacity:0.5}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELI10 Academy</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a">
+<style>
+  body { font-family: sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 20px; }
+  .card { background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 400px; }
+  button { background: #facc15; color: #000; border: 0; padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
+  input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-top: 10px; }
+  .locked { opacity: 0.5; filter: blur(2px); pointer-events: none; }
+  h1 { color: #facc15; }
+</style>
 </head>
 <body>
-  <h1>🚀 ELI10 Academy</h1>
+  <h1>ELI10 Academy</h1>
+
   <div class="card">
-    <h2>Leçon 1: Base de la PWA</h2>
-    <p>Une PWA = Progressive Web App. Elle s'installe, marche hors-ligne, et fait pro. C'est ça qui te fait passer de 0 à 15,000 FCFA.</p>
-    
-    <h3>QCM de validation</h3>
-    <p>Que signifie le 'P' de PWA ?</p>
-    <input id="q1" placeholder="Tape ta réponse ici">
-    <button onclick="checkQCM()">Valider la Leçon 1</button>
-    <p id="result"></p>
+    <h2>Leçon 1 : Gratuit ✅</h2>
+    <p>Bienvenue. C’est ça une PWA. Teste le mode avion, ça marche.</p>
+    <button onclick="acheter()">🔒 Débloquer Niveau 2 - 15,000 FCFA</button>
   </div>
 
-  <div class="card locked">
-    <h2>🔒 Leçon 2: Déploiement</h2>
-    <p>Termine la Leçon 1 pour déverrouiller.</p>
-    <button disabled>Verrouillé</button>
+  <div class="card locked" id="niveau2">
+    <h2>🔒 NIVEAU 2 : ACCÈS COMPLET</h2>
+    <p>10 Leçons + PDF + Vidéos + Support WhatsApp</p>
+    <input type="text" id="codeInput" placeholder="Colle ton CODE UNIQUE ici">
+    <button onclick="verifierCode()">Déverrouiller Maintenant</button>
+    <p id="msg" style="margin-top:10px; font-weight:700;"></p>
   </div>
 
 <script>
-  function checkQCM(){
-    const rep = document.getElementById('q1').value.toLowerCase();
-    const res = document.getElementById('result');
-    if(rep.includes('progressive')){
-      res.innerText = '✅ Correct ! Leçon 1 validée. Tu es un CEO.';
-      res.style.color = '#FBBF24';
-    } else {
-      res.innerText = '❌ Faux. Le "P" = Progressive. Réessaie.';
-      res.style.color = '#F87171';
-    }
+// 1. CHANGE ÇA : Ton CODE SECRET du jour
+const CODE_SECRET = "ELI10CEO2026"; 
+
+function acheter() {
+  alert("Étape 1: Envoie 15,000 FCFA par Mobile Money au +229 01 XX\nÉtape 2: Envoie le reçu par WhatsApp au même numéro\nÉtape 3: Je t’enverrai ton CODE UNIQUE instantanément");
+  // Ouvre WhatsApp direct
+  window.open('https://wa.me/22901XXXXXXX?text=Jai paye 15000 pour ELI10', '_blank');
+}
+
+function verifierCode() {
+  const code = document.getElementById('codeInput').value.trim();
+  const msg = document.getElementById('msg');
+  if (code === CODE_SECRET) {
+    document.getElementById('niveau2').classList.remove('locked');
+    msg.style.color = '#4ade80';
+    msg.textContent = '✅ Accès débloqué à vie ! Bienvenue CEO';
+    localStorage.setItem('eli10_unlocked', 'true'); // Garde ça même hors ligne
+  } else {
+    msg.style.color = '#f87171';
+    msg.textContent = '❌ Code incorrect. Vérifie avec moi sur WhatsApp';
   }
-  if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
+}
+
+// Si déjà payé avant, on garde débloqué
+if (localStorage.getItem('eli10_unlocked') === 'true') {
+  document.getElementById('niveau2').classList.remove('locked');
+}
+
+// Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js');
+}
 </script>
 </body>
 </html>
