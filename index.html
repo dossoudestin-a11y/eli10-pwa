@@ -1,409 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#6d28d9">
-    <title>ELI10 Academy | Destin Cédric DOSSOU | Formation CEO Code</title>
-    <link rel="manifest" href="/eli10-pwa/manifest.json">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TA_ID_ICI" crossorigin="anonymous"></script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap');
-        :root{
-            --accent:#8b5cf6; --accent2:#ec4899; --green:#10b981; --red:#ef4444; --gold:#fbbf24;
-            --glass:rgba(255,255,255,0.08); --glass-border:rgba(255,255,255,0.15);
-            --shadow-lg:0 20px 60px rgba(139,92,246,.4);
-        }
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Outfit',system-ui;color:#fff;overflow-x:hidden;background:#0a0612}
-        #bgVideo{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-3;opacity:0.5;filter:blur(1px) brightness(0.7)}
-        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(10,6,18,.85) 0%,rgba(76,29,149,.8) 50%,rgba(236,72,153,.75) 100%);z-index:-2}
-.container{max-width:1400px;margin:auto;padding:0 24px}
-        header{position:sticky;top:0;z-index:100;background:var(--glass);backdrop-filter:blur(25px);border-bottom:1px solid var(--glass-border)}
-        nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
-.logo{font-weight:900;font-size:28px;background:linear-gradient(90deg,#a78bfa,#f472b6,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.btn{padding:18px 36px;border-radius:16px;font-weight:900;border:none;cursor:pointer;transition:.3s;font-size:17px}
-.btn.primary{background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;box-shadow:var(--shadow-lg)}
-.hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:100px;align-items:center;padding:160px 0;min-height:100vh}
-.hero h1{font-size:72px;line-height:1.01;font-weight:900;letter-spacing:-2px}
-.hero h1 span{background:linear-gradient(90deg,#a78bfa,#f472b6,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{color:#e2e8f0;margin:32px 0;font-size:22px;line-height:1.7}
-.hero img{width:100%;border-radius:44px;box-shadow:var(--shadow-lg);border:3px solid var(--glass-border)}
-        section{padding:140px 0}
-        h2{font-size:52px;text-align:center;margin-bottom:80px;font-weight:900;background:linear-gradient(90deg,#fff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.card{background:var(--glass);backdrop-filter:blur(25px);border-radius:32px;border:1px solid var(--glass-border);overflow:hidden;transition:.4s}
-.card:hover{transform:translateY(-15px) scale(1.03);box-shadow:var(--shadow-lg)}
-.card img{width:100%;height:220px;object-fit:cover}
-.card-content{padding:32px}
-.badge{display:inline-block;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;padding:12px 18px;border-radius:50px;font-size:13px;font-weight:900;margin-bottom:18px}
-.pricing{max-width:600px;margin:0 auto;text-align:center;padding:70px;border:3px solid #a78bfa;background:var(--glass);border-radius:36px}
-.prix{font-size:72px;font-weight:900;background:linear-gradient(135deg,#10b981,#34d399,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.momo{background:rgba(0,0,0,.4);padding:24px;border-radius:20px;margin:24px 0;border:2px dashed #a78bfa;font-size:19px;font-weight:700}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-.testi{background:var(--glass);padding:32px;border-radius:24px;border:1px solid var(--glass-border)}
-.testi.stars{color:var(--gold);font-size:20px;margin-bottom:12px}
-
-/* CHAT PROF SEULEMENT - 0 DISTRACTION */
-.chat-wrap{background:var(--glass);backdrop-filter:blur(30px);border-radius:36px;box-shadow:var(--shadow-lg);overflow:hidden;border:2px solid var(--glass-border);max-width:1000px;margin:auto}
-.chat-head{display:flex;align-items:center;gap:20px;padding:28px;border-bottom:1px solid var(--glass-border)}
-.chat-head img{width:64px;height:64px;border-radius:50%;border:4px solid #a78bfa;object-fit:cover}
-.name{font-weight:900;font-size:20px}
-.status{font-size:15px;color:var(--green);font-weight:800}
-.chat-box{background:rgba(0,0,0,.35);height:650px;overflow-y:auto;padding:36px;display:flex;flex-direction:column;gap:20px}
-.msg{display:flex;gap:18px;max-width:95%;animation:fadeIn.5s ease}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.avatar{width:48px;height:48px;border-radius:50%;border:3px solid var(--glass-border);object-fit:cover}
-.bubble{padding:20px 24px;border-radius:26px;font-size:16px;line-height:2.0;font-weight:500;white-space:pre-wrap}
-.bot.bubble{background:rgba(255,255,255,.12);border:1px solid var(--glass-border)}
-.user{margin-left:auto;flex-direction:row-reverse}
-.user.bubble{background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff}
-.chat-input{display:flex;gap:14px;padding:24px;border-top:1px solid var(--glass-border)}
-.chat-input input{flex:1;padding:20px 24px;border-radius:18px;border:2px solid var(--glass-border);background:rgba(0,0,0,.5);color:#fff;font-size:17px;outline:none}
-.chat-input button{padding:20px 24px;border-radius:18px;border:none;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;font-weight:900;cursor:pointer;font-size:20px}
-.mic-btn{background:linear-gradient(135deg,var(--red),#f97316);border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:26px;flex-shrink:0}
-.mic-btn.recording{animation:micPulse 1s infinite}
-        @keyframes micPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
-
-        footer{background:rgba(0,0,0,.7);backdrop-filter:blur(30px);color:#94a3b8;padding:120px 0 60px;margin-top:140px;border-top:2px solid var(--glass-border)}
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:50px;margin-bottom:60px}
-.signature{grid-column:1/-1;text-align:center;padding-top:60px;border-top:1px solid #1e293b;margin-top:60px;font-weight:800;font-size:19px}
-.signature strong{font-size:24px;background:linear-gradient(90deg,#a78bfa,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.bibliographie{margin-top:40px;font-size:15px;color:#64748b;line-height:2;background:rgba(0,0,0,.3);padding:24px;border-radius:16px;border:1px solid var(--glass-border)}
-        @media(max-width:1000px){
-.hero{grid-template-columns:1fr;text-align:center;padding:120px 0}
-.hero h1{font-size:48px}
-.grid-3,.testi-grid,.footer-grid{grid-template-columns:1fr}
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELI10 Academy</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#6D28D9">
+  <style>
+    body{font-family:system-ui;background:#0F172A;color:#fff;margin:0;padding:24px;text-align:center}
+    .card{background:#1E293B;border-radius:16px;padding:24px;margin-top:20px;border:1px solid #6D28D9}
+    button{background:#FBBF24;color:#000;border:none;padding:14px 24px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;width:100%;margin-top:12px}
+    button:disabled{background:#475569;color:#94A3B8;cursor:not-allowed}
+    input{width:100%;padding:12px;border-radius:8px;border:1px solid #475569;background:#0F172A;color:#fff;margin-top:8px}
+    .locked{opacity:0.5}
+  </style>
 </head>
 <body>
-
-    <video id="bgVideo" autoplay loop muted playsinline>
-      <source src="https://videos.pexels.com/video-files/3190772/3190772-sd_640_360_25fps.mp4" type="video/mp4">
-    </video>
-
-    <header><div class="container"><nav><div class="logo">🚀 ELI10 Academy</div><button onclick="alert('Commence par taper lecon 1 au chat en bas')" class="btn primary">Commencer les Cours</button></nav></div></header>
-
-    <section class="hero container">
-      <div>
-        <h1>Deviens <span>Développeur CEO</span> en 11 Leçons</h1>
-        <p>Avec Destin, ton professeur IA. Cours approfondis + Exercices + QCM noté à chaque fin de leçon.</p>
-        <button onclick="document.getElementById('chatBox').scrollIntoView()" class="btn primary" style="font-size:20px;padding:22px 44px">📚 Accéder aux Cours →</button>
-      </div>
-      <div><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&q=80" alt="Code"></div>
-    </section>
-
-    <section><div class="container"><h2>📚 Programme Complet : 11 Leçons Approfondies</h2>
-      <div class="grid-3">
-        <div class="card"><img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=800&q=80"><div class="card-content"><span class="badge">MODULE 1</span><h3>HTML + CSS + JS</h3><p>Leçon 1 à 4 : Les fondations avec QCM et Exercices pratiques.</p></div></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80"><div class="card-content"><span class="badge">MODULE 2</span><h3>REACT + Tailwind</h3><p>Leçon 5 à 8 : Développement moderne avec évaluation.</p></div></div>
-        <div class="card"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"><div class="card-content"><span class="badge">MODULE 3</span><h3>IA + DÉPLOIEMENT</h3><p>Leçon 9 à 11 : Projet final + Déploiement + QCM final.</p></div></div>
-      </div>
-    </div></section>
-
-    <section><div class="container"><h2>👨‍🏫 Professeur IA : Destin</h2>
-      <div class="chat-wrap">
-        <div class="chat-head"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"><div><div class="name">Destin - Professeur</div><div class="status">Cours + Exercices + QCM Noté</div></div></div>
-        <div class="chat-box" id="chatBox"></div>
-        <div class="chat-input">
-          <input id="chatInput" placeholder="Tape: lecon 1 pour commencer" onkeydown="if(event.key==='Enter')sendText()">
-          <button onclick="sendText()">➤</button>
-          <div class="mic-btn" id="micBtn" onclick="toggleMic()">🎤</div>
-        </div>
-      </div>
-    </div></section>
-
-    <section><div class="container"><h2>💬 Témoignages Élèves</h2>
-      <div class="testi-grid">
-        <div class="testi"><div class="stars">⭐</div><p>"Les QCM à la fin m’ont forcé à vraiment comprendre. 5/5 à la Leçon 1."</p><strong>- Kévin, Abomey-Calavi</strong></div>
-        <div class="testi"><div class="stars">⭐</div><p>"Explication ligne par ligne. J’ai enfin compris ce que veut dire HTML."</p><strong>- Sarah, Cotonou</strong></div>
-        <div class="testi"><div class="stars">⭐</div><p>"Les exercices sur CodePen sont parfaits pour pratiquer."</p><strong>- Junior, Porto-Novo</strong></div>
-      </div>
-    </div></section>
-
-    <section><div class="container"><h2>Accès Complet : 15 000 FCFA</h2>
-      <div class="pricing">
-        <div class="prix">15 000 FCFA</div>
-        <div class="momo">
-          <strong>💰 CELTIS MOBILE MONEY</strong><br>
-          Numéro Dépôt : 01 92 88 18 10<br>
-          Nom : Destin Cédric
-        </div>
-        <p>Envoie la capture WhatsApp au 01 40 31 18 36 pour déblocage.</p>
-      </div>
-    </div></section>
-
-    <footer><div class="container">
-      <div class="footer-grid">
-        <div><h4>ELI10 Academy</h4><p>Formation 100% pratique avec évaluation à chaque leçon.</p></div>
-        <div><h4>Contact CEO</h4><p>WhatsApp: 01 40 31 18 36<br>Celtis: 01 92 88 18 10<br>Abomey-Calavi, Bénin</p></div>
-        <div><h4>Programme</h4><p>11 Leçons<br>11 Exercices<br>11 QCM Notés</p></div>
-        <div><h4>Mission 2026</h4><p>"Comprendre pour coder. Pas copier."</p></div>
-      </div>
-      <div class="signature">
-        <strong>Destin Cédric DOSSOU | CEO & Fondateur ELI10 Academy</strong><br>
-        Né le 1er Juin 2010 | Abomey-Calavi, Bénin | © 2026
-        <div class="bibliographie">
-          <strong>BIBLIOGRAPHIE OFFICIELLE</strong><br>
-          Nom : Destin | Prénom : Cédric | Nom de famille : DOSSOU<br>
-          Fonction : CEO, Fondateur ELI10 Academy<br>
-          Contact WhatsApp : 01 40 31 18 36
-        </div>
-      </div>
-    </div></footer>
-
-    <script>
-        // 11 COURS ULTRA DÉTAILLÉS + EXERCICE + QCM NOTÉ /5
-        const COURS={
-            1:`LEÇON 1 : THÈME = HTML - LES FONDATIONS
-
-=== 1. DÉFINITION DU THÈME ===
-THÈME : HTML = HyperText Markup Language.
-HyperText = Texte avec des liens cliquables.
-Markup Language = Langage de balisage = On "balise" le texte pour dire ce que c’est.
-
-RÔLE DU HTML : C’est la STRUCTURE. Comme les briques, murs et portes d’une maison. Sans HTML, pas de site.
-
-=== 2. DÉFINITION DES CYCLES/SIGLES ===
-- BALISE : Mot entre < >. Ex: <p> </p>. Elle ouvre et ferme.
-- ATTRIBUT : Info en plus dans la balise. Ex: <img src="...">
-- ÉLÉMENT : Balise + contenu + balise fermante.
-
-=== 3. CODE EXPLIQUÉ LIGNE PAR LIGNE ===
-\`\`html
-<!DOCTYPE html> -> Ligne 1 : Déclaration. Dit au navigateur: "Ceci est HTML5, version moderne".
-<html> -> Ligne 2 : Balise racine. TOUT le site est dedans. Ouvre le document.
- <head> -> Ligne 3 : En-tête. Zone invisible. Pour le titre, les polices.
-   <title>Mon Site ELI10</title> -> Ligne 4 : Titre. C’est le texte qui s’affiche sur l’onglet Chrome.
- </head> -> Ligne 5 : Ferme l’en-tête.
- <body> -> Ligne 6 : Corps. TOUT CE QUE L’UTILISATEUR VOIT est ici.
-   <h1>Salut ELI10</h1> -> Ligne 7 : h1 = Heading 1 = Titre principal. Le plus gros. 1 seul par page.
-   <p>Je suis en train d’apprendre.</p> -> Ligne 8 : p = Paragraph = Paragraphe. Texte normal.
- </body> -> Ligne 9 : Ferme le corps.
-</html> -> Ligne 10 : Ferme le document.
-\`\`
-
-=== 4. EXEMPLE CONCRET ===
-Pour afficher ton nom en gros : <h1>Destin</h1>
-Pour écrire un texte : <p>Je suis CEO.</p>
-
-=== 5. EXERCICE PRATIQUE CODEPEN ===
-ÉTAPE 1: Va sur https://codepen.io/pen
-ÉTAPE 2: Colle ceci dans HTML :
-<h1>Mon Nom Complet</h1>
-<p>Je suis élève à ELI10 Academy.</p>
-<button>Valider</button>
-ÉTAPE 3: Fais une capture et envoie-la.
-
-=== 6. QUESTIONNAIRE DE COMPRÉHENSION /5 ===
-Réponds ici dans le chat. 1 point par bonne réponse.
-
-Q1: Que veut dire HTML?
-Q2: Quelle balise met le texte sur l’onglet du navigateur?
-Q3: Quelle balise utilise-t-on pour le titre le plus gros?
-Q4: Entre <head> et <body>, lequel est visible par l’utilisateur?
-Q5: Comment ferme-t-on une balise p?
-
-Tape tes réponses: Ex: 1-HyperText... 2-title... Je te note /5.`,
-
-            2:`LEÇON 2 : THÈME = CSS - LE STYLE
-
-=== 1. DÉFINITION DU THÈME ===
-CSS = Cascading Style Sheets = Feuilles de Style en Cascade.
-RÔLE : C’est la PEINTURE et la DÉCORATION. Couleurs, tailles, position.
-
-=== 2. DÉFINITION DES SIGLES ===
-- SÉLECTEUR : Ce qu’on cible. Ex: body, h1,.classe
-- PROPRIÉTÉ : Ce qu’on change. Ex: color, background, font-size
-- VALEUR : La nouvelle valeur. Ex: red, 48px, #fff
-
-=== 3. CODE LIGNE PAR LIGNE ===
-\`\`css
-body { -> Sélecteur : On cible tout le corps.
-  background: #0a0612; -> Propriété:background. Valeur:#0a0612 = violet foncé.
-  color: #ffffff; -> Propriété:color. Valeur:#ffffff = blanc.
-  font-family: Outfit; -> Propriété:font-family. Valeur:Outfit = police.
-}
-
-h1 { -> Sélecteur : Tous les titres h1.
-  color: #a78bfa; -> On change la couleur du texte en violet clair.
-  font-size: 48px; -> font-size = taille. 48px = 48 pixels.
-}
-\`\`
-
-=== 5. EXERCICE ===
-Dans CodePen CSS, colle :
-body{background:#1e1b4b;color:#fff;text-align:center;}
-h1{color:#f472b6;font-size:50px;}
-
-=== 6. QCM /5 ===
-Q1: CSS veut dire quoi?
-Q2: Quelle propriété change la couleur du texte?
-Q3: Quelle unité pour la taille : px ou html?
-Q4: Pour centrer le texte, quelle propriété?
-Q5: #ffffff c’est quelle couleur?
-
-Tape tes 5 réponses.`,
-
-            3:`LEÇON 3 : THÈME = JS - L’INTELLIGENCE
-JS = JavaScript. RÔLE : Rendre le site vivant, cliquable.
-
-SIGLES : const = constante, document.querySelector = chercher élément, onclick = au clic.
-
-CODE : const btn = document.querySelector('button'); btn.onclick = () => { alert('Bravo'); };
-
-EXERCICE : Fais un bouton qui dit "Je code" quand on clique.
-
-QCM /5 : Q1:JS veut dire? Q2: onclick veut dire? Q3: alert fait quoi? Q4: const ou var? Q5: () => c’est quoi?
-
-Tape "lecon 4".`,
-
-            4:`LEÇON 4 : THÈME = FLEXBOX ET GRID
-Flexbox = aligner en ligne. Grid = aligner en tableau.
-
-CODE :.container{display:flex;gap:20px;justify-content:center;}
-
-EXERCICE : Crée 3 div dans un container flex.
-
-QCM /5 : Q1:gap sert à? Q2:flex ou grid pour tableau? Q3:justify-content centre? Q4:display:flex active? Q5:20px c’est?
-
-Tape "lecon 5".`,
-
-            5:`LEÇON 5 : THÈME = REACT
-React = Bibliothèque JS de Meta pour créer des composants.
-
-EXERCICE : Sur https://react.new crée <h1>Salut React</h1>
-
-QCM /5 : Q1:React créé par qui? Q2:Composant c’est? Q3:JSX c’est? Q4:export default? Q5:function?
-
-Tape "lecon 6".`,
-
-            6:`LEÇON 6 : THÈME = TAILWIND CSS
-Tailwind = Framework utilitaire. On style dans HTML direct.
-
-EXERCICE : <button class="bg-purple-500 text-white p-4 rounded-lg">Clique</button>
-
-QCM /5 : Q1:bg veut dire? Q2:p-4 c’est? Q3:rounded? Q4:text-white? Q5:Framework?
-
-Tape "lecon 7".`,
-
-            7:`LEÇON 7 : THÈME = ÉTAT REACT
-useState = Mémoire du composant.
-
-EXERCICE : Compteur +1 / -1 avec useState.
-
-QCM /5 : Q1:useState sert à? Q2:[count,setCount]? Q3:count initial? Q4:setCount? Q5:re-render?
-
-Tape "lecon 8".`,
-
-            8:`LEÇON 8 : THÈME = API FETCH
-API = Porte vers un serveur. fetch = récupérer données.
-
-EXERCICE : fetch('https://jsonplaceholder.typicode.com/users').then(res=>res.json()).then(data=>console.log(data));
-
-QCM /5 : Q1:API veut dire? Q2:fetch fait? Q3:.json()? Q4:.then? Q5:console.log?
-
-Tape "lecon 9".`,
-
-            9:`LEÇON 9 : THÈME = INTÉGRER L’IA
-Créer un mini chatbot en JS.
-
-EXERCICE : Input + Bouton qui répond "Je suis ton IA".
-
-QCM /5 : Q1:IA veut dire? Q2:input? Q3:value? Q4:event? Q5:if?
-
-Tape "lecon 10".`,
-
-            10:`LEÇON 10 : THÈME = PROJET PORTFOLIO
-Portfolio = Vitrine de tes compétences.
-
-EXERCICE : Page avec photo, 3 compétences, 2 projets.
-
-QCM /5 : Q1:Portfolio sert à? Q2:3 sections? Q3:photo? Q4:contact? Q5:projet?
-
-Tape "lecon 11".`,
-
-            11:`LEÇON 11 : THÈME = DÉPLOIEMENT
-Déploiement = Mettre en ligne sur Internet.
-
-SITES : Netlify.com, Vercel.com = Gratuit.
-
-EXERCICE : Glisse ton dossier sur Netlify. Envoie le lien.
-
-QCM FINAL /5 : Q1:Déploiement c’est? Q2:Netlify? Q3:domaine? Q4:https? Q5:build?
-
-FÉLICITATIONS CEO. Tu as fini les 11 leçons.`
-        };
-
-        // PROF DESTIN - IL PARLE QUE COURS
-        const chatBox=document.getElementById('chatBox');
-        const chatInput=document.getElementById('chatInput');
-        let noteTotal=0; let qcmEnCours=false;
-
-        function addMessage(text,who){
-            const div=document.createElement('div');div.className='msg '+who;
-            const avatar=who==='bot'?'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80':'https://i.pravatar.cc/48';
-            div.innerHTML=`<img src="${avatar}" class="avatar"><div class="bubble">${text}</div>`;
-            chatBox.appendChild(div);chatBox.scrollTop=chatBox.scrollHeight;
-        }
-        addMessage('Bonjour Élève. Je suis Destin, ton Professeur.\n\nRÈGLES :\n1. Tape "lecon 1" à "lecon 11" pour avoir le cours complet.\n2. Chaque cours = Thème + Sigles + Code ligne par ligne + Exercice + QCM /5.\n3. Je ne parle QUE des cours. Pas de prix ici.\n\nCommence par : lecon 1','bot');
-
-        function sendText(){
-            const text=chatInput.value.trim();if(!text)return;
-            addMessage(text,'user');
-            const lower=text.toLowerCase();
-
-            // CORRECTION QCM
-            if(qcmEnCours){
-                let score=0;
-                if(lower.includes('hypertext') && lower.includes('markup')) score++;
-                if(lower.includes('title')) score++;
-                if(lower.includes('h1')) score++;
-                if(lower.includes('body')) score++;
-                if(lower.includes('</p>')) score++;
-                addMessage(`CORRECTION QCM LEÇON 1 : ${score}/5\nSi 5/5 : Excellent CEO. Tape "lecon 2".\nSi moins : Relis la leçon et renvoie.`, 'bot');
-                qcmEnCours=false; chatInput.value=''; return;
-            }
-
-            let lessonMatch=lower.match(/lecon\s*(\d+)/);
-            let reply='Je suis ton Professeur. Tape uniquement : lecon 1 à lecon 11.';
-            if(lessonMatch){
-                let num=+lessonMatch[1];
-                if(num>=1 && num<=11){
-                    reply=COURS[num];
-                    if(num==1) qcmEnCours=true; // Active correction QCM après leçon 1
-                }
-                else{reply='Il n’y a que 11 leçons. De lecon 1 à lecon 11.';}
-            }
-            setTimeout(()=>{addMessage(reply,'bot');},600);
-            chatInput.value='';
-        }
-
-        // MICRO
-        const micBtn=document.getElementById('micBtn');
-        const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-        let recognition;
-        if(SpeechRecognition){
-            recognition=new SpeechRecognition();
-            recognition.lang='fr-FR';recognition.continuous=false;
-            recognition.onstart=()=>{micBtn.classList.add('recording');};
-            recognition.onresult=(e)=>{
-                const voiceText=e.results[0][0].transcript;
-                chatInput.value=voiceText;
-                addMessage(voiceText,'user');
-                sendText();
-            };
-            recognition.onend=()=>{micBtn.classList.remove('recording');};
-            window.toggleMic=function(){if(micBtn.classList.contains('recording')){recognition.stop();}else{recognition.start();}}
-        }else{micBtn.style.display='none';}
-      // PWA Service Worker
-if('serviceWorker' in navigator){
-  window.addEventListener('load', ()=>{
-    navigator.serviceWorker.register('/eli10-pwa/sw.js');
-  });
-}
-    </script>
+  <h1>🚀 ELI10 Academy</h1>
+  <div class="card">
+    <h2>Leçon 1: Base de la PWA</h2>
+    <p>Une PWA = Progressive Web App. Elle s'installe, marche hors-ligne, et fait pro. C'est ça qui te fait passer de 0 à 15,000 FCFA.</p>
+    
+    <h3>QCM de validation</h3>
+    <p>Que signifie le 'P' de PWA ?</p>
+    <input id="q1" placeholder="Tape ta réponse ici">
+    <button onclick="checkQCM()">Valider la Leçon 1</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="card locked">
+    <h2>🔒 Leçon 2: Déploiement</h2>
+    <p>Termine la Leçon 1 pour déverrouiller.</p>
+    <button disabled>Verrouillé</button>
+  </div>
+
+<script>
+  function checkQCM(){
+    const rep = document.getElementById('q1').value.toLowerCase();
+    const res = document.getElementById('result');
+    if(rep.includes('progressive')){
+      res.innerText = '✅ Correct ! Leçon 1 validée. Tu es un CEO.';
+      res.style.color = '#FBBF24';
+    } else {
+      res.innerText = '❌ Faux. Le "P" = Progressive. Réessaie.';
+      res.style.color = '#F87171';
+    }
+  }
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js');}
+</script>
 </body>
 </html>
