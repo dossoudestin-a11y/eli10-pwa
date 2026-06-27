@@ -1,117 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTIN ACADEMIE</title>
 <style>
-:root{--bg:#0a0f1e; --gold:#FFD700; --violet:#7F5AF0;}
-*{box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
-body{margin:0;background:var(--bg);color:#fff;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:20px}
-.app{width:100%;max-width:500px;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);padding:24px;border-radius:20px;border:1px solid rgba(127,90,240,.3)}
-.logo{width:80px;height:80px;margin:0 auto 12px;background:conic-gradient(var(--gold),var(--violet));border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:900;color:#000}
-h1{text-align:center;font-size:1.6rem;margin:0 0 8px}
-.subtitle{text-align:center;opacity:.8;font-size:.9rem;margin-bottom:20px}
-input{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.4);color:#fff;font-size:1rem;text-transform:uppercase}
-button{width:100%;padding:14px;margin-top:10px;border:0;border-radius:12px;font-weight:700;cursor:pointer;font-size:1rem;transition:.2s}
-.btn-gold{background:linear-gradient(90deg,var(--gold),#FFA500);color:#000}
-.btn-violet{background:linear-gradient(90deg,var(--violet),#2CB67D);color:#fff}
-#msg{text-align:center;margin-top:10px;min-height:24px;font-weight:700}
-.hidden{display:none!important}
-.lesson{background:rgba(0,0,0,.3);padding:16px;border-radius:14px;margin-top:12px;cursor:pointer;border:1px solid rgba(255,255,255,.1)}
-.lesson:active{transform:scale(.98);border-color:var(--gold)}
-.lesson h3{margin:0;font-size:1rem}
-#destinBox{background:rgba(127,90,240,.15);padding:16px;border-radius:14px;margin-top:16px;border-left:4px solid var(--violet)}
-#destinReply{font-size:1.1rem;line-height:1.8} /* GROS TEXTE POUR ENFANT 5 ANS */
+body{margin:0;background:#0a0f1e;color:#fff;font-family:'Segoe UI';display:flex;justify-content:center;padding:20px}
+.app{width:100%;max-width:500px;background:rgba(255,255,255,.06);padding:24px;border-radius:20px}
+.logo{width:80px;height:80px;margin:0 auto;background:linear-gradient(45deg,#FFD700,#7F5AF0);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:900;color:#000}
+h1{text-align:center;font-size:1.5rem}
+input,button{width:100%;padding:14px;margin-top:10px;border-radius:12px;border:0;font-size:1rem}
+button{background:#FFD700;color:#000;font-weight:700;cursor:pointer}
+.hidden{display:none}
+.lesson{background:rgba(0,0,0,.3);padding:14px;border-radius:12px;margin-top:10px;cursor:pointer}
+#destinReply{background:rgba(127,90,240,.2);padding:14px;border-radius:12px;margin-top:12px;font-size:1.1rem;line-height:1.8}
 </style>
 </head>
 <body>
 <div class="app">
-  <!-- PAGE 1 : LE CODE -->
-  <div id="pageCode">
+  <div id="lock">
     <div class="logo">DP</div>
     <h1>DESTIN ACADEMIE</h1>
-    <p class="subtitle">Accès Premium Unique. 15,000 FCFA</p>
-    <input id="codeInput" placeholder="COLLE TON CODE ICI: DESTIN-001" maxlength="20">
-    <button class="btn-gold" id="btnActiver">Activer Mon Accès</button>
-    <p id="msg"></p>
+    <input id="code" placeholder="DESTIN-001" style="text-transform:uppercase">
+    <button id="btn">Activer Mon Accès</button>
+    <p id="msg" style="text-align:center;margin-top:10px"></p>
   </div>
 
-  <!-- PAGE 2 : LES COURS + DESTIN IA -->
-  <div id="pageCours" class="hidden">
+  <div id="app" class="hidden">
     <div class="logo" style="width:60px;height:60px;font-size:1.8rem">DP</div>
     <h1>Salut, je suis DESTIN ✨</h1>
-    <p class="subtitle">Clique une leçon en bas. Je t’explique tout.</p>
-
-    <div id="listeLecons"></div>
-
-    <div id="destinBox">
-      <input id="destinInput" placeholder="Ou écris ici: Leçon 3">
-      <button class="btn-violet" id="btnDestin">Demander à DESTIN</button>
-      <div id="destinReply" style="margin-top:12px;opacity:.9">👋 Écris `Leçon 2` pour commencer</div>
-    </div>
+    <div id="liste"></div>
+    <input id="input" placeholder="Leçon 3">
+    <button id="ask" style="background:#7F5AF0;color:#fff">Demander à DESTIN</button>
+    <div id="destinReply">👋 Écris `Leçon 2`</div>
   </div>
 </div>
 
 <script>
-// 1. TES DONNÉES CEO - TU MODIFIES ICI SEULEMENT
-const BONS_CODES = ["DESTIN-001","DESTIN-002","DESTIN-003","DESTIN-004","DESTIN-005"];
+// LE CODE QUI NE PLANTE JAMAIS SUR IPHONE
+const CODES = ["DESTIN-001","DESTIN-002","DESTIN-003","DESTIN-004","DESTIN-005"];
 const COURS = {
- 2:{titre:"Leçon 2: C’est quoi l’IA?", texte:"Imagine un robot bébé très malin 🍼. Si tu lui montres 100 chats, il apprend. Après, si tu lui montres un nouveau chat, il dit: `Ah! C’est un chat!` Il a appris tout seul."},
- 3:{titre:"Leçon 3: Le Machine Learning", texte:"Machine Learning = `La machine apprend` 📚. C’est comme toi à l’école. Maman te montre la lettre `A` beaucoup de fois. Un jour, tu vois `A` dans un livre et tu cries: `Je connais ça!`"},
- 4:{titre:"Leçon 4: Le Cerveau de l’Ordi", texte:"L’ordi a un `cerveau` avec plein de petites ampoules 💡. Une ampoule dit `ça a des moustaches`. Une autre dit `ça miaule`. Toutes ensemble: `C’est un chat!`"},
- 5:{titre:"Leçon 5: ChatGPT c’est qui?", texte:"ChatGPT c’est moi, DESTIN 😊. J’ai lu tous les livres du monde. Quand tu me parles, je devine le prochain mot. Comme quand ton ami dit `Je vais à...` et toi tu dis `l’école!`"},
- 6:{titre:"Leçon 6: L’IA qui Dessine", texte:"Tu me dis `dessine un chien avec un chapeau de roi` 👑🐶 et POUF je dessine! J’ai vu des millions de dessins. Je mélange pour faire un nouveau."},
- 7:{titre:"Leçon 7: L’IA peut se tromper", texte:"Si je vois seulement des bananes jaunes 🍌, je vais croire que toutes les bananes sont jaunes. Si tu me montres une banane verte, je vais dire `C’est quoi ça?`"},
- 8:{titre:"Leçon 8: Bien parler à l’IA", texte:"Pour que je t’aide bien, parle-moi comme à un ami. Au lieu de `fais truc`, dis `dessine un soleil jaune qui sourit`. Plus tu es précis, plus je suis fort."},
- 9:{titre:"Leçon 9: L’IA pour toi au Bénin", texte:"Au Bénin, je peux t’aider à faire tes devoirs de maths, écrire un message pour vendre tes beignets, ou traduire Français <> Fon. Je suis ton super assistant."},
- 10:{titre:"Leçon 10: Ton Super Pouvoir", texte:"L’IA ne va pas prendre ta place 🚀. Mais toi, si tu sais utiliser l’IA, tu seras le plus fort de ta classe. Donc apprends avec moi maintenant."}
+ 2:"Imagine un robot bébé très malin 🍼. Si tu lui montres 100 chats, il apprend. Après, il dit: `Ah! C’est un chat!`",
+ 3:"Machine Learning = `La machine apprend` 📚. C’est comme toi à l’école. Maman te montre `A` beaucoup de fois.",
+ 4:"L’ordi a un `cerveau` avec plein d’ampoules 💡. Une dit `moustaches`, une autre `miaule`. Ensemble: `Chat!`",
+ 5:"ChatGPT c’est moi, DESTIN 😊. J’ai lu tous les livres. Je devine le prochain mot quand tu parles.",
+ 6:"Tu me dis `dessine un chien` 👑🐶 et POUF je dessine! J’ai vu des millions de dessins.",
+ 7:"Si je vois seulement des bananes jaunes 🍌, je crois que toutes sont jaunes. L’IA copie.",
+ 8:"Parle-moi comme à un ami. Au lieu de `fais truc`, dis `dessine un soleil jaune qui sourit`.",
+ 9:"Au Bénin, je peux t’aider à faire tes devoirs, écrire pour vendre, ou traduire Français <> Fon.",
+ 10:"L’IA ne va pas prendre ta place 🚀. Mais toi + l’IA = Tu seras le plus fort de ta classe."
 };
 
-// 2. LE CODE QUI FAIT MARCHER LE BOUTON
-const pageCode = document.getElementById('pageCode');
-const pageCours = document.getElementById('pageCours');
+const btn = document.getElementById('btn');
+const ask = document.getElementById('ask');
 const msg = document.getElementById('msg');
-const listeLecons = document.getElementById('listeLecons');
 
-document.getElementById('btnActiver').onclick = () => {
-  const code = document.getElementById('codeInput').value.trim().toUpperCase();
-
-  if(BONS_CODES.includes(code)){
+btn.addEventListener('click', function(){
+  let code = document.getElementById('code').value.toUpperCase().trim();
+  if(CODES.includes(code)){
     msg.style.color = '#69F0AE';
-    msg.textContent = '✅ Code Bon! Bienvenue Patron!';
-
-    // MAGIC : On cache page 1, on montre page 2
-    pageCode.classList.add('hidden');
-    pageCours.classList.remove('hidden');
-
-    afficherLecons(); // On remplit les leçons direct
+    msg.textContent = '✅ Code Bon! Chargement...';
+    setTimeout(function(){
+      document.getElementById('lock').style.display='none';
+      document.getElementById('app').classList.remove('hidden');
+      afficher();
+    }, 300);
   } else {
     msg.style.color = '#FF5252';
     msg.textContent = '❌ Code Faux. Essaye: DESTIN-001';
   }
-};
+});
 
-function afficherLecons(){
-  listeLecons.innerHTML = '';
+function afficher(){
+  let html = '';
   for(let n in COURS){
-    listeLecons.innerHTML += `<div class="lesson" onclick="parler(${n})"><h3>${COURS[n].titre}</h3></div>`;
+    html += `<div class="lesson" data-n="${n}">Leçon ${n}</div>`;
   }
+  document.getElementById('liste').innerHTML = html;
+  
+  // Pour que chaque leçon clique
+  document.querySelectorAll('.lesson').forEach(el => {
+    el.addEventListener('click', function(){
+      let n = this.getAttribute('data-n');
+      document.getElementById('destinReply').innerHTML = `<b>DESTIN ✨:</b> ${COURS[n]}`;
+    });
+  });
 }
 
-function parler(n){
-  document.getElementById('destinReply').innerHTML = `<b>DESTIN ✨:</b> ${COURS[n].texte}`;
-}
-
-document.getElementById('btnDestin').onclick = () => {
-  const q = document.getElementById('destinInput').value.toLowerCase();
-  const match = q.match(/leçon\s*(\d+)/);
-  if(match && COURS[match[1]]){
-    parler(match[1]);
+ask.addEventListener('click', function(){
+  let q = document.getElementById('input').value.toLowerCase();
+  let m = q.match(/leçon\s*(\d+)/);
+  if(m && COURS[m[1]]){
+    document.getElementById('destinReply').innerHTML = `<b>DESTIN ✨:</b> ${COURS[m[1]]}`;
   } else {
-    document.getElementById('destinReply').innerHTML = `<b>DESTIN ✨:</b> Dis-moi `Leçon 3` et je vais t’expliquer comme à un enfant de 5 ans 😊`;
+    document.getElementById('destinReply').innerHTML = `<b>DESTIN ✨:</b> Dis-moi `Leçon 3` 😊`;
   }
-};
+});
 </script>
 </body>
 </html>
