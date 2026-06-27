@@ -3,168 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Destin AI Academy</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000">
+<title>DESTIN PROGRAMMATION ACADEMIE</title>
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#000;--card:#111;--muted:#1f1f1f;--text:#f5f5f5;--accent:#facc15;--ok:#4ade80;--err:#f87171}
-  *{box-sizing:border-box}
-  body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);padding:16px;max-width:700px;margin:auto}
-  header{text-align:center;margin-bottom:16px}
-  header img{width:60px;height:60px;border-radius:16px}
-  h1{color:var(--accent);margin:8px 0 0 0;font-size:22px}
- .card{background:var(--card);border-radius:12px;padding:16px;margin:12px 0;border:1px solid #222}
-  h2,h3{color:var(--accent);margin:0 0 8px 0}
-  code{background:#0b0b0b;padding:2px 6px;border-radius:6px}
-  input{width:100%;padding:10px;border-radius:10px;border:1px solid var(--muted);background:#0b0b0b;color:var(--text)}
-  button{background:var(--accent);color:#000;border:0;padding:10px;border-radius:10px;font-weight:700;cursor:pointer;width:100%;margin-top:8px}
- .lecon{border-left:3px solid var(--accent);padding:12px;border-radius:10px;background:#0b0b0b;margin:10px 0}
- .quiz{background:var(--muted);padding:12px;border-radius:10px;margin-top:10px}
- .chatbox{height:220px;overflow-y:auto;background:#0b0b0b;padding:10px;border-radius:10px;margin-top:10px;text-align:left}
- .msg-ai{background:var(--card);padding:8px 10px;border-radius:10px;margin:6px 0}
- .msg-you{background:var(--accent);color:#000;padding:8px 10px;border-radius:10px;margin:6px 0;text-align:right}
- .sigle{font-weight:700;color:var(--accent)}
- .hidden{display:none}
- .locked{filter:blur(3px);pointer-events:none;opacity:.5}
+:root{--bg1:#0a0f1e; --bg2:#1a1033; --gold:#FFD700; --glass:rgba(255,255,255,.06); --violet:#7F5AF0;}
+*{box-sizing:border-box;font-family:'Segoe UI',system-ui;}
+body{margin:0;min-height:100vh;color:#fff; background: radial-gradient(1200px 800px at 20% -10%, #2a1b4d 0%, transparent 50%), radial-gradient(1000px 600px at 120% 110%, #0d2a4d 0%, transparent 40%), linear-gradient(160deg,var(--bg1),var(--bg2)); display:flex;align-items:center;justify-content:center;padding:20px;}
+.app{width:100%;max-width:500px;background:var(--glass);backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+/* ===== LOGO CEO ===== */
+.logo{width:90px;height:90px;margin:0 auto 12px;border-radius:22px;
+  background:conic-gradient(from 180deg, #FFD700, #7F5AF0, #FF8906, #FFD700);
+  display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:900;
+  color:#000;box-shadow:0 0 30px rgba(127,90,240,.6);
+  animation:spin 6s linear infinite; /* Logo qui tourne doucement */}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+h1{margin:0 0 8px;font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent;text-align:center;animation:gradient 3s ease infinite}
+@keyframes gradient{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+.subtitle{text-align:center;opacity:.8;font-size:.9rem;margin-bottom:20px}
+.lockbox{background:rgba(0,0,0,.3);padding:20px;border-radius:16px;border:1px solid rgba(255,215,0,.2)}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.4);color:#fff;font-size:1rem;margin-bottom:12px;text-transform:uppercase}
+.btn{width:100%;padding:14px;border:0;border-radius:12px;font-weight:700;cursor:pointer;font-size:1rem;transition:.2s}
+.btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000}
+.btn-gold:hover{transform:scale(1.02)}
+.btn-violet{background:linear-gradient(90deg,#7F5AF0,#2CB67D);color:#fff;margin-top:8px}
+.msg{margin-top:12px;font-size:.9rem;text-align:center;min-height:22px}
+.error{color:#FF5252}.ok{color:#69F0AE}
+.info{font-size:.8rem;opacity:.7;margin-top:6px;text-align:center}
+.hidden{display:none}
+.lia-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 12px; 
+  background:conic-gradient(from 180deg at 50% 50%, #7F5AF0, #2CB67D, #FF8906, #7F5AF0); 
+  display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 0 25px rgba(127,90,240,.6)}
+.lessons{display:grid;gap:12px;margin-top:16px}
+.lesson{background:var(--glass);border:1px solid rgba(255,255,255,.1);padding:16px;border-radius:14px;cursor:pointer;transition:.2s}
+.lesson:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,215,0,.15)}
+.lesson h3{margin:0;font-size:1rem;font-weight:700}
+.lia-chat{margin-top:20px;background:rgba(0,0,0,.3);border-radius:16px;padding:16px;border:1px solid rgba(127,90,240,.3)}
+#liaReply{margin-top:12px;font-size:1rem;line-height:1.7;background:rgba(127,90,240,.15);padding:14px;border-radius:12px;border-left:4px solid #7F5AF0}
+.kid-mode{font-size:1.05rem;line-height:1.8}
 </style>
 </head>
 <body>
-  <header>
-    <!-- Remplace icon-512.png par ton logo or que je t'ai généré -->
-    <img src="icon-512.png" alt="Destin AI">
-    <h1>Destin AI Academy</h1>
-  </header>
-
-  <!-- ÉTAPE 1: LEÇON 1 GRATUITE -->
-  <div class="card">
-    <h2>Leçon 1 : Rappel Gratuit ✅</h2>
-    <p><span class="sigle">PWA</span> = <span class="sigle">Progressive Web App</span>. Un site qui devient App grâce à <code>manifest.json</code> + <code>sw.js</code>.</p>
-    <p>Teste : Active le <b>Mode Avion</b>. Destin AI marche toujours.</p>
-  </div>
-
-  <!-- ÉTAPE 2: PAYWALL PREMIUM -->
-  <div class="card" id="paywall">
-    <h2>🔒 Accès Premium Requis</h2>
-    <p>Débloque `Leçon 2 à 10` + `IA Destin 24/7` pour <b>15,000 FCFA</b></p>
-    <input type="text" id="codeInput" placeholder="COLLE TON CODE VIP PREMIUM ICI">
-    <button onclick="verifierCode()">Déverrouiller Premium</button>
-    <button onclick="acheter()" style="background:#25D366;color:#fff">💳 Payer par Mobile Money</button>
-    <p id="msg" style="margin-top:10px; font-weight:700; text-align:center;"></p>
-  </div>
-
-  <!-- ÉTAPE 3: CONTENU PREMIUM = CACHÉ AU DÉPART -->
-  <div id="premiumContent" class="hidden">
-    <div id="cours"></div>
-    <div class="card">
-      <h2>🤖 IA Destin - Prof 24/7 Hors Ligne</h2>
-      <p>Demande: <code>DOM</code>, <code>API</code>, <code>ROI</code>, <code>CTA</code>, <code>Mo</code></p>
-      <div class="chatbox" id="chatbox"></div>
-      <input type="text" id="chatInput" placeholder="Ex: C'est quoi le DOM ?">
-      <button onclick="askAI()">Envoyer à Destin IA</button>
+<div class="app">
+  <div id="lockScreen">
+    <div class="logo">DP</div> <!-- LOGO QUI ATTIRE LES JEUNES -->
+    <h1>DESTIN PROGRAMMATION ACADEMIE</h1>
+    <p class="subtitle">Deviens un Boss du Code & de l’IA avec `LIA`</p>
+    <div class="lockbox">
+      <p style="text-align:center;margin-top:0;font-size:.85rem;opacity:.9">🔒 Accès Premium Unique. 1 code = 1 élève.</p>
+      <input id="codeInput" placeholder="COLLE TON CODE ICI" maxlength="20">
+      <button class="btn btn-gold" id="unlockBtn">Activer Mon Accès</button>
+      <div id="msg" class="msg"></div>
+      <p class="info">15,000 FCFA | Mobile Money</p>
     </div>
   </div>
 
+  <div id="appScreen" class="hidden">
+    <div class="logo" style="width:70px;height:70px;font-size:1.8rem;animation:none">DP</div> <!-- Logo petit en haut -->
+    <h1>Salut, je suis LIA</h1>
+    <p class="subtitle">Clique une leçon OU écris `Leçon 3`</p>
+    <div class="lessons" id="lessonsList"></div>
+    <div class="lia-chat">
+      <input id="liaInput" placeholder="Ex: Leçon 3 ou Explique l’IA">
+      <button class="btn btn-violet" id="askLia">Demander à LIA</button>
+      <div id="liaReply"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-// === 1. DICTIONNAIRE SIGLES DESTIN AI ===
-const SIGLES = {
-  HTML: "HyperText Markup Language = Structure une page web.",
-  CSS: "Cascading Style Sheets = Design/Stylise une page.",
-  JS: "JavaScript = Rend la page interactive/dynamique.",
-  DOM: "Document Object Model = L’arbre de ta page. JS le modifie. Ex: document.getElementById()",
-  API: "Application Programming Interface = Pont pour parler à un serveur/autre logiciel.",
-  PWA: "Progressive Web App = Site installable, hors ligne.",
-  SW: "Service Worker = Le fichier sw.js qui met en cache.",
-  UI: "User Interface = Ce que l’utilisateur voit.",
-  UX: "User Experience = Ce que l’utilisateur ressent.",
-  ROI: "Return On Investment = Bénéfice / Dépense Pub.",
-  CTA: "Call To Action = Bouton qui pousse à l’action. Ex: 'Acheter'",
-  MoMo: "Mobile Money = Paiement téléphone. MTN, Moov."
+// ====== CONFIG CEO : TES CODES ======
+const VALID_CODES = ["DESTIN-001", "DESTIN-002", "DESTIN-003", "DESTIN-004", "DESTIN-005"]; // <-- TES CODES ICI
+const DEVICE_ID_KEY = "destin_prog_device_v189";
+const UNLOCKED_KEY = "destin_prog_unlock_v189";
+const USED_CODES_KEY = "destin_prog_used_v189";
+
+// ====== BASE DE DONNÉES LEÇONS = EXPLICATION 5 ANS ======
+const LESSONS = {
+ 2:{t:"Leçon 2: C’est quoi l’IA ?", e:"Imagine une boîte magique très intelligente. Tu lui donnes des exemples, et elle apprend. Comme toi quand maman te montre un chat."},
+ 3:{t:"Leçon 3: Le Machine Learning", e:"Machine Learning = Apprendre à la machine. C’est comme apprendre à lire. Au début tu connais pas `A`. Maman te montre `A` 50 fois. Après, tu vois `A` partout."},
+ 4:{t:"Leçon 4: Le Cerveau de l’Ordi", e:"Un réseau de neurones, c’est comme plein de petites fourmis qui se parlent. Une dit `ça a des oreilles`, l’autre `ça miaule`. Ensemble: `C’est un chat!`"},
+ 5:{t:"Leçon 5: ChatGPT c’est qui ?", e:"ChatGPT c’est LIA. Elle a lu beaucoup de livres. Quand tu parles, elle devine le mot qui vient après. Comme quand tu finis la phrase de ton ami."},
+ 6:{t:"Leçon 6: L’IA qui Dessine", e:"Tu dis `dessine un chien avec un chapeau` et POOF l’IA dessine. Elle a vu des millions de dessins avant. Elle mélange pour créer un nouveau."},
+ 7:{t:"Leçon 7: L’IA peut se tromper", e:"Si on montre à l’IA que des bananes jaunes, elle croira que toutes les bananes sont jaunes. L’IA est comme un enfant: elle copie."},
+ 8:{t:"Leçon 8: Bien parler à l’IA", e:"Prompt = Ta demande à l’IA. Si tu dis `fais un truc`, elle ne comprend pas. Si tu dis `dessine un soleil jaune souriant`, elle réussit."},
+ 9:{t:"Leçon 9: L’IA pour toi au Bénin", e:"L’IA peut t’aider à faire tes devoirs, créer une affiche pour vendre, ou traduire. C’est comme avoir un super ami intelligent."},
+ 10:{t:"Leçon 10: Ton Super Pouvoir", e:"L’IA ne va pas te remplacer. Mais un enfant qui sait utiliser l’IA sera plus fort. Donc apprends LIA maintenant."}
 };
 
-const COURS = [
-  {id:2, titre:"HTML de Base", cours:`<b>Objectif:</b> Structurer.<br><code>&lt;h1&gt;</code>=Titre. <code>&lt;p&gt;</code>=Texte. <code>&lt;a href=""&gt;</code>=Lien.`, quiz:{q:"Balise titre principal SEO?", a:["<p>","<h1>","<div>"], correct:1}},
-  {id:3, titre:"CSS Flexbox/Grid", cours:`<code>display:flex;</code>=Aligne. <code>justify-content:center;</code>=Centre. <code>display:grid;</code>=Tableau 2D.`, quiz:{q:"Pour 2 colonnes égales?", a:["flex","grid-template-columns:1fr 1fr","float"], correct:1}},
-  {id:4, titre:"JavaScript DOM", cours:`<code>let</code>=Variable. <code>function</code>=Action. <code>document.querySelector()</code>=Attrape élément du <span class="sigle">DOM</span>.`, quiz:{q:"Changer texte élément?", a:[".style",".innerText",".src"], correct:1}},
-  {id:5, titre:"PWA Hors Ligne", cours:`<span class="sigle">PWA</span> = <code>manifest.json</code> + <code>sw.js</code>. <code>navigator.serviceWorker.register()</code>=Active.`, quiz:{q:"Fichier installation app?", a:["style.css","sw.js","manifest.json"], correct:2}},
-  {id:6, titre:"Site Vitrine CEO", cours:`Structure: Header + Services + Témoignages + <code>https://wa.me/229...</code>`, quiz:{q:"Lien WhatsApp?", a:["wa.me","fb.me","mailto"], correct:0}},
-  {id:7, titre:"E-commerce localStorage", cours:`<code>localStorage.setItem()</code>=Sauvegarde panier. <code>JSON.parse()</code>=Relire.`, quiz:{q:"Mémoire hors ligne?", a:["SQL","localStorage","Cookies"], correct:1}},
-  {id:8, titre:"App de Vente", cours:`E-commerce + <span class="sigle">PWA</span> = App installable qui vend sans internet. C’est Destin AI.`, quiz:{q:"Résultat final?", a:["Site","App PWA","PDF"], correct:1}},
-  {id:9, titre:"Vente MoMo Bénin", cours:`<span class="sigle">Mo</span>: Client paie > Envoie reçu WhatsApp > Tu donnes code. <span class="sigle">ROI</span>=Bénéfice.`, quiz:{q:"Client envoie quoi?", a:["Nom","Reçu","Age"], correct:1}},
-  {id:10, titre:"Scale 1M FCFA", cours:`<span class="sigle">Ads</span>=Pub FB 2000F/j. <span class="sigle">CTA</span>=Bouton Acheter. Duplique Destin AI x10.`, quiz:{q:"Pour scaler vite?", a:["Attendre","Facebook Ads","Affiches"], correct:1}},
-];
+// ====== LOGIQUE 1 CODE = 1 TÉLÉPHONE ======
+const deviceId = localStorage.getItem(DEVICE_ID_KEY) || crypto.randomUUID();
+localStorage.setItem(DEVICE_ID_KEY, deviceId);
 
-// === 2. LOGIQUE PREMIUM ===
-const CODE_PREMIUM = "DESTIN2026"; // Change ce code pour chaque client V4.1
+const lockScreen = document.getElementById('lockScreen');
+const appScreen = document.getElementById('appScreen');
+const msg = document.getElementById('msg');
+const lessonsList = document.getElementById('lessonsList');
 
-function acheter() {
-  alert("Étape 1: Envoie 15,000 FCFA MoMo au +229 01 XX\nÉtape 2: Envoie le reçu WhatsApp\nÉtape 3: Je t’envoie ton CODE PREMIUM DESTIN");
-  window.open('https://wa.me/22901XXXXXXX?text=Je veux Premium Destin AI 15000F', '_blank');
+function showApp(){
+  lockScreen.classList.add('hidden');
+  appScreen.classList.remove('hidden');
+  renderLessons();
 }
 
-function verifierCode() {
-  const code = document.getElementById('codeInput').value.trim().toUpperCase();
-  const msg = document.getElementById('msg');
-  if (code === CODE_PREMIUM) {
-    localStorage.setItem('destin_premium', 'true');
-    unlockPremium();
+function renderLessons(){
+  lessonsList.innerHTML = Object.keys(LESSONS).map(n => `
+    <div class="lesson" onclick="askLiaAbout(${n})">
+      <h3>${LESSONS[n].t}</h3>
+    </div>
+  `).join('');
+}
+
+window.askLiaAbout = (n) => {
+  document.getElementById('liaInput').value = `Leçon ${n}`;
+  askLia();
+}
+
+function askLia(){
+  const q = document.getElementById('liaInput').value.toLowerCase().trim();
+  const replyBox = document.getElementById('liaReply');
+  const match = q.match(/leçon\s*(\d+)/);
+  if(match && LESSONS[match[1]]){
+    replyBox.innerHTML = `<div class="kid-mode"><b>LIA ✨:</b> ${LESSONS[match[1]].e}</div>`;
   } else {
-    msg.style.color = 'var(--err)';
-    msg.textContent = '❌ Code Premium incorrect. Paye d’abord.';
+    replyBox.innerHTML = `<div class="kid-mode"><b>LIA ✨:</b> Écris-moi `Leçon 3` et je vais t’expliquer comme si tu avais 5 ans 😊</div>`;
   }
 }
 
-function unlockPremium(){
-  document.getElementById('paywall').classList.add('hidden');
-  document.getElementById('premiumContent').classList.remove('hidden');
-  loadCours();
-}
+document.getElementById('unlockBtn').onclick = () => {
+  const code = document.getElementById('codeInput').value.trim().toUpperCase();
+  let usedCodes = JSON.parse(localStorage.getItem(USED_CODES_KEY) || "[]");
 
-// === 3. IA DESTIN ===
-function askAI(){
-  const inp = document.getElementById('chatInput');
-  const box = document.getElementById('chatbox');
-  const txt = inp.value.trim();
-  if(!txt) return;
-  box.innerHTML += `<div class="msg-you">${txt}</div>`;
-  
-  let rep = "Je suis Destin IA. Tape un sigle: DOM, API, PWA, ROI, CTA, MoMo.";
-  for(const s in SIGLES){
-    if(txt.toLowerCase().includes(s.toLowerCase())){
-      rep = `<b>${s}</b> = ${SIGLES[s]}`;
-      break;
-    }
+  if(!VALID_CODES.includes(code)){
+    msg.textContent = "❌ Code incorrect."; msg.className = "msg error"; return;
+  }
+  if(usedCodes.includes(code)){
+    msg.textContent = "❌ Ce code est déjà utilisé."; msg.className = "msg error"; return;
   }
 
-  setTimeout(()=>{ box.innerHTML += `<div class="msg-ai">🤖 ${rep}</div>`; box.scrollTop = box.scrollHeight; },200);
-  inp.value='';
-}
+  usedCodes.push(code);
+  localStorage.setItem(USED_CODES_KEY, JSON.stringify(usedCodes));
+  localStorage.setItem(UNLOCKED_KEY, deviceId);
 
-// === 4. AFFICHAGE COURS ===
-function loadCours(){
-  const wrap = document.getElementById('cours');
-  COURS.forEach(L=>{
-    wrap.innerHTML += `
-      <div class="card">
-        <div class="lecon"><h3>Leçon ${L.id}: ${L.titre}</h3><p>${L.cours}</p></div>
-        <div class="quiz" id="quiz-${L.id}">
-          <b>Quiz: ${L.quiz.q}</b>
-          ${L.quiz.a.map((r,i)=>`<button onclick="checkQuiz(${L.id},${i})">${r}</button>`).join('')}
-          <p id="res-${L.id}"></p>
-        </div>
-      </div>`;
-  });
-}
+  msg.textContent = "✅ Bienvenue à l’Académie!"; msg.className = "msg ok";
+  setTimeout(showApp, 600);
+};
 
-function checkQuiz(id, choix){
-  const L = COURS.find(x=>x.id===id);
-  const p = document.getElementById(`res-${id}`);
-  p.style.color = choix===L.quiz.correct ? 'var(--ok)' : 'var(--err)';
-  p.textContent = choix===L.quiz.correct ? '✅ Correct! Leçon validée.' : '❌ Faux. Relis.';
-}
+document.getElementById('askLia').onclick = askLia;
+document.getElementById('liaInput').addEventListener('keypress', e => { if(e.key==='Enter') askLia(); });
 
-// === LANCEMENT ===
-if(localStorage.getItem('destin_premium') === 'true'){ unlockPremium(); }
-if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js'); }
+// AUTO-UNLOCK SI DÉJÀ PAYÉ
+if(localStorage.getItem(UNLOCKED_KEY) === deviceId){ showApp(); }
 </script>
 </body>
 </html>
