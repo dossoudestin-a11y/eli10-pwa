@@ -1,96 +1,116 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELI10 Academy</title>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0f172a">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELI10 VIP</title>
+<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0f172a">
 <style>
-  body { font-family: sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 20px; }
-  .card { background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 400px; text-align: left; }
-  button { background: #facc15; color: #000; border: 0; padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
-  input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-top: 10px; }
-  .contenu-bloque { opacity: 0.5; filter: blur(2px); pointer-events: none; }
-  .lecon { background: #0f172a; padding: 12px; border-radius: 8px; margin: 10px 0; border-left: 3px solid #facc15; }
-  h1 { color: #facc15; text-align: center; }
-  h3 { color: #facc15; margin: 0 0 5px 0; }
+  body { font-family: system-ui; background: #0f172a; color: #e2e8f0; padding: 15px; max-width: 600px; margin: auto; }
+.card { background: #1e293b; padding: 15px; border-radius: 12px; margin: 15px 0; }
+  button { background: #facc15; color: #000; border: 0; padding: 10px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 8px; }
+  input, textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-top: 8px; box-sizing: border-box; }
+.lecon { background: #0f172a; padding: 12px; border-radius: 8px; margin: 10px 0; border-left: 3px solid #facc15; }
+.quiz { background: #334155; padding: 10px; border-radius: 8px; margin-top: 10px; }
+.chatbox { height: 200px; overflow-y: auto; background: #0f172a; padding: 10px; border-radius: 8px; margin-top: 10px; text-align: left; }
+.msg-ai { background: #1e293b; padding: 8px; border-radius: 8px; margin: 5px 0; }
+.msg-you { background: #facc15; color: #000; padding: 8px; border-radius: 8px; margin: 5px 0; text-align: right; }
+  h1,h2,h3 { color: #facc15; }
+.hidden { display: none; }
+.code-list { font-family: monospace; background: #000; padding: 10px; border-radius: 8px; max-height: 150px; overflow-y: auto; text-align: left; }
 </style>
 </head>
 <body>
-  <h1>ELI10 Academy</h1>
+  <h1>ELI10 Academy VIP 🔓</h1>
 
-  <div class="card">
-    <h2>Leçon 1 : Gratuit ✅</h2>
-    <p>Bienvenue. C’est ça une PWA. Teste le mode avion, ça marche.</p>
-    <button onclick="acheter()">🔒 Débloquer Niveau 2 - 15,000 FCFA</button>
+  <!-- PANEL ADMIN SECRET :?admin=1 dans l'URL -->
+  <div id="adminPanel" class="card hidden">
+    <h2>⚙️ Panel CEO</h2>
+    <button onclick="genererCodes()">1. Générer 20 Codes VIP Aléatoires</button>
+    <button onclick="exporterCSV()">2. Exporter Tous Les Codes CSV</button>
+    <div class="code-list" id="listeCodes">Aucun code généré</div>
   </div>
 
-  <div class="card" id="niveau2">
-    <h2>🔒 NIVEAU 2 : ACCÈS COMPLET</h2>
-    
-    <!-- TOUT LE CONTENU PAYANT EST ICI -->
-    <div id="contenuBloque" class="contenu-bloque">
-      <p><b>10 Leçons + PDF + Vidéos + Support WhatsApp 24/7</b></p>
-      
-      <div class="lecon">
-        <h3>Leçon 2 : HTML de Base</h3>
-        <p>Structure d'une page : `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`. Ton premier site en 5 lignes.</p>
-      </div>
-      <div class="lecon">
-        <h3>Leçon 3 : CSS Moderne</h3>
-        <p>Flexbox, Grid, Couleurs, Polices. Rends ton site beau comme ELI10.</p>
-      </div>
-      <div class="lecon">
-        <h3>Leçon 4 : JavaScript Essentiel</h3>
-        <p>Variables, Fonctions, `onclick`. Rends ton site vivant.</p>
-      </div>
-      <div class="lecon">
-        <h3>Leçon 5 : PWA & Hors Ligne</h3>
-        <p>Transforme ton site en App. Le `manifest.json` et `sw.js` expliqués.</p>
-      </div>
-      <div class="lecon">
-        <h3>Leçon 6 à 10 : Projets CEO</h3>
-        <p>Site Vitrine + E-commerce + App de Vente. Avec code source complet.</p>
-      </div>
-      <p><b>📥 Bonus :</b> PDF Récap + 3 Vidéos Privées + Groupe WhatsApp VIP</p>
-    </div>
-    
-    <!-- LA CASE BLANCHE RESTE TOUJOURS VISIBLE -->
+  <!-- PARTIE CLIENT NORMALE -->
+  <div id="clientPanel" class="card">
+    <h2>Accès Niveau 2</h2>
     <input type="text" id="codeInput" placeholder="COLLE TON CODE VIP ICI">
-    <button onclick="verifierCode()">Déverrouiller Maintenant</button>
+    <button onclick="verifierCode()">Déverrouiller</button>
     <p id="msg" style="margin-top:10px; font-weight:700; text-align:center;"></p>
   </div>
 
-<script>
-const CODE_SECRET = "ELI10CEO2026"; 
+  <!-- COURS + QUIZ + IA = MASQUÉ JUSQU'AU DÉBLOCAGE -->
+  <div id="coursVIP" class="hidden"></div>
 
-function acheter() {
-  alert("Étape 1: Envoie 15,000 FCFA par Mobile Money au +229 01 XX\nÉtape 2: Envoie le reçu par WhatsApp\nÉtape 3: Je t’enverrai ton CODE VIP");
-  window.open('https://wa.me/22901XXXXXXX?text=Jai paye 15000 pour ELI10', '_blank');
+<script>
+// === BASE DE DONNÉES ===
+const coursData = [
+  {id: 2, titre: "HTML de Base", desc: "Structure d'une page : `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`.", quiz: {q: "Quelle balise met le titre dans l'onglet?", a: ["<p>", "<title>", "<h1>"], correct: 1}},
+  {id: 3, titre: "CSS Moderne", desc: "Flexbox = aligner. Grid = quadriller.", quiz: {q: "Pour centrer avec Flexbox on utilise?", a: ["text-align", "justify-content", "justify-content"], correct: 2}},
+];
+//... colle ici Leçon 4 à 10 comme avant...
+
+const aiBrain = {"flexbox": "Flexbox sert à aligner...", "grid": "Grid sert à faire un tableau...", "default": "Teste sur ton code et reviens me dire."};
+
+// === LOGIQUE CODE ALÉATOIRE ===
+let codesVIP = JSON.parse(localStorage.getItem('eli10_codes')) || [];
+
+function genererCodes() {
+  for (let i = 0; i < 20; i++) {
+    const code = 'ELI10-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+    codesVIP.push({code: code, utilise: false});
+  }
+  localStorage.setItem('eli10_codes', JSON.stringify(codesVIP));
+  afficherCodes();
+  alert('20 codes générés!');
+}
+
+function afficherCodes() {
+  document.getElementById('listeCodes').innerHTML = codesVIP.map(c => `${c.code} - ${c.utilise? '✅ UTILISÉ' : '🟢 DISPO'}`).join('<br>');
+}
+
+function exporterCSV() {
+  const csv = 'Code,Statut\n' + codesVIP.map(c => `${c.code},${c.utilise? 'UTILISE' : 'DISPO'}`).join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'codes_ELI10.csv'; a.click();
 }
 
 function verifierCode() {
-  const code = document.getElementById('codeInput').value.trim();
+  const code = document.getElementById('codeInput').value.trim().toUpperCase();
   const msg = document.getElementById('msg');
-  if (code === CODE_SECRET) {
-    document.getElementById('contenuBloque').classList.remove('contenu-bloque');
-    msg.style.color = '#4ade80';
-    msg.textContent = '✅ Accès débloqué à vie ! Bienvenue CEO';
+  const codeObj = codesVIP.find(c => c.code === code);
+
+  if (codeObj &&!codeObj.utilise) {
+    codeObj.utilise = true;
+    localStorage.setItem('eli10_codes', JSON.stringify(codesVIP));
     localStorage.setItem('eli10_unlocked', 'true');
+    msg.style.color = '#4ade80';
+    msg.textContent = '✅ Accès débloqué à vie!';
+    loadCours();
+  } else if (codeObj && codeObj.utilise) {
+    msg.style.color = '#facc15';
+    msg.textContent = '⚠️ Ce code a déjà été utilisé.';
   } else {
     msg.style.color = '#f87171';
-    msg.textContent = '❌ Code incorrect';
+    msg.textContent = '❌ Code incorrect.';
   }
 }
 
-if (localStorage.getItem('eli10_unlocked') === 'true') {
-  document.getElementById('contenuBloque').classList.remove('contenu-bloque');
-}
+// === AFFICHAGE COURS + QUIZ + IA = IDENTIQUE V4.0 ===
+function loadCours() { /*... colle ici la fonction loadCours de V4.0... */ document.getElementById('clientPanel').classList.add('hidden'); document.getElementById('coursVIP').classList.remove('hidden'); }
+function checkQuiz(id, choix) { /*... colle ici... */ }
+function askAI() { /*... colle ici... */ }
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
+// === LANCEMENT ===
+if (window.location.search.includes('admin=1')) {
+  document.getElementById('adminPanel').classList.remove('hidden');
+  afficherCodes();
 }
+if (localStorage.getItem('eli10_unlocked') === 'true') {
+  loadCours();
+}
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
 </script>
 </body>
 </html>
