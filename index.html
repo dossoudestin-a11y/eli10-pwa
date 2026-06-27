@@ -8,11 +8,13 @@
 <meta name="theme-color" content="#0f172a">
 <style>
   body { font-family: sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 20px; }
-  .card { background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 400px; }
+  .card { background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 400px; text-align: left; }
   button { background: #facc15; color: #000; border: 0; padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
   input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-top: 10px; }
-  .contenu-bloque { opacity: 0.5; filter: blur(2px); pointer-events: none; } /* J’ai changé le nom */
-  h1 { color: #facc15; }
+  .contenu-bloque { opacity: 0.5; filter: blur(2px); pointer-events: none; }
+  .lecon { background: #0f172a; padding: 12px; border-radius: 8px; margin: 10px 0; border-left: 3px solid #facc15; }
+  h1 { color: #facc15; text-align: center; }
+  h3 { color: #facc15; margin: 0 0 5px 0; }
 </style>
 </head>
 <body>
@@ -26,21 +28,45 @@
 
   <div class="card" id="niveau2">
     <h2>🔒 NIVEAU 2 : ACCÈS COMPLET</h2>
-    <div id="contenuBloque" class="contenu-bloque"> <!-- Seul le contenu est flou -->
-      <p>10 Leçons + PDF + Vidéos + Support WhatsApp</p>
+    
+    <!-- TOUT LE CONTENU PAYANT EST ICI -->
+    <div id="contenuBloque" class="contenu-bloque">
+      <p><b>10 Leçons + PDF + Vidéos + Support WhatsApp 24/7</b></p>
+      
+      <div class="lecon">
+        <h3>Leçon 2 : HTML de Base</h3>
+        <p>Structure d'une page : `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`. Ton premier site en 5 lignes.</p>
+      </div>
+      <div class="lecon">
+        <h3>Leçon 3 : CSS Moderne</h3>
+        <p>Flexbox, Grid, Couleurs, Polices. Rends ton site beau comme ELI10.</p>
+      </div>
+      <div class="lecon">
+        <h3>Leçon 4 : JavaScript Essentiel</h3>
+        <p>Variables, Fonctions, `onclick`. Rends ton site vivant.</p>
+      </div>
+      <div class="lecon">
+        <h3>Leçon 5 : PWA & Hors Ligne</h3>
+        <p>Transforme ton site en App. Le `manifest.json` et `sw.js` expliqués.</p>
+      </div>
+      <div class="lecon">
+        <h3>Leçon 6 à 10 : Projets CEO</h3>
+        <p>Site Vitrine + E-commerce + App de Vente. Avec code source complet.</p>
+      </div>
+      <p><b>📥 Bonus :</b> PDF Récap + 3 Vidéos Privées + Groupe WhatsApp VIP</p>
     </div>
     
-    <!-- LA CASE BLANCHE EST MAINTENANT DEHORS DU FLOU ✅ -->
+    <!-- LA CASE BLANCHE RESTE TOUJOURS VISIBLE -->
     <input type="text" id="codeInput" placeholder="COLLE TON CODE VIP ICI">
     <button onclick="verifierCode()">Déverrouiller Maintenant</button>
-    <p id="msg" style="margin-top:10px; font-weight:700;"></p>
+    <p id="msg" style="margin-top:10px; font-weight:700; text-align:center;"></p>
   </div>
 
 <script>
 const CODE_SECRET = "ELI10CEO2026"; 
 
 function acheter() {
-  alert("Étape 1: Envoie 15,000 FCFA par Mobile Money au +229 01 XX\nÉtape 2: Envoie le reçu par WhatsApp au même numéro\nÉtape 3: Je t’enverrai ton CODE VIP instantanément");
+  alert("Étape 1: Envoie 15,000 FCFA par Mobile Money au +229 01 XX\nÉtape 2: Envoie le reçu par WhatsApp\nÉtape 3: Je t’enverrai ton CODE VIP");
   window.open('https://wa.me/22901XXXXXXX?text=Jai paye 15000 pour ELI10', '_blank');
 }
 
@@ -54,7 +80,7 @@ function verifierCode() {
     localStorage.setItem('eli10_unlocked', 'true');
   } else {
     msg.style.color = '#f87171';
-    msg.textContent = '❌ Code incorrect. Vérifie avec moi sur WhatsApp';
+    msg.textContent = '❌ Code incorrect';
   }
 }
 
