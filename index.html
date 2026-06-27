@@ -1,4 +1,4 @@
-DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -11,7 +11,7 @@ DOCTYPE html>
   .card { background: #1e293b; padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 400px; }
   button { background: #facc15; color: #000; border: 0; padding: 12px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 10px; }
   input { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-top: 10px; }
-  .locked { opacity: 0.5; filter: blur(2px); pointer-events: none; }
+  .contenu-bloque { opacity: 0.5; filter: blur(2px); pointer-events: none; } /* J’ai changé le nom */
   h1 { color: #facc15; }
 </style>
 </head>
@@ -24,21 +24,23 @@ DOCTYPE html>
     <button onclick="acheter()">🔒 Débloquer Niveau 2 - 15,000 FCFA</button>
   </div>
 
-  <div class="card locked" id="niveau2">
+  <div class="card" id="niveau2">
     <h2>🔒 NIVEAU 2 : ACCÈS COMPLET</h2>
-    <p>10 Leçons + PDF + Vidéos + Support WhatsApp</p>
-    <input type="text" id="codeInput" placeholder="Colle ton CODE UNIQUE ici">
+    <div id="contenuBloque" class="contenu-bloque"> <!-- Seul le contenu est flou -->
+      <p>10 Leçons + PDF + Vidéos + Support WhatsApp</p>
+    </div>
+    
+    <!-- LA CASE BLANCHE EST MAINTENANT DEHORS DU FLOU ✅ -->
+    <input type="text" id="codeInput" placeholder="COLLE TON CODE VIP ICI">
     <button onclick="verifierCode()">Déverrouiller Maintenant</button>
     <p id="msg" style="margin-top:10px; font-weight:700;"></p>
   </div>
 
 <script>
-// 1. CHANGE ÇA : Ton CODE SECRET du jour
 const CODE_SECRET = "ELI10CEO2026"; 
 
 function acheter() {
-  alert("Étape 1: Envoie 15,000 FCFA par Mobile Money au +229 01 XX\nÉtape 2: Envoie le reçu par WhatsApp au même numéro\nÉtape 3: Je t’enverrai ton CODE UNIQUE instantanément");
-  // Ouvre WhatsApp direct
+  alert("Étape 1: Envoie 15,000 FCFA par Mobile Money au +229 01 XX\nÉtape 2: Envoie le reçu par WhatsApp au même numéro\nÉtape 3: Je t’enverrai ton CODE VIP instantanément");
   window.open('https://wa.me/22901XXXXXXX?text=Jai paye 15000 pour ELI10', '_blank');
 }
 
@@ -46,22 +48,20 @@ function verifierCode() {
   const code = document.getElementById('codeInput').value.trim();
   const msg = document.getElementById('msg');
   if (code === CODE_SECRET) {
-    document.getElementById('niveau2').classList.remove('locked');
+    document.getElementById('contenuBloque').classList.remove('contenu-bloque');
     msg.style.color = '#4ade80';
     msg.textContent = '✅ Accès débloqué à vie ! Bienvenue CEO';
-    localStorage.setItem('eli10_unlocked', 'true'); // Garde ça même hors ligne
+    localStorage.setItem('eli10_unlocked', 'true');
   } else {
     msg.style.color = '#f87171';
     msg.textContent = '❌ Code incorrect. Vérifie avec moi sur WhatsApp';
   }
 }
 
-// Si déjà payé avant, on garde débloqué
 if (localStorage.getItem('eli10_unlocked') === 'true') {
-  document.getElementById('niveau2').classList.remove('locked');
+  document.getElementById('contenuBloque').classList.remove('contenu-bloque');
 }
 
-// Service Worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
