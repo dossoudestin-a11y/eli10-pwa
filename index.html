@@ -1,116 +1,170 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELI10 VIP</title>
-<link rel="manifest" href="manifest.json"><meta name="theme-color" content="#0f172a">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Destin AI Academy</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000">
 <style>
-  body { font-family: system-ui; background: #0f172a; color: #e2e8f0; padding: 15px; max-width: 600px; margin: auto; }
-.card { background: #1e293b; padding: 15px; border-radius: 12px; margin: 15px 0; }
-  button { background: #facc15; color: #000; border: 0; padding: 10px; border-radius: 8px; font-weight: 700; cursor: pointer; width: 100%; margin-top: 8px; }
-  input, textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; margin-top: 8px; box-sizing: border-box; }
-.lecon { background: #0f172a; padding: 12px; border-radius: 8px; margin: 10px 0; border-left: 3px solid #facc15; }
-.quiz { background: #334155; padding: 10px; border-radius: 8px; margin-top: 10px; }
-.chatbox { height: 200px; overflow-y: auto; background: #0f172a; padding: 10px; border-radius: 8px; margin-top: 10px; text-align: left; }
-.msg-ai { background: #1e293b; padding: 8px; border-radius: 8px; margin: 5px 0; }
-.msg-you { background: #facc15; color: #000; padding: 8px; border-radius: 8px; margin: 5px 0; text-align: right; }
-  h1,h2,h3 { color: #facc15; }
-.hidden { display: none; }
-.code-list { font-family: monospace; background: #000; padding: 10px; border-radius: 8px; max-height: 150px; overflow-y: auto; text-align: left; }
+  :root{--bg:#000;--card:#111;--muted:#1f1f1f;--text:#f5f5f5;--accent:#facc15;--ok:#4ade80;--err:#f87171}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui;background:var(--bg);color:var(--text);padding:16px;max-width:700px;margin:auto}
+  header{text-align:center;margin-bottom:16px}
+  header img{width:60px;height:60px;border-radius:16px}
+  h1{color:var(--accent);margin:8px 0 0 0;font-size:22px}
+ .card{background:var(--card);border-radius:12px;padding:16px;margin:12px 0;border:1px solid #222}
+  h2,h3{color:var(--accent);margin:0 0 8px 0}
+  code{background:#0b0b0b;padding:2px 6px;border-radius:6px}
+  input{width:100%;padding:10px;border-radius:10px;border:1px solid var(--muted);background:#0b0b0b;color:var(--text)}
+  button{background:var(--accent);color:#000;border:0;padding:10px;border-radius:10px;font-weight:700;cursor:pointer;width:100%;margin-top:8px}
+ .lecon{border-left:3px solid var(--accent);padding:12px;border-radius:10px;background:#0b0b0b;margin:10px 0}
+ .quiz{background:var(--muted);padding:12px;border-radius:10px;margin-top:10px}
+ .chatbox{height:220px;overflow-y:auto;background:#0b0b0b;padding:10px;border-radius:10px;margin-top:10px;text-align:left}
+ .msg-ai{background:var(--card);padding:8px 10px;border-radius:10px;margin:6px 0}
+ .msg-you{background:var(--accent);color:#000;padding:8px 10px;border-radius:10px;margin:6px 0;text-align:right}
+ .sigle{font-weight:700;color:var(--accent)}
+ .hidden{display:none}
+ .locked{filter:blur(3px);pointer-events:none;opacity:.5}
 </style>
 </head>
 <body>
-  <h1>ELI10 Academy VIP 🔓</h1>
+  <header>
+    <!-- Remplace icon-512.png par ton logo or que je t'ai généré -->
+    <img src="icon-512.png" alt="Destin AI">
+    <h1>Destin AI Academy</h1>
+  </header>
 
-  <!-- PANEL ADMIN SECRET :?admin=1 dans l'URL -->
-  <div id="adminPanel" class="card hidden">
-    <h2>⚙️ Panel CEO</h2>
-    <button onclick="genererCodes()">1. Générer 20 Codes VIP Aléatoires</button>
-    <button onclick="exporterCSV()">2. Exporter Tous Les Codes CSV</button>
-    <div class="code-list" id="listeCodes">Aucun code généré</div>
+  <!-- ÉTAPE 1: LEÇON 1 GRATUITE -->
+  <div class="card">
+    <h2>Leçon 1 : Rappel Gratuit ✅</h2>
+    <p><span class="sigle">PWA</span> = <span class="sigle">Progressive Web App</span>. Un site qui devient App grâce à <code>manifest.json</code> + <code>sw.js</code>.</p>
+    <p>Teste : Active le <b>Mode Avion</b>. Destin AI marche toujours.</p>
   </div>
 
-  <!-- PARTIE CLIENT NORMALE -->
-  <div id="clientPanel" class="card">
-    <h2>Accès Niveau 2</h2>
-    <input type="text" id="codeInput" placeholder="COLLE TON CODE VIP ICI">
-    <button onclick="verifierCode()">Déverrouiller</button>
+  <!-- ÉTAPE 2: PAYWALL PREMIUM -->
+  <div class="card" id="paywall">
+    <h2>🔒 Accès Premium Requis</h2>
+    <p>Débloque `Leçon 2 à 10` + `IA Destin 24/7` pour <b>15,000 FCFA</b></p>
+    <input type="text" id="codeInput" placeholder="COLLE TON CODE VIP PREMIUM ICI">
+    <button onclick="verifierCode()">Déverrouiller Premium</button>
+    <button onclick="acheter()" style="background:#25D366;color:#fff">💳 Payer par Mobile Money</button>
     <p id="msg" style="margin-top:10px; font-weight:700; text-align:center;"></p>
   </div>
 
-  <!-- COURS + QUIZ + IA = MASQUÉ JUSQU'AU DÉBLOCAGE -->
-  <div id="coursVIP" class="hidden"></div>
+  <!-- ÉTAPE 3: CONTENU PREMIUM = CACHÉ AU DÉPART -->
+  <div id="premiumContent" class="hidden">
+    <div id="cours"></div>
+    <div class="card">
+      <h2>🤖 IA Destin - Prof 24/7 Hors Ligne</h2>
+      <p>Demande: <code>DOM</code>, <code>API</code>, <code>ROI</code>, <code>CTA</code>, <code>Mo</code></p>
+      <div class="chatbox" id="chatbox"></div>
+      <input type="text" id="chatInput" placeholder="Ex: C'est quoi le DOM ?">
+      <button onclick="askAI()">Envoyer à Destin IA</button>
+    </div>
+  </div>
 
 <script>
-// === BASE DE DONNÉES ===
-const coursData = [
-  {id: 2, titre: "HTML de Base", desc: "Structure d'une page : `<!DOCTYPE>`, `<html>`, `<head>`, `<body>`.", quiz: {q: "Quelle balise met le titre dans l'onglet?", a: ["<p>", "<title>", "<h1>"], correct: 1}},
-  {id: 3, titre: "CSS Moderne", desc: "Flexbox = aligner. Grid = quadriller.", quiz: {q: "Pour centrer avec Flexbox on utilise?", a: ["text-align", "justify-content", "justify-content"], correct: 2}},
+// === 1. DICTIONNAIRE SIGLES DESTIN AI ===
+const SIGLES = {
+  HTML: "HyperText Markup Language = Structure une page web.",
+  CSS: "Cascading Style Sheets = Design/Stylise une page.",
+  JS: "JavaScript = Rend la page interactive/dynamique.",
+  DOM: "Document Object Model = L’arbre de ta page. JS le modifie. Ex: document.getElementById()",
+  API: "Application Programming Interface = Pont pour parler à un serveur/autre logiciel.",
+  PWA: "Progressive Web App = Site installable, hors ligne.",
+  SW: "Service Worker = Le fichier sw.js qui met en cache.",
+  UI: "User Interface = Ce que l’utilisateur voit.",
+  UX: "User Experience = Ce que l’utilisateur ressent.",
+  ROI: "Return On Investment = Bénéfice / Dépense Pub.",
+  CTA: "Call To Action = Bouton qui pousse à l’action. Ex: 'Acheter'",
+  MoMo: "Mobile Money = Paiement téléphone. MTN, Moov."
+};
+
+const COURS = [
+  {id:2, titre:"HTML de Base", cours:`<b>Objectif:</b> Structurer.<br><code>&lt;h1&gt;</code>=Titre. <code>&lt;p&gt;</code>=Texte. <code>&lt;a href=""&gt;</code>=Lien.`, quiz:{q:"Balise titre principal SEO?", a:["<p>","<h1>","<div>"], correct:1}},
+  {id:3, titre:"CSS Flexbox/Grid", cours:`<code>display:flex;</code>=Aligne. <code>justify-content:center;</code>=Centre. <code>display:grid;</code>=Tableau 2D.`, quiz:{q:"Pour 2 colonnes égales?", a:["flex","grid-template-columns:1fr 1fr","float"], correct:1}},
+  {id:4, titre:"JavaScript DOM", cours:`<code>let</code>=Variable. <code>function</code>=Action. <code>document.querySelector()</code>=Attrape élément du <span class="sigle">DOM</span>.`, quiz:{q:"Changer texte élément?", a:[".style",".innerText",".src"], correct:1}},
+  {id:5, titre:"PWA Hors Ligne", cours:`<span class="sigle">PWA</span> = <code>manifest.json</code> + <code>sw.js</code>. <code>navigator.serviceWorker.register()</code>=Active.`, quiz:{q:"Fichier installation app?", a:["style.css","sw.js","manifest.json"], correct:2}},
+  {id:6, titre:"Site Vitrine CEO", cours:`Structure: Header + Services + Témoignages + <code>https://wa.me/229...</code>`, quiz:{q:"Lien WhatsApp?", a:["wa.me","fb.me","mailto"], correct:0}},
+  {id:7, titre:"E-commerce localStorage", cours:`<code>localStorage.setItem()</code>=Sauvegarde panier. <code>JSON.parse()</code>=Relire.`, quiz:{q:"Mémoire hors ligne?", a:["SQL","localStorage","Cookies"], correct:1}},
+  {id:8, titre:"App de Vente", cours:`E-commerce + <span class="sigle">PWA</span> = App installable qui vend sans internet. C’est Destin AI.`, quiz:{q:"Résultat final?", a:["Site","App PWA","PDF"], correct:1}},
+  {id:9, titre:"Vente MoMo Bénin", cours:`<span class="sigle">Mo</span>: Client paie > Envoie reçu WhatsApp > Tu donnes code. <span class="sigle">ROI</span>=Bénéfice.`, quiz:{q:"Client envoie quoi?", a:["Nom","Reçu","Age"], correct:1}},
+  {id:10, titre:"Scale 1M FCFA", cours:`<span class="sigle">Ads</span>=Pub FB 2000F/j. <span class="sigle">CTA</span>=Bouton Acheter. Duplique Destin AI x10.`, quiz:{q:"Pour scaler vite?", a:["Attendre","Facebook Ads","Affiches"], correct:1}},
 ];
-//... colle ici Leçon 4 à 10 comme avant...
 
-const aiBrain = {"flexbox": "Flexbox sert à aligner...", "grid": "Grid sert à faire un tableau...", "default": "Teste sur ton code et reviens me dire."};
+// === 2. LOGIQUE PREMIUM ===
+const CODE_PREMIUM = "DESTIN2026"; // Change ce code pour chaque client V4.1
 
-// === LOGIQUE CODE ALÉATOIRE ===
-let codesVIP = JSON.parse(localStorage.getItem('eli10_codes')) || [];
-
-function genererCodes() {
-  for (let i = 0; i < 20; i++) {
-    const code = 'ELI10-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-    codesVIP.push({code: code, utilise: false});
-  }
-  localStorage.setItem('eli10_codes', JSON.stringify(codesVIP));
-  afficherCodes();
-  alert('20 codes générés!');
-}
-
-function afficherCodes() {
-  document.getElementById('listeCodes').innerHTML = codesVIP.map(c => `${c.code} - ${c.utilise? '✅ UTILISÉ' : '🟢 DISPO'}`).join('<br>');
-}
-
-function exporterCSV() {
-  const csv = 'Code,Statut\n' + codesVIP.map(c => `${c.code},${c.utilise? 'UTILISE' : 'DISPO'}`).join('\n');
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = 'codes_ELI10.csv'; a.click();
+function acheter() {
+  alert("Étape 1: Envoie 15,000 FCFA MoMo au +229 01 XX\nÉtape 2: Envoie le reçu WhatsApp\nÉtape 3: Je t’envoie ton CODE PREMIUM DESTIN");
+  window.open('https://wa.me/22901XXXXXXX?text=Je veux Premium Destin AI 15000F', '_blank');
 }
 
 function verifierCode() {
   const code = document.getElementById('codeInput').value.trim().toUpperCase();
   const msg = document.getElementById('msg');
-  const codeObj = codesVIP.find(c => c.code === code);
-
-  if (codeObj &&!codeObj.utilise) {
-    codeObj.utilise = true;
-    localStorage.setItem('eli10_codes', JSON.stringify(codesVIP));
-    localStorage.setItem('eli10_unlocked', 'true');
-    msg.style.color = '#4ade80';
-    msg.textContent = '✅ Accès débloqué à vie!';
-    loadCours();
-  } else if (codeObj && codeObj.utilise) {
-    msg.style.color = '#facc15';
-    msg.textContent = '⚠️ Ce code a déjà été utilisé.';
+  if (code === CODE_PREMIUM) {
+    localStorage.setItem('destin_premium', 'true');
+    unlockPremium();
   } else {
-    msg.style.color = '#f87171';
-    msg.textContent = '❌ Code incorrect.';
+    msg.style.color = 'var(--err)';
+    msg.textContent = '❌ Code Premium incorrect. Paye d’abord.';
   }
 }
 
-// === AFFICHAGE COURS + QUIZ + IA = IDENTIQUE V4.0 ===
-function loadCours() { /*... colle ici la fonction loadCours de V4.0... */ document.getElementById('clientPanel').classList.add('hidden'); document.getElementById('coursVIP').classList.remove('hidden'); }
-function checkQuiz(id, choix) { /*... colle ici... */ }
-function askAI() { /*... colle ici... */ }
-
-// === LANCEMENT ===
-if (window.location.search.includes('admin=1')) {
-  document.getElementById('adminPanel').classList.remove('hidden');
-  afficherCodes();
-}
-if (localStorage.getItem('eli10_unlocked') === 'true') {
+function unlockPremium(){
+  document.getElementById('paywall').classList.add('hidden');
+  document.getElementById('premiumContent').classList.remove('hidden');
   loadCours();
 }
-if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+
+// === 3. IA DESTIN ===
+function askAI(){
+  const inp = document.getElementById('chatInput');
+  const box = document.getElementById('chatbox');
+  const txt = inp.value.trim();
+  if(!txt) return;
+  box.innerHTML += `<div class="msg-you">${txt}</div>`;
+  
+  let rep = "Je suis Destin IA. Tape un sigle: DOM, API, PWA, ROI, CTA, MoMo.";
+  for(const s in SIGLES){
+    if(txt.toLowerCase().includes(s.toLowerCase())){
+      rep = `<b>${s}</b> = ${SIGLES[s]}`;
+      break;
+    }
+  }
+
+  setTimeout(()=>{ box.innerHTML += `<div class="msg-ai">🤖 ${rep}</div>`; box.scrollTop = box.scrollHeight; },200);
+  inp.value='';
+}
+
+// === 4. AFFICHAGE COURS ===
+function loadCours(){
+  const wrap = document.getElementById('cours');
+  COURS.forEach(L=>{
+    wrap.innerHTML += `
+      <div class="card">
+        <div class="lecon"><h3>Leçon ${L.id}: ${L.titre}</h3><p>${L.cours}</p></div>
+        <div class="quiz" id="quiz-${L.id}">
+          <b>Quiz: ${L.quiz.q}</b>
+          ${L.quiz.a.map((r,i)=>`<button onclick="checkQuiz(${L.id},${i})">${r}</button>`).join('')}
+          <p id="res-${L.id}"></p>
+        </div>
+      </div>`;
+  });
+}
+
+function checkQuiz(id, choix){
+  const L = COURS.find(x=>x.id===id);
+  const p = document.getElementById(`res-${id}`);
+  p.style.color = choix===L.quiz.correct ? 'var(--ok)' : 'var(--err)';
+  p.textContent = choix===L.quiz.correct ? '✅ Correct! Leçon validée.' : '❌ Faux. Relis.';
+}
+
+// === LANCEMENT ===
+if(localStorage.getItem('destin_premium') === 'true'){ unlockPremium(); }
+if('serviceWorker' in navigator){ navigator.serviceWorker.register('sw.js'); }
 </script>
 </body>
 </html>
