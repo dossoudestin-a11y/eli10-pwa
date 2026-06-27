@@ -3,47 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESTIN TEST</title>
+<title>DESTIN PROGRAMMATION ACADEMIE</title>
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body{background:#0a0f1e;color:#fff;font-family:'Segoe UI';display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
-.box{background:rgba(255,255,255,.1);padding:24px;border-radius:16px;width:90%;max-width:400px;text-align:center}
-input,button{width:100%;padding:14px;margin-top:12px;border-radius:12px;border:0;font-size:1rem}
-button{background:#FFD700;color:#000;font-weight:700;cursor:pointer}
-#msg{margin-top:12px;min-height:22px}
+:root{--bg1:#0a0f1e; --bg2:#1a1033; --gold:#FFD700; --glass:rgba(255,255,255,.06); --violet:#7F5AF0;}
+*{box-sizing:border-box;font-family:'Segoe UI',system-ui;}
+body{margin:0;min-height:100vh;color:#fff; background: radial-gradient(1200px 800px at 20% -10%, #2a1b4d 0%, transparent 50%), radial-gradient(1000px 600px at 120% 110%, #0d2a4d 0%, transparent 40%), linear-gradient(160deg,var(--bg1),var(--bg2)); display:flex;align-items:center;justify-content:center;padding:20px;}
+.app{width:100%;max-width:500px;background:var(--glass);backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.logo{width:90px;height:90px;margin:0 auto 12px;border-radius:22px;
+  background:conic-gradient(from 180deg, #FFD700, #7F5AF0, #FF8906, #FFD700);
+  display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:900;
+  color:#000;box-shadow:0 0 30px rgba(127,90,240,.6);
+  animation:spin 6s linear infinite;}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+h1{margin:0 0 8px;font-size:1.7rem;font-weight:900;background:linear-gradient(90deg,#fff,var(--gold));-webkit-background-clip:text;color:transparent;text-align:center;animation:gradient 3s ease infinite}
+@keyframes gradient{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+.subtitle{text-align:center;opacity:.8;font-size:.9rem;margin-bottom:20px}
+.lockbox{background:rgba(0,0,0,.3);padding:20px;border-radius:16px;border:1px solid rgba(255,215,0,.2)}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.4);color:#fff;font-size:1rem;margin-bottom:12px;text-transform:uppercase}
+.btn{width:100%;padding:14px;border:0;border-radius:12px;font-weight:700;cursor:pointer;font-size:1rem;transition:.2s}
+.btn-gold{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000}
+.btn-gold:hover{transform:scale(1.02)}
+.btn-violet{background:linear-gradient(90deg,#7F5AF0,#2CB67D);color:#fff;margin-top:8px}
+.msg{margin-top:12px;font-size:.9rem;text-align:center;min-height:22px}
+.error{color:#FF5252}.ok{color:#69F0AE}
+.info{font-size:.8rem;opacity:.7;margin-top:6px;text-align:center}
+.hidden{display:none}
+.lessons{display:grid;gap:12px;margin-top:16px}
+.lesson{background:var(--glass);border:1px solid rgba(255,255,255,.1);padding:16px;border-radius:14px;cursor:pointer;transition:.2s}
+.lesson:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,215,0,.15)}
+.lesson h3{margin:0;font-size:1rem;font-weight:700}
+.destin-chat{margin-top:20px;background:rgba(0,0,0,.3);border-radius:16px;padding:16px;border:1px solid rgba(127,90,240,.3)}
+#destinReply{margin-top:12px;font-size:1rem;line-height:1.7;background:rgba(127,90,240,.15);padding:14px;border-radius:12px;border-left:4px solid #7F5AF0}
+.kid-mode{font-size:1.05rem;line-height:1.8}
 </style>
 </head>
 <body>
-<div class="box">
-  <h1>DESTIN TEST</h1>
-  <input id="codeInput" placeholder="COLLE DESTIN-001">
-  <button id="unlockBtn">Activer Mon Accès</button>
-  <div id="msg"></div>
+<div class="app">
+  <div id="lockScreen">
+    <div class="logo">DP</div>
+    <h1>DESTIN PROGRAMMATION ACADEMIE</h1>
+    <p class="subtitle">Deviens un Boss du Code & de l’IA avec `DESTIN`</p>
+    <div class="lockbox">
+      <p style="text-align:center;margin-top:0;font-size:.85rem;opacity:.9">🔒 Accès Premium Unique. 1 code = 1 élève. À vie.</p>
+      <input id="codeInput" placeholder="COLLE TON CODE ICI" maxlength="20">
+      <button class="btn btn-gold" id="unlockBtn">Activer Mon Accès</button>
+      <div id="msg" class="msg"></div>
+      <p class="info">15,000 FCFA | Mobile Money</p>
+    </div>
+  </div>
+
+  <div id="appScreen" class="hidden">
+    <div class="logo" style="width:70px;height:70px;font-size:1.8rem;animation:none">DP</div>
+    <h1>Salut, je suis DESTIN ✨</h1>
+    <p class="subtitle">Clique une leçon OU écris `Leçon 3`</p>
+    <div class="lessons" id="lessonsList"></div>
+    <div class="destin-chat">
+      <input id="destinInput" placeholder="Ex: Leçon 3 ou Explique l’IA">
+      <button class="btn btn-violet" id="askDestin">Demander à DESTIN</button>
+      <div id="destinReply"></div>
+    </div>
+  </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  alert('1. JS Chargé ✅'); // TEST 1
 
-  const VALID_CODES = ["DESTIN-001", "DESTIN-002"];
-  const btn = document.getElementById('unlockBtn');
-  const msg = document.getElementById('msg');
+const VALID_CODES = ["DESTIN-001", "DESTIN-002", "DESTIN-003", "DESTIN-004", "DESTIN-005"];
+const DEVICE_ID_KEY = "destin_prog_device_v200"; // V200 = Nouveau, pas de bug ancien
+const UNLOCKED_KEY = "destin_prog_unlock_v200";
+const USED_CODES_KEY = "destin_prog_used_v200";
 
-  alert('2. Bouton Trouvé ✅'); // TEST 2
+const LESSONS = {
+ 2:{t:"Leçon 2: C’est quoi l’IA ?", e:"Imagine une boîte magique très intelligente. Tu lui donnes des exemples, et elle apprend. Comme toi quand maman te montre un chat."},
+ 3:{t:"Leçon 3: Le Machine Learning", e:"Machine Learning = Apprendre à la machine. C’est comme apprendre à lire. Au début tu connais pas `A`. Maman te montre `A` 50 fois. Après, tu vois `A` partout."},
+ 4:{t:"Leçon 4: Le Cerveau de l’Ordi", e:"Un réseau de neurones, c’est comme plein de petites fourmis qui se parlent. Une dit `ça a des oreilles`, l’autre `ça miaule`. Ensemble: `C’est un chat!`"},
+ 5:{t:"Leçon 5: ChatGPT c’est qui ?", e:"ChatGPT c’est DESTIN. Elle a lu beaucoup de livres. Quand tu parles, elle devine le mot qui vient après. Comme quand tu finis la phrase de ton ami."},
+ 6:{t:"Leçon 6: L’IA qui Dessine", e:"Tu dis `dessine un chien avec un chapeau` et POOF l’IA dessine. Elle a vu des millions de dessins avant. Elle mélange pour créer un nouveau."},
+ 7:{t:"Leçon 7: L’IA peut se tromper", e:"Si on montre à l’IA que des bananes jaunes, elle croira que toutes les bananes sont jaunes. L’IA est comme un enfant: elle copie."},
+ 8:{t:"Leçon 8: Bien parler à l’IA", e:"Prompt = Ta demande à l’IA. Si tu dis `fais un truc`, elle ne comprend pas. Si tu dis `dessine un soleil jaune souriant`, elle réussit."},
+ 9:{t:"Leçon 9: L’IA pour toi au Bénin", e:"L’IA peut t’aider à faire tes devoirs, créer une affiche pour vendre, ou traduire. C’est comme avoir un super ami intelligent."},
+ 10:{t:"Leçon 10: Ton Super Pouvoir", e:"L’IA ne va pas te remplacer. Mais un enfant qui sait utiliser l’IA sera plus fort. Donc apprends DESTIN maintenant."}
+};
 
-  btn.onclick = () => {
-    alert('3. CLIC DÉTECTÉ ✅'); // TEST 3 = SI TU VOIS PAS ÇA, C’EST TON TEL QUI BLOQUE
+const deviceId = localStorage.getItem(DEVICE_ID_KEY) || crypto.randomUUID();
+localStorage.setItem(DEVICE_ID_KEY, deviceId);
 
-    const code = document.getElementById('codeInput').value.trim().toUpperCase();
-    msg.textContent = 'Code tapé: ' + code;
-    
-    if(VALID_CODES.includes(code)){
-      msg.textContent = "✅ Bienvenue à l’Académie!";
-      alert('4. CODE BON ✅'); 
-    } else {
-      msg.textContent = "❌ Code incorrect. Tu as mis: " + code;
-      alert('4. CODE MAUVAIS ❌');
-    }
-  };
+const lockScreen = document.getElementById('lockScreen');
+const appScreen = document.getElementById('appScreen');
+const msg = document.getElementById('msg');
+const lessonsList = document.getElementById('lessonsList');
+const unlockBtn = document.getElementById('unlockBtn');
+const askDestinBtn = document.getElementById('askDestin');
+
+function showApp(){
+  lockScreen.classList.add('hidden'); // Cache la page code
+  appScreen.classList.remove('hidden'); // Affiche direct les cours + DESTIN
+  renderLessons();
+}
+
+function renderLessons(){
+  lessonsList.innerHTML = Object.keys(LESSONS).map(n => `
+    <div class="lesson" onclick="askDestinAbout(${n})">
+      <h3>${LESSONS[n].t}</h3>
+    </div>
+  `).join('');
+}
+
+window.askDestinAbout = (n) => {
+  document.getElementById('destinInput').value = `Leçon ${n}`;
+  askDestin();
+}
+
+function askDestin(){
+  const q = document.getElementById('destinInput').value.toLowerCase().trim();
+  const replyBox = document.getElementById('destinReply');
+  const match = q.match(/leçon\s*(\d+)/);
+  if(match && LESSONS[match[1]]){
+    replyBox.innerHTML = `<div class="kid-mode"><b>DESTIN ✨:</b> ${LESSONS[match[1]].e}</div>`;
+  } else {
+    replyBox.innerHTML = `<div class="kid-mode"><b>DESTIN ✨:</b> Écris-moi `Leçon 3` et je vais t’expliquer comme si tu avais 5 ans 😊</div>`;
+  }
+}
+
+unlockBtn.onclick = () => {
+  const code = document.getElementById('codeInput').value.trim().toUpperCase();
+  let usedCodes = JSON.parse(localStorage.getItem(USED_CODES_KEY) || "[]");
+
+  if(!code){ msg.textContent = "❌ Colle un code d’abord."; msg.className = "msg error"; return; }
+  if(!VALID_CODES.includes(code)){
+    msg.textContent = "❌ Code incorrect."; msg.className = "msg error"; return;
+  }
+  if(usedCodes.includes(code)){
+    msg.textContent = "❌ Ce code est déjà utilisé."; msg.className = "msg error"; return;
+  }
+
+  usedCodes.push(code);
+  localStorage.setItem(USED_CODES_KEY, JSON.stringify(usedCodes));
+  localStorage.setItem(UNLOCKED_KEY, deviceId);
+
+  msg.textContent = "✅ Bienvenue à l’Académie!";
+  msg.className = "msg ok";
+  showApp(); // AFFICHAGE IMMÉDIAT. PAS DE setTimeout. Direct.
+};
+
+askDestinBtn.onclick = askDestin;
+document.getElementById('destinInput').addEventListener('keypress', e => { if(e.key==='Enter') askDestin(); });
+
+// Si la personne a déjà payé avant, on ouvre direct
+if(localStorage.getItem(UNLOCKED_KEY) === deviceId){ showApp(); }
+
 });
 </script>
 </body>
