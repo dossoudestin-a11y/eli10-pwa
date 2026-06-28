@@ -2,11 +2,11 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESTIN ACADEMIE V31 PERLE</title>
+<title>DESTIN ACADEMIE V30.1</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:#fff;background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,.4) 0%, transparent 50%),radial-gradient(ellipse at 80% 90%, rgba(255,215,0,.3) 0%, transparent 50%),linear-gradient(135deg, #0a0f1e 0%, #1a1f3a 50%, #2a1a4a 100%);min-height:100vh}
-.app{width:100%;max-width:780px;margin:0 auto;padding:20px;min-height:100vh}
+.app{width:100%;max-width:800px;margin:0 auto;padding:20px;min-height:100vh}
 .logo{width:90px;height:90px;margin:20px auto;background:linear-gradient(135deg,#FFD700 0%,#FFA500 100%);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#000;box-shadow:0 0 30px rgba(255,215,0,.6)}
 h1{text-align:center;font-size:1.8rem;margin:0 0 15px;background:linear-gradient(90deg,#FFD700,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 h2{font-size:1.5rem;color:#FFD700;margin:22px 0 12px;border-bottom:3px solid rgba(255,215,0,.4);padding-bottom:8px}
@@ -25,7 +25,9 @@ button:active{transform:scale(.96)}
 .box{background:rgba(255,215,0,.1);padding:16px;border-radius:12px;border-left:5px solid #FFD700;margin:15px 0}
 .astuce{background:rgba(105,240,174,.15);padding:14px;border-radius:12px;border-left:5px solid #69F0AE;margin:15px 0}
 .erreur-box{background:rgba(255,82,82,.15);padding:14px;border-radius:12px;border-left:5px solid #FF5252;margin:15px 0}
-.schema{background:rgba(0,0,0,.4);padding:12px;border-radius:10px;font-family:monospace;font-size:.95rem;margin:12px 0;border:1px dashed rgba(127,90,240,.5)}
+.schema{background:rgba(0,0,0,.4);padding:12px;border-radius:10px;font-family:monospace;font-size:.9rem;margin:12px 0;border:1px dashed rgba(127,90,240,.5);overflow-x:auto}
+.table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.95rem}
+.table td,.table th{border:1px solid rgba(127,90,240,.4);padding:8px;text-align:left}
 .quiz-box{background:rgba(127,90,240,.2);padding:20px;border-radius:16px;border:1px solid rgba(127,90,240,.5);margin-top:25px}
 .question{margin-top:15px;padding:14px;background:rgba(0,0,0,.3);border-radius:12px}
 .question label{display:block;margin-top:8px;cursor:pointer;padding:10px;border-radius:8px;background:rgba(255,255,255,.05)}
@@ -49,7 +51,7 @@ code{background:rgba(0,0,0,.5);padding:2px 6px;border-radius:4px;color:#FFD700}
   <div id="lock" class="page active">
     <div class="lock-box">
       <div class="logo">DP</div>
-      <h1>DESTIN ACADEMIE</h1>
+      <h1>DESTIN ACADEMIE V30.1</h1>
       <p class="prix">💰 Accès: 2000F - Code CEO</p>
       <input id="code" placeholder="DESTIN-001" autocomplete="off">
       <button id="btnActiver" type="button">Débloquer l’Accès ✨</button>
@@ -108,87 +110,87 @@ function activer(){
 function goHome(code){document.getElementById('userCode').textContent=code;document.getElementById('lock').classList.remove('active');document.getElementById('home').classList.add('active');}
 if(localStorage.getItem('destin_code')) goHome(localStorage.getItem('destin_code'));
 
-// 2. COURS PERLE DÉTAILLÉE + QUIZ LIÉ
+// 2. COURS V30.1 = 10 PARTIES + 10 QUIZ LIÉ + ANNÉES
 const COURS = {
 2:{titre:"Leçon 2: Apprentissage Machine - Fondation Totale 🍼",img:"https://image.pollinations.ai/prompt/baby%20robot%20learning%20from%201000%20cat%20photos%20floating%20classroom%20digital%20art%208k",
-cours:`<h3>1. Définition Scientifique</h3><p><b>Machine Learning ML:</b> Domaine de l’IA où un système améliore ses performances sur une tâche T, à partir d’une expérience E, mesurée par une performance P. Mot clé: <code>Algorithme</code> = Suite d’instructions. <code>Modèle</code> = Résultat de l’apprentissage.</p>
-<h4>Pour 10 ans:</h4><p>Au lieu de programmer "si moustaches ET poils ALORS chat", on montre 10000 photos chat/chien. La machine calcule elle-même la différence.</p>
-<h3>2. Histoire Rapide</h3><p>1952: Arthur Samuel crée programme dames qui apprend. 1986: Rétropropagation. 2012: AlexNet gagne ImageNet = Boom Deep Learning.</p>
-<h3>3. Les 3 Types Décortiqués</h3><ul><li><b>Supervisé:</b> Données X + Etiquettes Y. But: Fonction f:X->Y. Ex: Classification chat/chien. 80% des IA.</li><li><b>Non Supervisé:</b> Que X. But: Trouver structure. Ex: Clustering clients, PCA.</li><li><b>Renforcement:</b> Agent + Environnement + Récompense. But: Maximiser récompense. Ex: AlphaGo, robot marche.</li></ul>
+cours:`<h3>1. Définition Scientifique 1959</h3><p><b>Arthur Samuel 1959:</b> "Champ d’étude qui donne aux ordinateurs la capacité d’apprendre sans être explicitement programmés". <b>ML</b>=Machine Learning. <b>IA</b>=Intelligence Artificielle 1956 John McCarthy. <b>Algorithme</b>=Suite d’instructions. <b>Modèle</b>=Résultat entraînement.</p>
+<h4>Pour 10 ans:</h4><p>Au lieu de coder <code>if moustaches ALORS chat</code>, on montre 10000 photos. La machine calcule la règle maths toute seule.</p>
+<h3>2. Histoire Complète</h3><table class="table"><tr><th>Année</th><th>Événement</th></tr><tr><td>1952</td><td>Arthur Samuel: Programme dames IBM 701</td></tr><tr><td>1986</td><td>Rumelhart: Rétropropagation Backprop</td></tr><tr><td>2012</td><td>AlexNet: Boom Deep Learning ImageNet 84%</td></tr></table>
+<h3>3. Les 3 Types Décortiqués</h3><ul><li><b>Supervisé:</b> Données X + Etiquettes Y. But: Trouver f:X->Y. Ex: Chat/Chien. 80% marché. Loss=Erreur.</li><li><b>Non Supervisé:</b> Que X. But: Clustering K-Means 1957, PCA 1901. Ex: Grouper clients.</li><li><b>Renforcement RL:</b> Agent+Environnement+Récompense R. But: Max R cumulé. Ex: AlphaGo 2016 DeepMind.</li></ul>
 <h3>4. Schéma Cycle de Vie</h3><div class="schema">Collecte -> Nettoyage -> Split 70/20/10 -> Entrainement -> Validation -> Test -> Déploiement -> Monitoring</div>
-<h3>5. Loi GIGO</h3><div class="erreur-box"><b>Garbage In Garbage Out:</b> Qualité entrée = Qualité sortie. Biais données = Biais IA.</div>
-<h3>6. Exemple Bénin Concret</h3><p><b>Problème:</b> Trier noix cajou. <b>Données:</b> 5000 photos étiquetées bonne/mauvaise. <b>Modèle:</b> CNN. <b>Résultat:</b> 98% précision, 1000 noix/min. <b>Gain CEO:</b> 20 ouvriers -> 1 système.</p>
-<h3>7. Erreurs Débutant</h3><ul><li>Pas assez données</li><li>Test sur données entrainement</li><li>Ignorer GIGO</li></ul>
-<div class="astuce"><b>Astuce CEO:</b> Commence petit: 100 données propres > 10000 sales. Mesure toujours.</div>`,
-quiz:["ML est?|Branche IA,Branche cuisine,Magie,Prière|0","T =?|Tâche,Temps,Téléphone,Télé|0","E =?|Expérience,Erreur,Entrée,Eau|0","P =?|Performance,Prix,Pixel,Pain|0","Supervisé a?|X seul,X+Y,Y seul,0|1","GIGO veut?|Or,Poubelle,Go,Good|1","Split?|100% train,70-20-10,50-50,0|1","Bénin?|Cuisine,Tri noix,Danse,Chant|1","AlexNet?|1952,2012,2020,1999|1","Modèle =?|Code,Résultat apprentissage,0,Magie|1"]},
+<h3>5. Loi GIGO 1970</h3><div class="erreur-box"><b>GIGO:</b> Garbage In Garbage Out. Terme informatique 1970. Biais données = Biais IA.</div>
+<h3>6. Formule Perte</h3><div class="schema">MSE = 1/n Σ(yi - ŷi)²</div>
+<h3>7. Exemple Bénin 2026</h3><p><b>Problème:</b> Tri noix cajou manuel lent 50kg/j. <b>Solution:</b> 5000 photos étiquetées -> <code>CNN</code> Convolutional Neural Network -> 98% précision -> 1000 noix/min. <b>ROI CEO:</b> 20 ouvriers -> 1 système 500000F.</p>
+<h3>8. Erreurs Débutant</h3><ul><li>Test sur train = tricher</li><li>Pas de split 70/20/10</li><li>Ignorer GIGO</li></ul>
+<h3>9. Sigles</h3><p><code>ML</code>=Machine Learning. <code>CNN</code>=Conv Neural Net. <code>RL</code>=Reinforcement Learning. <code>MSE</code>=Mean Squared Error.</p>
+<div class="astuce"><b>Astuce CEO:</b> 100 données propres > 10000 sales. Mesure toujours F1-Score.</div>`,
+quiz:["Qui 1959?|Arthur Samuel,Alan Turing,Geoffrey Hinton,0|0","ML =?|Machine Learning,Money Lost,Magie,0|0","T =?|Tâche,Temps,Téléphone,Télé|0","E =?|Expérience,Erreur,Entrée,Eau|0","Supervisé a?|X seul,X+Y,Y seul,0|1","GIGO =?|Or,Poubelle,Go,Good|1","Split?|100% train,70-20-10,50-50,0|1","AlexNet?|1952,2012,2020,1999|1","AlphaGo?|2016,2000,1999,0|0","CNN =?|Code,Réseau Conv,0,Magie|1"]},
 
-3:{titre:"Leçon 3: Machine Learning Avancé - L’École de l’IA 📚",img:"https://image.pollinations.ai/prompt/computer%20at%20school%20desk%20notebook%20AI%20101%20robot%20teacher%208k",
-cours:`<h3>1. Analogie École</h3><p>Humain: Voir A x100 -> Règle mentale. Machine: Voir A x1M -> Poids mathématiques.</p>
-<h3>2. Types de Données</h3><ul><li><b>Structurées:</b> Tableaux. Lignes=exemples, Colonnes=features. Ex: Age,Prix.</li><li><b>Non Structurées:</b> Images, audio, texte. 80% monde. Besoin CNN,RNN,Transformers.</li><li><b>Étiquetées:</b> Avec Y. Coût: 1$ à 10$ par image. Semi-supervisé = mélange.</li></ul>
-<h3>3. Surapprentissage vs Sous</h3><p><b>Sous-apprentissage:</b> Bias élevé, Variance faible. Modèle trop simple.<br><b>Surapprentissage:</b> Bias faible, Variance élevée. Modèle mémorise.<br><b>Solution:</b> Regularisation, Dropout, Plus données.</p>
+3:{titre:"Leçon 3: Machine Learning Avancé 📚",img:"https://image.pollinations.ai/prompt/computer%20at%20school%20desk%20notebook%20AI%20101%20robot%20teacher%208k",
+cours:`<h3>1. Analogie École 2025</h3><p>Humain: Voir A x100 -> Règle mentale. Machine: Voir A x1M -> Poids maths. <b>Overfitting</b>=Surapprentissage 1947. <b>Underfitting</b>=Sous.</p>
+<h3>2. Types Données</h3><table class="table"><tr><th>Type</th><th>Ex</th><th>% Monde 2024</th></tr><tr><td>Structurées</td><td>Excel Age Prix</td><td>20%</td></tr><tr><td>Non Struct</td><td>Photo Son Texte</td><td>80%</td></tr></table>
+<h3>3. Sur vs Sous</h3><p><b>Sous:</b> Bias élevé Variance faible. Modèle trop simple. <b>Sur:</b> Bias faible Variance élevée. Mémorise. <b>Solution:</b> Regularisation L1 1996/L2 1970, Dropout 2012.</p>
 <h4>Schéma:</h4><div class="schema">Sous -> Bon -> Sur</div>
-<h3>4. Métriques</h3><p><b>Précision</b>=VP/VP+FP. <b>Rappel</b>=VP/VP+FN. <b>F1</b>=2PR/P+R. <b>ROC-AUC</b>=Aire courbe.</p>
-<h3>5. Exemple</h3><p>Médical cancer: Faux Négatif = mort. Donc on maximise Rappel même si Précision baisse.</p>
-<div class="astuce"><b>CEO:</b> Toujours matrice confusion + courbe ROC. Jamais que précision.</div>`,
-quiz:["Bias élevé?|Sous,Sur,Bon,0|0","Variance élevée?|Sous,Sur,Bon,0|1","F1 =?|P+R,2PR/P+R,P/R,0|1","Structurées?|Images,Excel,Audio,0|1","Non struct?|Excel,Images,0,0|1","Étiquette coût?|0$,1-10$,100$,0|1","Médical vise?|Précision,Rappel,Vitesse,0|1","Split val?|0%,10%,50%,100%|1","Dropout?|Sur,Sous,Bon,0|0","ROC?|Courbe,Ligne,Point,0|0"]},
+<h3>4. Métriques 1950</h3><p><b>Précision</b>=VP/VP+FP. <b>Rappel</b>=VP/VP+FN. <b>F1</b>=2PR/P+R 1979. <b>ROC-AUC</b>=Radar WWII 1940.</p>
+<h3>5. Exemple Médical</h3><p>Cancer: FN=mort. Donc max Rappel même si Précision baisse. <b>Matrice Confusion:</b> VP VN FP FN.</p>
+<h3>6. Sigles</h3><p><code>TP</code>=True Positive. <code>FP</code>=False Positive. <code>AUC</code>=Area Under Curve.</p>
+<div class="astuce"><b>CEO:</b> Toujours matrice confusion + ROC. Jamais que précision.</div>`,
+quiz:["Bias élevé?|Sous,Sur,Bon,0|0","Variance élevée?|Sous,Sur,Bon,0|1","F1 =?|P+R,2PR/P+R,P/R,0|1","Struct?|Images,Excel,Audio,0|1","Non Struct?|Excel,Images,0,0|1","FP =?|True,False,0,0|1","Médical?|Précision,Rappel,Vitesse,0|1","Split val?|0%,10%,50%,100%|1","Dropout?|2012,1990,2000,0|0","ROC?|Courbe,Ligne,Point,0|0"]},
 
-4:{titre:"Leçon 4: Réseaux de Neurones - Cerveau Artificiel 🧠",img:"https://image.pollinations.ai/prompt/glowing%20artificial%20brain%20neural%20network%20wires%20cyberpunk%208k",
-cours:`<h3>1. Neurone Biologique vs Artificiel</h3><p>Bio: Dendrites->Corps->Axone. Artificiel: Entrées->Poids->Somme->Activation->Sortie.</p>
-<h4>Formule:</h4><div class="schema">y = activation(W·X + b)</div>
-<h3>2. Fonctions Activation</h3><ul><li><b>Sigmoid:</b> 0 à 1. Vieux.</li><li><b>ReLU:</b> max(0,x). Moderne, rapide.</li><li><b>Softmax:</b> Probabilités. Sortie multi-classe.</li></ul>
-<h3>3. Deep Learning</h3><p>Plus de 2 couches cachées. CNN=images, RNN=séquences, Transformer=texte. GPU obligatoire.</p>
-<h3>4. Rétropropagation</h3><p>Calcul gradient erreur -> Ajuste poids à l’envers. <b>Descente Gradient:</b> <code>w = w - lr*gradient</code></p>
-<h3>5. Exemple</h3><p>Face ID iPhone: 50 couches CNN. Entrainé sur 1M visages.</p>
+4:{titre:"Leçon 4: Réseaux de Neurones 🧠",img:"https://image.pollinations.ai/prompt/glowing%20artificial%20brain%20neural%20network%20wires%20cyberpunk%208k",
+cours:`<h3>1. Neurone 1943</h3><p>McCulloch-Pitts 1943: Bio: Dendrites->Corps->Axone. Artificiel: Entrées->Poids->Somme->Activation->Sortie.</p>
+<h4>Formule:</h4><div class="schema">y = f(W·X + b)</div><p><code>f</code>=activation. <code>W</code>=poids. <code>b</code>=biais.</p>
+<h3>2. Fonctions Activation</h3><ul><li><b>Sigmoid:</b> 1/1+e^-x. 0-1. 1986.</li><li><b>ReLU:</b> max0,x. 2011 Nair. Rapide.</li><li><b>Softmax:</b> e^xi/somme. Proba multi-classe.</li></ul>
+<h3>3. Deep Learning 2006</h3><p>>2 couches cachées. <b>CNN</b>=Images 2012 AlexNet. <b>RNN</b>=Séquences 1990. <b>Transformer</b>=Texte 2017 Google. <b>GPU</b>=obligatoire.</p>
+<h3>4. Backprop 1986</h3><p><b>Rétropropagation:</b> Gradient erreur -> Ajuste poids. <b>SGD:</b> w=w-lr*grad. <b>lr</b>=Learning Rate 0.001.</p>
+<h3>5. Exemple</h3><p>Face ID: 50 couches CNN. 1M visages. 2017 iPhone X.</p>
 <div class="erreur-box"><b>Erreur:</b> Trop couches + peu données = Surapprentissage 100%.</div>`,
-quiz:["Formule?|y=W·X+b,y=X+b,y=W,0|0","ReLU?|max,0,x,min,0|0","Deep?|>2 couches,1 couche,0,0|0","Backprop?|Avant,Arrière,Côté,0|1","Face ID?|CNN,RNN,0,0|0","GPU?|Obligatoire,Inutile,Dort,0|0","Sigmoid?|0-1,-1-1,0-100,0|0","Poids?|Fixe,Apprend,Dort,0|1","Erreur?|Monte,Descend,0,0|1","lr?|Learning Rate,Large Ratio,0,0|0"]},
+quiz:["Formule?|y=W·X+b,y=X+b,y=W,0|0","ReLU?|max0,x,min,0|0","Deep?|>2 couches,1 couche,0,0|0","Backprop?|Avant,Arrière,Côté,0|1","Face ID?|CNN,RNN,0,0|0","GPU?|Obligatoire,Inutile,Dort,0|0","Sigmoid?|0-1,-1-1,0-100,0|0","W =?|Fixe,Apprend,Dort,0|1","lr?|0.001,1,100,0|0","Année TF?|2017,1986,2012,0|0"]},
 
-5:{titre:"Leçon 5: LLM - Modèles de Langage 😊",img:"https://image.pollinations.ai/prompt/AI%20robot%20LIA%20tower%20books%20reading%20digital%20painting%208k",
-cours:`<h3>1. Définition LLM</h3><p><b>LLM:</b> Modèle probabiliste entraîné sur corpus texte massif. Tâche: Prédire P(mot_n | mot_1...mot_n-1).</p>
-<h3>2. Tokens</h3><p>Unité base. "Intelligence"=2 tokens. Vocabulaire=50k à 100k tokens. Pourquoi compte mal: token!=mot.</p>
-<h3>3. Architecture Transformer</h3><p><b>Attention:</b> <code>Attention(Q,K,V)=softmax(QK^T/sqrt(dk))V</code>. Permet voir toute phrase.</p>
-<h3>4. Entrainement 3 Étapes</h3><ul><li>Pré-entrainement: Prédiction mot suivant</li><li>SFT: Supervised Fine Tuning</li><li>RLHF: Récompense humaine</li></ul>
-<h3>5. Limites</h3><ul><li><b>Hallucination:</b> Génère faux avec confiance</li><li><b>Contexte:</b> 4k à 128k tokens max</li><li><b>Pas monde réel:</b> Pas vécu</li></ul>
-<div class="astuce"><b>CEO:</b> LLM = Stagiaire brillant qui ment. RAG = solution.</div>`,
-quiz:["LLM?|Large Language Model,Little,Long,Learn|0","Tâche?|Calcul,Prédire mot,Dessin,0|1","Token?|Mot,Morceau,Image,0|1","Attention?|2017,2000,1990,0|0","RLHF?|Récompense humaine,Robot,0,0|0","Contexte?|4k-128k,10,1000,0|0","Hallu?|Vrai,Faux,Peut,0|1","RAG?|Solution,Problème,0,0|0","Vocab?|50k-100k,10,100,0|0","Monde?|Vécu,Pas vécu,Peut,0|1"]},
+5:{titre:"Leçon 5: LLM 😊",img:"https://image.pollinations.ai/prompt/AI%20robot%20LIA%20tower%20books%20reading%20digital%20painting%208k",
+cours:`<h3>1. LLM 2018</h3><p><b>LLM</b>=Large Language Model. Modèle proba Pmot_n|mot_1...mot_n-1. GPT-1 OpenAI 2018 117M param.</p>
+<h3>2. Tokens</h3><p>Unité base. "Intelligence"=2 tokens. Vocab=50k-100k GPT-3. Compte mal car token!=mot.</p>
+<h3>3. Transformer 2017</h3><p><b>Attention:</b> softmaxQK^T/sqrt dk V. <b>Paper:</b> Attention Is All You Need. Google Brain.</p>
+<h3>4. Entrainement 3 Étapes</h3><ul><li>Pré-train: Next token 2020 GPT-3</li><li>SFT: Supervised Fine Tuning</li><li>RLHF: 2022 ChatGPT</li></ul>
+<h3>5. Limites</h3><ul><li><b>Hallucination:</b> Faux confiant</li><li><b>Contexte:</b> 4k-128k tokens GPT-4</li><li><b>Pas vécu:</b> Pas corps</li></ul>
+<h3>6. Sigles</h3><p><code>SFT</code>=Supervised FT. <code>RLHF</code>=RL Human Feedback. <code>RAG</code>=Retrieval Aug Gen 2020.</p>
+<div class="astuce"><b>CEO:</b> LLM=Stagiaire brillant qui ment. RAG=solution.</div>`,
+quiz:["LLM?|Large Language,Little,Long,Learn|0","GPT-1?|2018,2000,1990,0|0","Token?|Mot,Morceau,Image,0|1","Paper?|2017,2000,1990,0|0","RLHF?|2022,2000,1990,0|0","Contexte?|4k-128k,10,1000,0|0","Hallu?|Vrai,Faux,Peut,0|1","RAG?|2020,2010,2000,0|0","Vocab?|50k-100k,10,100,0|0","Param?|117M,1M,10M,0|0"]},
 
-6:{titre:"Leçon 6: IA Générative Image 👑",img:"https://image.pollinations.ai/prompt/majestic%20king%20dog%20golden%20crown%20fantasy%20art%20ultra%20detailed%208k",
-cours:`<h3>1. Diffusion</h3><p>Part bruit gaussien -> Débruitage étape par étape guidé texte. 50 étapes = image.</p>
-<h3>2. Types Modèles</h3><ul><li><b>GAN:</b> Générateur vs Discriminateur. Combat.</li><li><b>VAE:</b> Encode + Décode.</li><li><b>Diffusion:</b> Stable Diffusion, Midjourney. Actuel meilleur.</li></ul>
-<h3>3. Prompt Engineering</h3><p>Mots clés qualité: <code>8k, photorealistic, cinematic lighting, detailed, sharp focus</code>. Poids: <code>chien:1.3</code></p>
-<h3>4. Negative Prompt</h3><p>Ce qu’il faut éviter: <code>blurry, lowres, extra fingers</code></p>
-<h3>5. Usage Pro</h3><p>Logo, pack, affiche, NFT. Temps: 1h -> 5min. Coût: 100$ -> 0$.</p>
-<div class="erreur-box"><b>Erreur:</b> Croire IA créative. Non. Elle remixe dataset.</div>`,
-quiz:["Diffusion?|Bruit->Image,Image->Bruit,0,0|0","GAN?|Combat,Amis,0,0|0","Meilleur?|GAN,VAE,Diffusion,0|2","8k?|Qualité,Kilos,Chiens,0|0","Negative?|À éviter,À prendre,0,0|0","Étapes?|5,50,500,0|1","Poids?|1.3,0,0,0|0","Temps?|1h->5min,0,0,0|0","Coût?|100->0,0->100,0,0|0","Créative?|Oui,Non,Peut,0|1"]},
+6:{titre:"Leçon 6: IA Image 👑",img:"https://image.pollinations.ai/prompt/majestic%20king%20dog%20golden%20crown%20fantasy%20art%20ultra%20detailed%208k",
+cours:`<h3>1. Diffusion 2022</h3><p>Bruit gaussien -> Débruitage 50 étapes -> Image. <b>Stable Diffusion</b> Stability AI août 2022 open source.</p>
+<h3>2. Types</h3><table class="table"><tr><th>Modèle</th><th>Année</th></tr><tr><td>GAN</td><td>2014 Goodfellow</td></tr><tr><td>VAE</td><td>2013 Kingma</td></tr><tr><td>Diffusion</td><td>2022</td></tr></table>
+<h3>3. Prompt</h3><p>Mots qualité: <code>8k, photorealistic, cinematic lighting</code>. Poids: <code>chien:1.3</code>. <b>Negative:</b> blurry fingers.</p>
+<h3>4. Process</h3><p>Texte -> CLIP 2021 encode -> UNet débruit -> VAE 2013 décode -> Image.</p>
+<h3>5. Pro</h3><p>Logo 100$->0$. 1h->5min. Midjourney v5 2023, DALL-E 3 2023.</p>
+<div class="erreur-box"><b>Erreur:</b> IA remixe dataset. Pas créative.</div>`,
+quiz:["Diffusion?|Bruit->Image,Image->Bruit,0,0|0","GAN?|2014,2022,2000,0|0","Meilleur?|GAN,VAE,Diffusion,0|2","8k?|Qualité,Kilos,Chiens,0|0","Negative?|À éviter,À prendre,0,0|0","Étapes?|5,50,500,0|1","DALL-E 3?|2023,2010,2000,0|0","CLIP?|2021,2010,2000,0|0","UNet?|Débruit,Encode,0,0|0","VAE?|2013,2000,1990,0|0"]},
 
-7:{titre:"Leçon 7: Biais et Éthique IA 🍌",img:"https://image.pollinations.ai/prompt/yellow%20blue%20banana%20AI%20robot%20only%20sees%20yellow%20conceptual%208k",
-cours:`<h3>1. Biais Définition</h3><p>Écart systématique entre réalité et prédiction IA causé par données ou algo.</p>
-<h3>2. Types Biais</h3><ul><li><b>Représentation:</b> Groupe absent données</li><li><b>Mesure:</b> Erreur collecte</li><li><b>Agrégation:</b> Moyenne cache groupes</li><li><b>Évaluation:</b> Mauvaises métriques</li></ul>
-<h3>3. Cas Réels</h3><p>2018: Amazon IA recrutement pénalisait femmes. 2019: IBM visage reconnaît mal noirs.</p>
-<h3>4. Solutions</h3><ul><li>Données diverses</li><li>Audit régulier</li><li>Humain dans boucle</li><li>Transparence</li></ul>
-<h3>5. Lois</h3><p>RGPD UE, AI Act 2024. Amende 7% CA.</p>
-<div class="astuce"><b>CEO:</b> Question clé: Qui risque si IA se trompe?</div>`,
-quiz:["Biais?|Écart systématique,0,0,0|0","Amazon?|2018,2020,2015,0|0","IBM?|Visage,Voix,Texte,0|0","RGPD?|UE,US,Afrique,0|0","Amende?|7% CA,0%,1%,0|0","Audit?|Oui,Non,Peut,0|0","Humain?|Oui,Non,Peut,0|0","Diversité?|Oui,Non,Peut,0|0","AI Act?|2024,2020,2030,0|0","Risque?|Qui,0,0,0|0"]},
+7:{titre:"Leçon 7: Biais IA 🍌",img:"https://image.pollinations.ai/prompt/yellow%20blue%20banana%20AI%20robot%20only%20sees%20yellow%20conceptual%208k",
+cours:`<h3>1. Biais</h3><p>Écart systématique réalité vs prédiction. Causé données ou algo.</p>
+<h3>2. 4 Types</h3><ul><li><b>Représentation:</b> Groupe absent</li><li><b>Mesure:</b> Erreur collecte</li><li><b>Agrégation:</b> Moyenne cache</li><li><b>Évaluation:</b> Mauvaises métriques</li></ul>
+<h3>3. Cas 2018-2019</h3><p>2018 Amazon recrutement pénalisait femmes. 2019 IBM visage noir 34% erreur vs 0.8% blanc.</p>
+<h3>4. Solutions</h3><ul><li>Données diverses</li><li>Audit</li><li>Humain boucle</li><li>Transparence</li></ul>
+<h3>5. Lois</h3><p><b>RGPD</b> 2018 UE. <b>AI Act</b> 2024. Amende 7% CA.</p>
+<div class="astuce"><b>CEO:</b> Qui risque si erreur?</div>`,
+quiz:["Biais?|Écart syst,0,0,0|0","Amazon?|2018,2020,2015,0|0","IBM?|34%,1%,0%,0|0","RGPD?|2018,2020,2015,0|0","AI Act?|2024,2020,2030,0|0","Amende?|7% CA,0%,1%,0|0","Audit?|Oui,Non,Peut,0|0","Humain?|Oui,Non,Peut,0|0","Diversité?|Oui,Non,Peut,0|0","Risque?|Qui,0,0,0|0"]},
 
-8:{titre:"Leçon 8: Prompting - Art de Parler à LIA 🗣️",img:"https://image.pollinations.ai/prompt/person%20speaking%20kindly%20to%20AI%20robot%20LIA%20golden%20drawing%20warm%208k",
-cours:`<h3>1. Prompt</h3><p>Instruction textuelle. Qualité prompt = Qualité sortie. Métier: Prompt Engineer.</p>
-<h3>2. CORTEX Framework</h3><ul><li><b>C:</b> Contexte rôle</li><li><b>O:</b> Objectif précis</li><li><b>R:</b> Règles format</li><li><b>T:</b> Tâche décomposée</li><li><b>E:</b> Exemples few-shot</li><li><b>X:</b> Contraintes</li></ul>
-<h3>3. Techniques</h3><p><b>Chain-of-Thought:</b> "Réfléchis étape par étape". <b>Zero-shot:</b> 0 exemple. <b>Few-shot:</b> 2-3 exemples.</p>
-<h3>4. Mauvais vs Bon</h3><p>Mauvais: "Code site"<br>Bon: "Tu es dev senior. Site pagnes Bénin. HTML CSS. 3 pages. Responsive mobile. Couleurs #FFD700 #9D7BFF. Commenté."</p>
-<div class="astuce"><b>CEO:</b> Si nul -> Prompt nul 90% temps.</div>`,
-quiz:["Métier?|Boucher,Prompt Engineer,Pompier,0|1","C?|Contexte,Couleur,Chat,0|0","O?|Objectif,Orange,0,0|0","Few-shot?|0,2-3,10,0|1","CoT?|Étape étape,Dort,0,0|0","Zero-shot?|0 ex,1 ex,10 ex,0|0","R?|Règles,Rouge,0,0|0","T?|Tâche,Tour,0,0|0","E?|Exemple,Erreur,0,0|0","X?|Contraintes,Xylophone,0,0|0"]},
+8:{titre:"Leçon 8: Prompting 🗣️",img:"https://image.pollinations.ai/prompt/person%20speaking%20kindly%20to%20AI%20robot%20LIA%20golden%20drawing%20warm%208k",
+cours:`<h3>1. Prompt 2023</h3><p>Instruction texte. Qualité prompt=Qualité sortie. Métier: Prompt Engineer salaire 5000$/mois.</p>
+<h3>2. CORTEX</h3><ul><li><b>C:</b> Contexte rôle</li><li><b>O:</b> Objectif</li><li><b>R:</b> Règles</li><li><b>T:</b> Tâche</li><li><b>E:</b> Exemples</li><li><b>X:</b> Contraintes</li></ul>
+<h3>3. Techniques</h3><p><b>CoT:</b> Chain-of-Thought 2022. <b>Zero-shot:</b> 0 ex. <b>Few-shot:</b> 2-3 ex.</p>
+<h3>4. Exemple</h3><p>Mauvais: Code site<br>Bon: Dev senior. Site pagnes Bénin. HTML CSS. 3 pages. #FFD700 #9D7BFF.</p>
+<div class="astuce"><b>CEO:</b> Nul=Prompt nul 90%.</div>`,
+quiz:["Métier?|Boucher,Prompt,Pompier,0|1","C?|Contexte,Couleur,Chat,0|0","O?|Objectif,Orange,0,0|0","Few-shot?|0,2-3,10,0|1","CoT?|2022,2000,1990,0|0","Zero-shot?|0 ex,1 ex,10 ex,0|0","R?|Règles,Rouge,0,0|0","T?|Tâche,Tour,0,0|0","E?|Exemple,Erreur,0,0|0","X?|Contraintes,Xylo,0,0|0"]},
 
-9:{titre:"Leçon 9: IA pour le Bénin 🇧🇯",img:"https://image.pollinations.ai/prompt/Benin%20flag%20colors%20AI%20robot%20helping%20student%20market%20seller%20phone%20African%20vibes%208k",
-cours:`<h3>1. Opportunité</h3><p>IA = Égalisateur. 0$ capital + internet = Concurrence mondiale.</p>
-<h3>2. 5 Cas Concrets</h3><ul><li><b>Éducation:</b> Prof perso SVT 3ème avec exemples gari</li><li><b>Commerce:</b> 30 légendes Insta pagnes wax style Cotonou</li><li><b>Agriculture:</b> Photo feuille manioc -> Diagnostic + traitement bio</li><li><b>Langue:</b> Trad Fr<>Fon<>Yoruba</li><li><b>Admin:</b> CV, lettre motiv MTN, Orange</li></ul>
-<h3>3. Modèle Business</h3><p>Toi + IA = Agence 10 personnes. Vends temps gagné, pas heures.</p>
-<h3>4. Contraintes</h3><p>Internet requis. Solution: Télécharge cours. Travail offline.</p>
-<div class="astuce"><b>CEO:</b> Ne consomme pas IA. Produis avec IA.</div>`,
-quiz:["IA?|Égalisateur,0,0,0|0","Cas?|1,3,5,10|2","Éduc?|SVT,Maths,0,0|0","Agri?|Manioc,Riz,0,0|0","Langue?|Fr-Fon,0,0,0|0","Modèle?|Agence,0,0,0|0","Internet?|Oui,Non,Peut,0|0","Offline?|Oui,Non,Peut,0|0","Vends?|Temps,Heures,0,0|0","Produit?|Oui,Non,Peut,0|0"]},
+9:{titre:"Leçon 9: IA Bénin 🇧🇯",img:"https://image.pollinations.ai/prompt/Benin%20flag%20colors%20AI%20robot%20helping%20student%20market%20seller%20phone%20African%20vibes%208k",
+cours:`<h3>1. Opportunité 2025</h3><p>IA=Égalisateur. 0$+internet=Concurrence mondiale.</p>
+<h3>2. 5 Cas</h3><ul><li><b>Éduc:</b> Prof SVT gari</li><li><b>Commerce:</b> 30 légendes Insta pagnes</li><li><b>Agri:</b> Manioc diag photo</li><li><b>Langue:</b> Fr-Fon-Yoruba</li><li><b>Admin:</b> CV MTN</li></ul>
+<h3>3. Business</h3><p>Toi+IA=Agence 10. Vends temps gagné. 50000F/mois.</p>
+<h3>4. Contraintes</h3><p>Internet. Solution: Download cours. Hors ligne.</p>
+<div class="astuce"><b>CEO:</b> Produis avec IA.</div>`,
+quiz:["IA?|Égalisateur,0,0,0|0","Cas?|1,3,5,10|2","Éduc?|SVT,Maths,0,0|0","Agri?|Manioc,Riz,0,0|0","Langue?|Fr-Fon,0,0,0|0","Modèle?|Agence,0,0,0|0","Internet?|Oui,Non,Peut,0|0","Offline?|Oui,Non,Peut,0|0","Vends?|Temps,Heures,0,0|0","50000F?|Mois,An,Jour,0|0"]},
 
-10:{titre:"Leçon 10: Stratégie Futur Humain+IA 🚀",img:"https://image.pollinations.ai/prompt/human%20CEO%20hero%20cape%20AI%20robot%20sidekick%20city%20top%20epic%208k",
-cours:`<h3>1. Myth vs Réalité</h3><p>Myth: IA vole travail. Réalité: IA vole travail de ceux sans IA. 2000: Internet tue commerce -> Faux.</p>
-<h3>2. 3 Catégories 2030</h3><ul><li><b>Remplacé:</b> Tâches répétitives 3s</li><li><b>Utilisateur:</b> ChatGPT occasionnel</li><li><b>Maître:</b> Construit systèmes IA, vend IA</li></ul>
-<h3>3. 4 Compétences Clés</h3><p>1.<b>Pensée critique:</b> Vérifier IA<br>2.<b>Créativité:</b> Idées = humain<br>3.<b>Prompting:</b> Parler à IA<br>4.<b>Éthique:</b> Quand dire non</p>
-<h3>4. Plan Action</h3><p>Finis 9 leçons -> Portfolio 3 projets IA -> Vends service -> 2000$ mois.</p>
-<div class="astuce"><b>CEO:</b> Pendant autres ont peur, toi tu encaisses.</div>`,
-quiz:["Myth?|IA vole,0,0,0|0","Réalité?|Sans IA,0,0,0|0","Cat 2030?|2,3,4,5|1","Maître?|Systèmes,0,0,0|0","Comp1?|Critique,0,0,0|0","Créa?|Humain,IA,0,0|0","Plan?|3 projets,0,0,0|0","2000$?|Mois,An,Jour,0|0","Peur?|Fausse,Vrai,0,0|0","Inarrêtable?|Toi+LIA,0,
+10:{titre:"Leçon 10: Futur 🚀",img:"https://image.pollinations.ai/prompt/human%20CEO%20hero%20cape%20AI%20robot%20sidekick%20city%20epic%208k",
+cours:`<h3>1. Myth vs Réalité 2025</h3><p>Myth: IA vole. Réalité: IA vole ceux sans IA. 2000: Internet tue commerce=Faux.</p>
+<h3>2. 3 Cat 2030</h3><ul><li><b>Remplacé:</b> Tâches 3s</li><li><b>Utilisateur:</b> ChatGPT</li><li><
