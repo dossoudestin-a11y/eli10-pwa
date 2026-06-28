@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIA ACADEMIE V23</title>
+<title>LIA ACADEMIE V24</title>
 <style>
 * {box-sizing: border-box;}
 body {
@@ -23,17 +23,15 @@ input{width:100%;padding:16px;border-radius:14px;border:2px solid rgba(255,215,0
 input:invalid{border-color:#FF5252}
 input:valid{border-color:#69F0AE}
 button{width:100%;padding:16px;border-radius:14px;border:0;font-size:1.1rem;font-weight:800;background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;cursor:pointer}
-button:disabled{opacity:.4;cursor:not-allowed}
-.hidden{display:none}
 form:valid #lock{display:none}
 form:valid ~ #app{display:block}
 #app{display:none}
 .lesson{background:linear-gradient(135deg,rgba(127,90,240,.35),rgba(0,0,0,.35));padding:16px;border-radius:14px;margin-top:12px;border:1px solid rgba(127,90,240,.5);cursor:pointer;transition:transform.1s}
 .lesson:active{transform:scale(.98);background:rgba(127,90,240,.6)}
-#destinReply{background:linear-gradient(135deg,rgba(127,90,240,.25),rgba(255,215,0,.15));padding:18px;border-radius:16px;margin-top:15px;font-size:1.15rem;line-height:1.9;border:1px solid rgba(127,90,240,.4);min-height:80px}
-#destinReply b{color:#FFD700;font-size:1.2rem}
+#destinReply{background:linear-gradient(135deg,rgba(127,90,240,.25),rgba(255,215,0,.15));padding:18px;border-radius:16px;margin-top:15px;font-size:1.2rem;line-height:2;border:1px solid rgba(127,90,240,.4);min-height:100px}
+#destinReply b{color:#FFD700;font-size:1.3rem}
 .chatbox{display:flex;gap:8px;margin-top:12px}
-.chatbox input{flex:1;text-transform:none;text-align:left;border-color:#7F5AF0}
+.chatbox input{flex:1;text-transform:none;text-align:left;border-color:#7F5AF0;font-size:1rem}
 .chatbox button{width:auto;padding:16px 20px;background:linear-gradient(90deg,#7F5AF0,#9D7BFF);color:#fff}
 </style>
 </head>
@@ -44,7 +42,6 @@ form:valid ~ #app{display:block}
     <div id="lock">
       <div class="logo">DP</div>
       <h1>LIA ACADEMIE</h1>
-      <p style="text-align:center;opacity:.9;margin:0">Code secret exact 👇</p>
       <input id="code" name="code" placeholder="DESTIN-001" required pattern="DESTIN-001" autocomplete="off">
       <button type="submit" formaction="#app">Activer Mon Accès ✨</button>
     </div>
@@ -53,40 +50,67 @@ form:valid ~ #app{display:block}
   <div id="app">
     <div class="logo" style="width:70px;height:70px;font-size:2.2rem">DP</div>
     <h1>Salut, je suis LIA ✨</h1>
-    <p style="text-align:center;opacity:.9">Clique une leçon ou écris 👇</p>
+    <p style="text-align:center;opacity:.9">Clique une leçon ou parle-moi 👇</p>
 
-    <div class="lesson" onclick="r('LIA ✨:</b> 👶 Coucou! Imagine un robot bébé. Si tu lui montres 100 photos de chats, il apprend. Apres il dit: Ca cest un chat!')"><b>Leçon 2</b> - Robot qui apprend</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 📚 Machine Learning = La machine va a lecole! Comme toi. On te montre A 50 fois, apres tu reconnais A.')"><b>Leçon 3</b> - Machine Learning</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 🧠 Lordi a un cerveau plein dampoules. Une crie moustaches, une autre miaule. Ensemble = Cest un chat!')"><b>Leçon 4</b> - Le Cerveau IA</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 😊 Moi cest LIA! Jai lu tous les livres. Je devine le mot dapres quand tu parles. Cest un jeu!')"><b>Leçon 5</b> - Les LLM</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 👑🐶 Tu me dis dessine un chien roi et POUF! Jai vu des millions de dessins avant. Je suis une artiste magique.')"><b>Leçon 6</b> - Image IA</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 🍌 Attention! Si je vois seulement des bananes jaunes, je crois que toutes sont jaunes. LIA copie betement.')"><b>Leçon 7</b> - Les Biais</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 🗣️ Parle-moi comme a ton ami. Dis: LIA sil te plait, dessine un soleil jaune qui rigole')"><b>Leçon 8</b> - Prompt</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 🇧🇯 Au Benin je peux taider pour tes devoirs, ecrire pour vendre, ou traduire Francais Fon.')"><b>Leçon 9</b> - LIA au Benin</div>
-    <div class="lesson" onclick="r('LIA ✨:</b> 🚀 LIA ne prend PAS ta place! Mais toi + LIA = Tu deviens un super-heros de ta classe.')"><b>Leçon 10</b> - Futur</div>
+    <div class="lesson" onclick="parler('chat')"><b>Leçon 2</b> - Robot qui apprend</div>
+    <div class="lesson" onclick="parler('ecole')"><b>Leçon 3</b> - Machine Learning</div>
+    <div class="lesson" onclick="parler('cerveau')"><b>Leçon 4</b> - Le Cerveau IA</div>
+    <div class="lesson" onclick="parler('livres')"><b>Leçon 5</b> - Les LLM</div>
+    <div class="lesson" onclick="parler('dessin')"><b>Leçon 6</b> - Image IA</div>
+    <div class="lesson" onclick="parler('banane')"><b>Leçon 7</b> - Les Biais</div>
+    <div class="lesson" onclick="parler('ami')"><b>Leçon 8</b> - Prompt</div>
+    <div class="lesson" onclick="parler('benin')"><b>Leçon 9</b> - LIA au Benin</div>
+    <div class="lesson" onclick="parler('heros')"><b>Leçon 10</b> - Futur</div>
 
-    <div id="destinReply">👋 Coucou! Clique `Leçon 2` pour commencer 😊</div>
+    <div id="destinReply">👋 Coucou! Moi cest LIA. Jai 5 ans dans ma tete 😊 Parle-moi!</div>
 
-    <!-- LA CASE POUR ECRIRE A LIA EST DE RETOUR CEO -->
     <div class="chatbox">
-      <input id="input" placeholder="Ex: Explique Leçon 3">
+      <input id="input" placeholder="Dis bonjour a LIA">
       <button onclick="demander()">Envoyer</button>
     </div>
   </div>
 </div>
 
 <script>
-function r(t){document.getElementById('destinReply').innerHTML=t}
+// CERVEAU DE LIA POUR ENFANT DE 5 ANS 👶
+const REPONSES = {
+  chat: "👶 Coucou! Imagine un robot bebe. Tu lui montres 100 chats. Apres il sait! Il dit: Ah! Cest un chat! Cest la magie.",
+  ecole: "📚 La machine va a lecole! Comme toi. Maman te montre la lettre A 50 fois. Apres tu connais A. La machine fait pareil. Facile!",
+  cerveau: "🧠 Lordi a un gros cerveau. Dedans il y a des petites lampes. Une lampe dit moustaches. Une autre dit miaule. Ensemble = Chat!",
+  livres: "😊 Moi cest LIA! Jai lu tous les livres du monde. Je suis tres curieuse. Quand tu parles, je devine ton mot dapres. Comme un jeu!",
+  dessin: "👑🐶 Tu me dis dessine un chien roi. Et POUF! Je dessine. Jai regarde plein de dessins avant. Je suis une artiste magique.",
+  banane: "🍌 Oh non! Si je vois que des bananes jaunes, je crois que toutes sont jaunes. LIA doit voir plein de couleurs. Sinon elle se trompe.",
+  ami: "🗣️ Parle-moi doucement. Comme a ton meilleur ami. Dis: LIA sil te plait, montre-moi un soleil qui rit. LIA sera contente 😊",
+  benin: "🇧🇯 Au Benin LIA est ton ami. Je peux taider pour les devoirs. Pour ecrire. Pour traduire Francais Fon. Tu n’es jamais seul!",
+  heros: "🚀 LIA ne va pas prendre ta place. Non non. Mais toi + LIA = Vous etes une super equipe! Tu deviens le plus fort de la classe.",
+  bonjour: "👋 Coucou toi! Moi cest LIA. Je suis trop contente de te voir. Tu veux jouer avec moi? On apprend ensemble!",
+  merci: "😊 De rien mon ami! Aider cest mon travail prefere. Tu veux savoir autre chose?",
+  default: "🤔 Hmm je ne sais pas ce mot. Mais je suis LIA! Parle-moi des chats, de lecole, des dessins. Ou dis Lecon 2. Je texplique tout!"
+};
+
+function parler(mot){ r(REPONSES[mot]) }
+
 function demander(){
-  let q = document.getElementById('input').value.toLowerCase();
-  let m = q.match(/leçon\s*(\d+)/);
-  if(m && m[1] >= 2 && m[1] <= 10){
-    document.querySelectorAll('.lesson')[m[1]-2].click(); // Simule le clic
-  } else {
-    r('LIA ✨:</b> Dis-moi `Leçon 3` ou `Leçon 5` mon ami 😊');
-  }
+  let q = document.getElementById('input').value.toLowerCase().trim();
+  let reponse = REPONSES.default;
+
+  if(q.includes('bonjour')) reponse = REPONSES.bonjour;
+  else if(q.includes('merci')) reponse = REPONSES.merci;
+  else if(q.includes('chat') || q.includes('2')) reponse = REPONSES.chat;
+  else if(q.includes('ecole') || q.includes('3') || q.includes('machine')) reponse = REPONSES.ecole;
+  else if(q.includes('cerveau') || q.includes('4')) reponse = REPONSES.cerveau;
+  else if(q.includes('livre') || q.includes('5') || q.includes('llm')) reponse = REPONSES.livres;
+  else if(q.includes('dessin') || q.includes('6') || q.includes('image')) reponse = REPONSES.dessin;
+  else if(q.includes('banane') || q.includes('7') || q.includes('biais')) reponse = REPONSES.banane;
+  else if(q.includes('ami') || q.includes('8') || q.includes('prompt')) reponse = REPONSES.ami;
+  else if(q.includes('benin') || q.includes('9')) reponse = REPONSES.benin;
+  else if(q.includes('heros') || q.includes('10') || q.includes('futur')) reponse = REPONSES.heros;
+
+  r(reponse);
   document.getElementById('input').value = '';
 }
+
+function r(t){document.getElementById('destinReply').innerHTML='<b>LIA ✨:</b> '+t}
 </script>
 </body>
 </html>
