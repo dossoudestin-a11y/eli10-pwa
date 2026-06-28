@@ -2,15 +2,16 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESTIN ACADEMIE V30.1</title>
+<title>DESTIN ACADEMIE V31 PERLE</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:#fff;background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,.4) 0%, transparent 50%),radial-gradient(ellipse at 80% 90%, rgba(255,215,0,.3) 0%, transparent 50%),linear-gradient(135deg, #0a0f1e 0%, #1a1f3a 50%, #2a1a4a 100%);min-height:100vh}
-.app{width:100%;max-width:750px;margin:0 auto;padding:20px;min-height:100vh}
+.app{width:100%;max-width:780px;margin:0 auto;padding:20px;min-height:100vh}
 .logo{width:90px;height:90px;margin:20px auto;background:linear-gradient(135deg,#FFD700 0%,#FFA500 100%);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#000;box-shadow:0 0 30px rgba(255,215,0,.6)}
 h1{text-align:center;font-size:1.8rem;margin:0 0 15px;background:linear-gradient(90deg,#FFD700,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-h2{font-size:1.5rem;color:#FFD700;margin:20px 0 12px;border-bottom:2px solid rgba(255,215,0,.4);padding-bottom:8px}
+h2{font-size:1.5rem;color:#FFD700;margin:22px 0 12px;border-bottom:3px solid rgba(255,215,0,.4);padding-bottom:8px}
 h3{color:#9D7BFF;margin:18px 0 10px;font-size:1.15rem}
+h4{color:#FFA500;margin:12px 0 8px;font-size:1.05rem}
 input{width:100%;padding:16px;border-radius:14px;border:2px solid rgba(255,215,0,.4);font-size:1.05rem;font-weight:700;background:rgba(0,0,0,.6);color:#fff;text-align:center;margin-bottom:12px;text-transform:uppercase}
 button{width:100%;padding:16px;border-radius:14px;border:0;font-size:1.1rem;font-weight:800;background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;cursor:pointer;touch-action:manipulation}
 button:active{transform:scale(.96)}
@@ -23,6 +24,8 @@ button:active{transform:scale(.96)}
 .cours-img{width:100%;border-radius:16px;margin:15px 0;border:3px solid rgba(255,215,0,.5)}
 .box{background:rgba(255,215,0,.1);padding:16px;border-radius:12px;border-left:5px solid #FFD700;margin:15px 0}
 .astuce{background:rgba(105,240,174,.15);padding:14px;border-radius:12px;border-left:5px solid #69F0AE;margin:15px 0}
+.erreur-box{background:rgba(255,82,82,.15);padding:14px;border-radius:12px;border-left:5px solid #FF5252;margin:15px 0}
+.schema{background:rgba(0,0,0,.4);padding:12px;border-radius:10px;font-family:monospace;font-size:.95rem;margin:12px 0;border:1px dashed rgba(127,90,240,.5)}
 .quiz-box{background:rgba(127,90,240,.2);padding:20px;border-radius:16px;border:1px solid rgba(127,90,240,.5);margin-top:25px}
 .question{margin-top:15px;padding:14px;background:rgba(0,0,0,.3);border-radius:12px}
 .question label{display:block;margin-top:8px;cursor:pointer;padding:10px;border-radius:8px;background:rgba(255,255,255,.05)}
@@ -37,12 +40,12 @@ ul{padding-left:20px}
 .error{color:#FF5252;text-align:center;margin-top:8px;font-weight:700;display:none}
 .success{color:#69F0AE;text-align:center;margin-top:8px;font-weight:700;display:none}
 .prix{color:#FFD700;font-size:1.05rem;text-align:center;margin-bottom:15px}
+code{background:rgba(0,0,0,.5);padding:2px 6px;border-radius:4px;color:#FFD700}
 </style>
 </head>
 <body>
 <div class="app">
 
-  <!-- PAGE 1: CODE -->
   <div id="lock" class="page active">
     <div class="lock-box">
       <div class="logo">DP</div>
@@ -55,11 +58,10 @@ ul{padding-left:20px}
     </div>
   </div>
 
-  <!-- PAGE 2: MENU -->
   <div id="home" class="page">
     <div class="logo" style="width:70px;height:70px;font-size:2.2rem">DP</div>
     <h1>Salut <span id="userCode"></span> ✨</h1>
-    <p style="text-align:center;opacity:.9;margin-bottom:12px">9 Leçons IA + Quiz 10Q</p>
+    <p style="text-align:center;opacity:.9;margin-bottom:12px">9 Leçons Masterclass + Quiz 10Q</p>
     
     <div class="lesson" onclick="ouvrir(2)">Leçon 2: Apprentissage Machine 🍼</div>
     <div class="lesson" onclick="ouvrir(3)">Leçon 3: Machine Learning 📚</div>
@@ -71,11 +73,10 @@ ul{padding-left:20px}
     <div class="lesson" onclick="ouvrir(9)">Leçon 9: IA Bénin 🇧🇯</div>
     <div class="lesson" onclick="ouvrir(10)">Leçon 10: Futur 🚀</div>
 
-    <div id="destinReply"><b>LIA ✨:</b> Coucou! Tape `Leçon 3` ou clique.</div>
+    <div id="destinReply"><b>LIA ✨:</b> Coucou CEO! Tape `Leçon 3` ou clique.</div>
     <div class="chatbox"><input id="input" placeholder="Ex: Explique Leçon 4"><button onclick="demander()">Envoyer</button></div>
   </div>
 
-  <!-- PAGES COURS -->
   <div id="c2" class="page"><button class="btn-back" onclick="retour()">⬅ Menu</button><div id="contenu-c2"></div></div>
   <div id="c3" class="page"><button class="btn-back" onclick="retour()">⬅ Menu</button><div id="contenu-c3"></div></div>
   <div id="c4" class="page"><button class="btn-back" onclick="retour()">⬅ Menu</button><div id="contenu-c4"></div></div>
@@ -89,119 +90,105 @@ ul{padding-left:20px}
 </div>
 
 <script>
-// 1. CODE QUI MARCHE 100% SUR SAFARI
 const CODES = ["DESTIN-001","DESTIN-002","DESTIN-003","DESTIN-004","DESTIN-005"];
-
 document.getElementById('btnActiver').addEventListener('click', activer);
 document.getElementById('code').addEventListener('keypress', e=>{if(e.key==='Enter')activer();});
-
 function activer(){
   let code = document.getElementById('code').value.trim().toUpperCase();
   let err = document.getElementById('error'); let ok = document.getElementById('success');
   err.style.display='none'; ok.style.display='none';
-  
   if(!CODES.includes(code)){err.textContent="❌ Code faux. Contact CEO.";err.style.display='block';return;}
   if(localStorage.getItem('destin_code')){err.textContent="❌ Code déjà utilisé sur ce tel.";err.style.display='block';return;}
   let pris = JSON.parse(localStorage.getItem('pris')||'[]');
   if(pris.includes(code)){err.textContent="❌ Code déjà utilisé ailleurs.";err.style.display='block';return;}
-  
   localStorage.setItem('destin_code',code); pris.push(code);
   localStorage.setItem('pris',JSON.stringify(pris)); ok.style.display='block';
   setTimeout(()=>goHome(code),600);
 }
-
-function goHome(code){
-  document.getElementById('userCode').textContent=code;
-  document.getElementById('lock').classList.remove('active');
-  document.getElementById('home').classList.add('active');
-}
+function goHome(code){document.getElementById('userCode').textContent=code;document.getElementById('lock').classList.remove('active');document.getElementById('home').classList.add('active');}
 if(localStorage.getItem('destin_code')) goHome(localStorage.getItem('destin_code'));
 
-// 2. COURS ULTRA DÉTAILLÉS + 10 QUIZ + IMAGES
+// 2. COURS PERLE DÉTAILLÉE + QUIZ LIÉ
 const COURS = {
-2:{titre:"Leçon 2: Apprentissage Machine",img:"https://image.pollinations.ai/prompt/baby%20robot%20learning%20from%20cat%20photos%20classroom%208k",
-cours:`<h3>1. Définition Scientifique Simple</h3><p>Machine Learning = Une branche de l’IA où l’algorithme apprend des patterns dans des données, sans règles codées à la main. Mot scientifique: <b>Algorithme</b> = Recette de cuisine pour l’ordi.</p><div class="box"><b>Pour 10 ans:</b> Au lieu de dire "si moustaches=oui alors chat", on montre 1000 chats. L’ordi trouve la règle tout seul.</div>
-<h3>2. Les 3 Types</h3><ul><li><b>Supervisé:</b> On donne question + réponse. Ex: Photo = "chat".</li><li><b>Non Supervisé:</b> Pas de réponse. L’IA groupe seule. Ex: Clients qui achètent pareil.</li><li><b>Renforcement:</b> Essai + points. Ex: AlphaGo.</li></ul>
-<h3>3. Cycle de Vie</h3><p>Collecte > Nettoyage > Entrainement > Test > Déploiement. <b>GIGO:</b> Garbage In = Garbage Out.</p>
-<h3>4. Exemple Bénin</h3><p>Tri noix cajou: 5000 photos > IA > 1000 noix/min.</p><div class="astuce"><b>CEO:</b> 100 données propres > 10000 sales.</div>`,
-quiz:["ML cest?|Règles,Exemples,Magie,Prière|1","Supervisé?|Pas prof,Prof+Réponse,Dort,Magie|1","GIGO?|Or,Poubelle,Go,Good|1","Bénin?|Cuisine,Tri noix,Danse,Chant|1","Manuel IA?|Code,Données,Bouton,Ecran|1","Type?|Supervisé,Non,Magie,Rien|0","Test?|Avant,Après,Déploiement,Never|1","Nettoyage?|Inutile,Important,Dort,Mange|1","Renforcement?|Points,0,Magie,Dormir|0","But?|Mémoriser,Généraliser,Dormir,Rire|1"]},
+2:{titre:"Leçon 2: Apprentissage Machine - Fondation Totale 🍼",img:"https://image.pollinations.ai/prompt/baby%20robot%20learning%20from%201000%20cat%20photos%20floating%20classroom%20digital%20art%208k",
+cours:`<h3>1. Définition Scientifique</h3><p><b>Machine Learning ML:</b> Domaine de l’IA où un système améliore ses performances sur une tâche T, à partir d’une expérience E, mesurée par une performance P. Mot clé: <code>Algorithme</code> = Suite d’instructions. <code>Modèle</code> = Résultat de l’apprentissage.</p>
+<h4>Pour 10 ans:</h4><p>Au lieu de programmer "si moustaches ET poils ALORS chat", on montre 10000 photos chat/chien. La machine calcule elle-même la différence.</p>
+<h3>2. Histoire Rapide</h3><p>1952: Arthur Samuel crée programme dames qui apprend. 1986: Rétropropagation. 2012: AlexNet gagne ImageNet = Boom Deep Learning.</p>
+<h3>3. Les 3 Types Décortiqués</h3><ul><li><b>Supervisé:</b> Données X + Etiquettes Y. But: Fonction f:X->Y. Ex: Classification chat/chien. 80% des IA.</li><li><b>Non Supervisé:</b> Que X. But: Trouver structure. Ex: Clustering clients, PCA.</li><li><b>Renforcement:</b> Agent + Environnement + Récompense. But: Maximiser récompense. Ex: AlphaGo, robot marche.</li></ul>
+<h3>4. Schéma Cycle de Vie</h3><div class="schema">Collecte -> Nettoyage -> Split 70/20/10 -> Entrainement -> Validation -> Test -> Déploiement -> Monitoring</div>
+<h3>5. Loi GIGO</h3><div class="erreur-box"><b>Garbage In Garbage Out:</b> Qualité entrée = Qualité sortie. Biais données = Biais IA.</div>
+<h3>6. Exemple Bénin Concret</h3><p><b>Problème:</b> Trier noix cajou. <b>Données:</b> 5000 photos étiquetées bonne/mauvaise. <b>Modèle:</b> CNN. <b>Résultat:</b> 98% précision, 1000 noix/min. <b>Gain CEO:</b> 20 ouvriers -> 1 système.</p>
+<h3>7. Erreurs Débutant</h3><ul><li>Pas assez données</li><li>Test sur données entrainement</li><li>Ignorer GIGO</li></ul>
+<div class="astuce"><b>Astuce CEO:</b> Commence petit: 100 données propres > 10000 sales. Mesure toujours.</div>`,
+quiz:["ML est?|Branche IA,Branche cuisine,Magie,Prière|0","T =?|Tâche,Temps,Téléphone,Télé|0","E =?|Expérience,Erreur,Entrée,Eau|0","P =?|Performance,Prix,Pixel,Pain|0","Supervisé a?|X seul,X+Y,Y seul,0|1","GIGO veut?|Or,Poubelle,Go,Good|1","Split?|100% train,70-20-10,50-50,0|1","Bénin?|Cuisine,Tri noix,Danse,Chant|1","AlexNet?|1952,2012,2020,1999|1","Modèle =?|Code,Résultat apprentissage,0,Magie|1"]},
 
-3:{titre:"Leçon 3: Machine Learning Avancé",img:"https://image.pollinations.ai/prompt/computer%20at%20school%20desk%20AI%20101%208k",
-cours:`<h3>1. Analogie</h3><p>Enfant + lettre A x100 = Règle dans cerveau. Machine pareil x1M.</p><h3>2. Données</h3><ul><li><b>Structurées:</b> Excel</li><li><b>Non Structurées:</b> Photos 80%</li><li><b>Étiquetées:</b> Avec réponse = cher</li></ul>
-<h3>3. Sur vs Sous</h3><p><b>Sous:</b> 2/20 trop simple.<br><b>Sur:</b> 20/20 manuel 3/20 test.<br><b>But:</b> 15/20 = Généralisation.</p>
-<h3>4. Métriques</h3><p><b>Précision:</b> 100 prédictions.<br><b>Rappel:</b> 100 vrais trouvés. Médical=Rappel.</p><div class="astuce"><b>CEO:</b> 70% train, 20% test, 10% val.</div>`,
-quiz:["ML comme?|Calcul,Enfant,Pierre,Eau|1","Photos?|Struct,Non,Magie,Faux|1","Sur?|Bête,Par coeur,Dort,Mange|1","Médical?|Précision,Rappel,Vitesse,Couleur|1","Sans?|Super,Pas IA,Lente,Rouge|1","Diviser?|100% train,70-20-10,50-50,0|1","Étiquette?|Gratuit,Cher,Inutile,Magie|1","But?|2/20,15/20,0/20,20/20|1","Excel?|Struct,Non,Magie,Rien|0","Test?|Jamais,Après,Avant,Dort|1"]},
+3:{titre:"Leçon 3: Machine Learning Avancé - L’École de l’IA 📚",img:"https://image.pollinations.ai/prompt/computer%20at%20school%20desk%20notebook%20AI%20101%20robot%20teacher%208k",
+cours:`<h3>1. Analogie École</h3><p>Humain: Voir A x100 -> Règle mentale. Machine: Voir A x1M -> Poids mathématiques.</p>
+<h3>2. Types de Données</h3><ul><li><b>Structurées:</b> Tableaux. Lignes=exemples, Colonnes=features. Ex: Age,Prix.</li><li><b>Non Structurées:</b> Images, audio, texte. 80% monde. Besoin CNN,RNN,Transformers.</li><li><b>Étiquetées:</b> Avec Y. Coût: 1$ à 10$ par image. Semi-supervisé = mélange.</li></ul>
+<h3>3. Surapprentissage vs Sous</h3><p><b>Sous-apprentissage:</b> Bias élevé, Variance faible. Modèle trop simple.<br><b>Surapprentissage:</b> Bias faible, Variance élevée. Modèle mémorise.<br><b>Solution:</b> Regularisation, Dropout, Plus données.</p>
+<h4>Schéma:</h4><div class="schema">Sous -> Bon -> Sur</div>
+<h3>4. Métriques</h3><p><b>Précision</b>=VP/VP+FP. <b>Rappel</b>=VP/VP+FN. <b>F1</b>=2PR/P+R. <b>ROC-AUC</b>=Aire courbe.</p>
+<h3>5. Exemple</h3><p>Médical cancer: Faux Négatif = mort. Donc on maximise Rappel même si Précision baisse.</p>
+<div class="astuce"><b>CEO:</b> Toujours matrice confusion + courbe ROC. Jamais que précision.</div>`,
+quiz:["Bias élevé?|Sous,Sur,Bon,0|0","Variance élevée?|Sous,Sur,Bon,0|1","F1 =?|P+R,2PR/P+R,P/R,0|1","Structurées?|Images,Excel,Audio,0|1","Non struct?|Excel,Images,0,0|1","Étiquette coût?|0$,1-10$,100$,0|1","Médical vise?|Précision,Rappel,Vitesse,0|1","Split val?|0%,10%,50%,100%|1","Dropout?|Sur,Sous,Bon,0|0","ROC?|Courbe,Ligne,Point,0|0"]},
 
-4:{titre:"Leçon 4: Réseaux de Neurones",img:"https://image.pollinations.ai/prompt/artificial%20brain%20light%20bulbs%20wires%20cyberpunk%208k",
-cours:`<h3>1. Cerveau</h3><p>86 milliards neurones > Couches IA: Entrée > Cachées > Sortie.</p><h3>2. Neurone</h3><p>Nombres > Poids x > Addition > Seuil > Active. Apprendre=Ajuster poids.</p>
-<h3>3. Deep</h3><p>50-100 couches=Deep Learning. Face ID, ChatGPT.</p><h3>4. Entrainement</h3><p>Erreur > Calcul > Ajuster poids x1M = Descente Gradient.</p><div class="astuce"><b>CEO:</b> Commence simple.</div>`,
-quiz:["Imite?|Voiture,Cerveau,Banane,Livre|1","Apprendre?|Couleur,Poids,Heure,Nom|1","Deep?|1,Beaucoup,0,Rouge|1","Gradient?|Monter,Descendre,Dormir,Manger|1","Face ID?|Deep,Magie,Humain,Rien|0","Seuil?|0,1,Inutile,Magie|1","Couches?|0,1,50-100,1000|2","Poids?|Couleur,Nombre,Heure,Nom|1","Erreur?|Bon,Mauvais,0,Magie|1","But?|Plus,Moins,0,Magie|1"]},
+4:{titre:"Leçon 4: Réseaux de Neurones - Cerveau Artificiel 🧠",img:"https://image.pollinations.ai/prompt/glowing%20artificial%20brain%20neural%20network%20wires%20cyberpunk%208k",
+cours:`<h3>1. Neurone Biologique vs Artificiel</h3><p>Bio: Dendrites->Corps->Axone. Artificiel: Entrées->Poids->Somme->Activation->Sortie.</p>
+<h4>Formule:</h4><div class="schema">y = activation(W·X + b)</div>
+<h3>2. Fonctions Activation</h3><ul><li><b>Sigmoid:</b> 0 à 1. Vieux.</li><li><b>ReLU:</b> max(0,x). Moderne, rapide.</li><li><b>Softmax:</b> Probabilités. Sortie multi-classe.</li></ul>
+<h3>3. Deep Learning</h3><p>Plus de 2 couches cachées. CNN=images, RNN=séquences, Transformer=texte. GPU obligatoire.</p>
+<h3>4. Rétropropagation</h3><p>Calcul gradient erreur -> Ajuste poids à l’envers. <b>Descente Gradient:</b> <code>w = w - lr*gradient</code></p>
+<h3>5. Exemple</h3><p>Face ID iPhone: 50 couches CNN. Entrainé sur 1M visages.</p>
+<div class="erreur-box"><b>Erreur:</b> Trop couches + peu données = Surapprentissage 100%.</div>`,
+quiz:["Formule?|y=W·X+b,y=X+b,y=W,0|0","ReLU?|max,0,x,min,0|0","Deep?|>2 couches,1 couche,0,0|0","Backprop?|Avant,Arrière,Côté,0|1","Face ID?|CNN,RNN,0,0|0","GPU?|Obligatoire,Inutile,Dort,0|0","Sigmoid?|0-1,-1-1,0-100,0|0","Poids?|Fixe,Apprend,Dort,0|1","Erreur?|Monte,Descend,0,0|1","lr?|Learning Rate,Large Ratio,0,0|0"]},
 
-5:{titre:"Leçon 5: Les LLM",img:"https://image.pollinations.ai/prompt/AI%20robot%20LIA%20tower%20of%20books%208k",
-cours:`<h3>1. LLM</h3><p>Large Language Model. Milliards mots. Job=Mot suivant.</p><h3>2. Tokens</h3><p>Morceaux mots. "Intelligence"=2 tokens.</p><h3>3. Attention</h3><p>Lit phrase entière. "il"=chat.</p><h3>4. Limites</h3><ul><li><b>Hallucination:</b> Invente</li><li><b>Mémoire:</b> Oublie</li><li><b>Corps:</b> Pas vécu</li></ul><div class="astuce"><b>CEO:</b> Vérifie toujours.</div>`,
-quiz:["LLM?|Little,Large,Long,Learn|1","Job?|Calcul,Mot,Dessin,Cuisine|1","Token?|Mot,Morceau,Image,Son|1","Hallu?|Vrai,Invente,Dort,Chante|1","Secret?|Attention,Musique,Couleur,Chance|0","Mémoire?|Oui,Non,Peut,Magie|1","Corps?|Oui,Non,Peut,Magie|1","Mots?|10,Milliards,0,Magie|1","Mot suiv?|Oui,Non,Peut,Magie|0","Stagiaire?|Oui,Non,Peut,Magie|0"]},
+5:{titre:"Leçon 5: LLM - Modèles de Langage 😊",img:"https://image.pollinations.ai/prompt/AI%20robot%20LIA%20tower%20books%20reading%20digital%20painting%208k",
+cours:`<h3>1. Définition LLM</h3><p><b>LLM:</b> Modèle probabiliste entraîné sur corpus texte massif. Tâche: Prédire P(mot_n | mot_1...mot_n-1).</p>
+<h3>2. Tokens</h3><p>Unité base. "Intelligence"=2 tokens. Vocabulaire=50k à 100k tokens. Pourquoi compte mal: token!=mot.</p>
+<h3>3. Architecture Transformer</h3><p><b>Attention:</b> <code>Attention(Q,K,V)=softmax(QK^T/sqrt(dk))V</code>. Permet voir toute phrase.</p>
+<h3>4. Entrainement 3 Étapes</h3><ul><li>Pré-entrainement: Prédiction mot suivant</li><li>SFT: Supervised Fine Tuning</li><li>RLHF: Récompense humaine</li></ul>
+<h3>5. Limites</h3><ul><li><b>Hallucination:</b> Génère faux avec confiance</li><li><b>Contexte:</b> 4k à 128k tokens max</li><li><b>Pas monde réel:</b> Pas vécu</li></ul>
+<div class="astuce"><b>CEO:</b> LLM = Stagiaire brillant qui ment. RAG = solution.</div>`,
+quiz:["LLM?|Large Language Model,Little,Long,Learn|0","Tâche?|Calcul,Prédire mot,Dessin,0|1","Token?|Mot,Morceau,Image,0|1","Attention?|2017,2000,1990,0|0","RLHF?|Récompense humaine,Robot,0,0|0","Contexte?|4k-128k,10,1000,0|0","Hallu?|Vrai,Faux,Peut,0|1","RAG?|Solution,Problème,0,0|0","Vocab?|50k-100k,10,100,0|0","Monde?|Vécu,Pas vécu,Peut,0|1"]},
 
-6:{titre:"Leçon 6: IA Image",img:"https://image.pollinations.ai/prompt/king%20dog%20golden%20crown%20fantasy%208k",
-cours:`<h3>1. Texte>Image</h3><p>Part bruit TV > Enlève bruit 50x > Image.</p><h3>2. Étapes</h3><p>Entrainement:5 milliards. Génération:Texte>Image.</p><h3>3. Prompt</h3><p>"Chien"=nul. "Chien roi 8k photoréaliste"=Or.</p><h3>4. Pro</h3><p>Logo, affiche. IA=main. Toi=idée.</p><div class="astuce"><b>CEO:</b> IA remixe, pas crée.</div>`,
-quiz:["Part?|Feuille,Bruit,Photo,Rien|1","Sur?|10,5milliards,Tête,Magie|1","8k?|Kilos,Qualité,Chiens,Couleurs|1","Remplace?|Idée,Main,Client,Argent|1","Prompt?|Inutile,Baguette,Interdit,Cher|1","Étapes?|1,2,3,4|1","Magie?|Oui,Non,Peut,Maths|3","Dessine?|Oui,Non,Peut,Magie|1","Qualité?|0,1,8k,Magie|2","Idée?|IA,Toi,0,Magie|1"]},
+6:{titre:"Leçon 6: IA Générative Image 👑",img:"https://image.pollinations.ai/prompt/majestic%20king%20dog%20golden%20crown%20fantasy%20art%20ultra%20detailed%208k",
+cours:`<h3>1. Diffusion</h3><p>Part bruit gaussien -> Débruitage étape par étape guidé texte. 50 étapes = image.</p>
+<h3>2. Types Modèles</h3><ul><li><b>GAN:</b> Générateur vs Discriminateur. Combat.</li><li><b>VAE:</b> Encode + Décode.</li><li><b>Diffusion:</b> Stable Diffusion, Midjourney. Actuel meilleur.</li></ul>
+<h3>3. Prompt Engineering</h3><p>Mots clés qualité: <code>8k, photorealistic, cinematic lighting, detailed, sharp focus</code>. Poids: <code>chien:1.3</code></p>
+<h3>4. Negative Prompt</h3><p>Ce qu’il faut éviter: <code>blurry, lowres, extra fingers</code></p>
+<h3>5. Usage Pro</h3><p>Logo, pack, affiche, NFT. Temps: 1h -> 5min. Coût: 100$ -> 0$.</p>
+<div class="erreur-box"><b>Erreur:</b> Croire IA créative. Non. Elle remixe dataset.</div>`,
+quiz:["Diffusion?|Bruit->Image,Image->Bruit,0,0|0","GAN?|Combat,Amis,0,0|0","Meilleur?|GAN,VAE,Diffusion,0|2","8k?|Qualité,Kilos,Chiens,0|0","Negative?|À éviter,À prendre,0,0|0","Étapes?|5,50,500,0|1","Poids?|1.3,0,0,0|0","Temps?|1h->5min,0,0,0|0","Coût?|100->0,0->100,0,0|0","Créative?|Oui,Non,Peut,0|1"]},
 
-7:{titre:"Leçon 7: Biais IA",img:"https://image.pollinations.ai/prompt/yellow%20blue%20banana%20AI%20robot%20conceptual%208k",
-cours:`<h3>1. Miroir</h3><p>IA copie monde. Sexiste>IA sexiste. GIGO.</p><h3>2. 3 Biais</h3><ul><li><b>Données:</b> Que jaune</li><li><b>Humain:</b> Avis</li><li><b>Algo:</b> Code</li></ul>
-<h3>3. Dangers</h3><p>Recrutement, police, crédit.</p><h3>4. Solution</h3><p>Diversité + Humain responsable.</p><div class="astuce"><b>CEO:</b> Qui blessé si erreur?</div>`,
-quiz:["IA?|Miroir,Dieu,Magie,Parfait|0","GIGO?|Bon,Poubelle,Rien,Or|1","Biais?|Jaune,Toutes,Pas,Rouge|0","Resp?|IA,PC,Humain,Pers|2","Sol?|Éteindre,Divers,Argent,Prière|1","Amplifie?|Oui,Non,Peut,Magie|0","Danger?|0,1,2,3|3","Données?|0,1,2,3|1","Humain?|0,1,2,3|2","Stop?|Oui,Non,Peut,Magie|0"]},
+7:{titre:"Leçon 7: Biais et Éthique IA 🍌",img:"https://image.pollinations.ai/prompt/yellow%20blue%20banana%20AI%20robot%20only%20sees%20yellow%20conceptual%208k",
+cours:`<h3>1. Biais Définition</h3><p>Écart systématique entre réalité et prédiction IA causé par données ou algo.</p>
+<h3>2. Types Biais</h3><ul><li><b>Représentation:</b> Groupe absent données</li><li><b>Mesure:</b> Erreur collecte</li><li><b>Agrégation:</b> Moyenne cache groupes</li><li><b>Évaluation:</b> Mauvaises métriques</li></ul>
+<h3>3. Cas Réels</h3><p>2018: Amazon IA recrutement pénalisait femmes. 2019: IBM visage reconnaît mal noirs.</p>
+<h3>4. Solutions</h3><ul><li>Données diverses</li><li>Audit régulier</li><li>Humain dans boucle</li><li>Transparence</li></ul>
+<h3>5. Lois</h3><p>RGPD UE, AI Act 2024. Amende 7% CA.</p>
+<div class="astuce"><b>CEO:</b> Question clé: Qui risque si IA se trompe?</div>`,
+quiz:["Biais?|Écart systématique,0,0,0|0","Amazon?|2018,2020,2015,0|0","IBM?|Visage,Voix,Texte,0|0","RGPD?|UE,US,Afrique,0|0","Amende?|7% CA,0%,1%,0|0","Audit?|Oui,Non,Peut,0|0","Humain?|Oui,Non,Peut,0|0","Diversité?|Oui,Non,Peut,0|0","AI Act?|2024,2020,2030,0|0","Risque?|Qui,0,0,0|0"]},
 
-8:{titre:"Leçon 8: Prompting",img:"https://image.pollinations.ai/prompt/person%20speaking%20to%20AI%20robot%20LIA%20warm%208k",
-cours:`<h3>1. Prompt</h3><p>Instruction. Mauvais=nul. Bon=or. Métier 2025.</p><h3>2. CORTEX</h3><p>C Contexte O Objectif Rôle Tâche E Exemple X Format</p>
-<h3>3. Exemple</h3><p>Mauvais:Code site<br>Bon:Dev senior.Site pagnes Bénin.Or violet.3 pages.</p><h3>4. Règle</h3><p>Précis+Poli+Exemple.</p><div class="astuce"><b>CEO:</b> Réponse nulle=ta faute.</div>`,
-quiz:["Prompt?|Insulte,Instruction,Musique,Image|1","C?|Couleur,Contexte,Chat,Cuisine|1","Mauvais?|Détaillé,Code,Poli,Exemple|1","Métier?|Boucher,Prompt,Pompier,Astro|1","Règle?|Vague,Précis,Crier,Mentir|1","O?|Objectif,Orange,0,Magie|0","R?|Rôle,Rouge,0,Magie|0","T?|Tâche,Tour,0,Magie|0","E?|Exemple,Erreur,0,Magie|0","X?|Format,Xylophone,0,Magie|0"]},
+8:{titre:"Leçon 8: Prompting - Art de Parler à LIA 🗣️",img:"https://image.pollinations.ai/prompt/person%20speaking%20kindly%20to%20AI%20robot%20LIA%20golden%20drawing%20warm%208k",
+cours:`<h3>1. Prompt</h3><p>Instruction textuelle. Qualité prompt = Qualité sortie. Métier: Prompt Engineer.</p>
+<h3>2. CORTEX Framework</h3><ul><li><b>C:</b> Contexte rôle</li><li><b>O:</b> Objectif précis</li><li><b>R:</b> Règles format</li><li><b>T:</b> Tâche décomposée</li><li><b>E:</b> Exemples few-shot</li><li><b>X:</b> Contraintes</li></ul>
+<h3>3. Techniques</h3><p><b>Chain-of-Thought:</b> "Réfléchis étape par étape". <b>Zero-shot:</b> 0 exemple. <b>Few-shot:</b> 2-3 exemples.</p>
+<h3>4. Mauvais vs Bon</h3><p>Mauvais: "Code site"<br>Bon: "Tu es dev senior. Site pagnes Bénin. HTML CSS. 3 pages. Responsive mobile. Couleurs #FFD700 #9D7BFF. Commenté."</p>
+<div class="astuce"><b>CEO:</b> Si nul -> Prompt nul 90% temps.</div>`,
+quiz:["Métier?|Boucher,Prompt Engineer,Pompier,0|1","C?|Contexte,Couleur,Chat,0|0","O?|Objectif,Orange,0,0|0","Few-shot?|0,2-3,10,0|1","CoT?|Étape étape,Dort,0,0|0","Zero-shot?|0 ex,1 ex,10 ex,0|0","R?|Règles,Rouge,0,0|0","T?|Tâche,Tour,0,0|0","E?|Exemple,Erreur,0,0|0","X?|Contraintes,Xylophone,0,0|0"]},
 
-9:{titre:"Leçon 9: IA Bénin",img:"https://image.pollinations.ai/prompt/Benin%20flag%20AI%20robot%20student%20market%208k",
-cours:`<h3>1. Égalisateur</h3><p>0F Cotonou>Bats concurrence.</p><h3>2. 5 Cas</h3><ul><li><b>École:</b> SVT gari</li><li><b>Commerce:</b> Insta pagnes</li><li><b>Langue:</b> Fr<>Fon</li><li><b>Agri:</b> Manioc</li><li><b>Admin:</b> Lettre MTN</li></ul>
-<h3>3. Stratégie</h3><p>Produis. Agence 10 seul.</p><h3>4. Internet</h3><p>Télécharge.Hors ligne.</p><div class="astuce"><b>CEO:</b> Arme gratuite.</div>`,
-quiz:["IA?|Rien,Égaliser,Dormir,Jouer|1","Commerce?|Insta,Dormir,Manger,Rire|0","Strat?|Conso,Produire,Dormir,Regarder|1","Besoin?|Lumière,Internet,Sucre,Silence|1","Toi+IA?|0,Agence,1,-1|1","Gratuit?|Oui,Non,Peut,Magie|0","Cas?|0,1,5,10|2","Hors?|Oui,Non,Peut,Magie|0","Prod?|Oui,Non,Peut,Magie|0","Arme?|Oui,Non,Peut,Magie|0"]},
+9:{titre:"Leçon 9: IA pour le Bénin 🇧🇯",img:"https://image.pollinations.ai/prompt/Benin%20flag%20colors%20AI%20robot%20helping%20student%20market%20seller%20phone%20African%20vibes%208k",
+cours:`<h3>1. Opportunité</h3><p>IA = Égalisateur. 0$ capital + internet = Concurrence mondiale.</p>
+<h3>2. 5 Cas Concrets</h3><ul><li><b>Éducation:</b> Prof perso SVT 3ème avec exemples gari</li><li><b>Commerce:</b> 30 légendes Insta pagnes wax style Cotonou</li><li><b>Agriculture:</b> Photo feuille manioc -> Diagnostic + traitement bio</li><li><b>Langue:</b> Trad Fr<>Fon<>Yoruba</li><li><b>Admin:</b> CV, lettre motiv MTN, Orange</li></ul>
+<h3>3. Modèle Business</h3><p>Toi + IA = Agence 10 personnes. Vends temps gagné, pas heures.</p>
+<h3>4. Contraintes</h3><p>Internet requis. Solution: Télécharge cours. Travail offline.</p>
+<div class="astuce"><b>CEO:</b> Ne consomme pas IA. Produis avec IA.</div>`,
+quiz:["IA?|Égalisateur,0,0,0|0","Cas?|1,3,5,10|2","Éduc?|SVT,Maths,0,0|0","Agri?|Manioc,Riz,0,0|0","Langue?|Fr-Fon,0,0,0|0","Modèle?|Agence,0,0,0|0","Internet?|Oui,Non,Peut,0|0","Offline?|Oui,Non,Peut,0|0","Vends?|Temps,Heures,0,0|0","Produit?|Oui,Non,Peut,0|0"]},
 
-10:{titre:"Leçon 10: Futur",img:"https://image.pollinations.ai/prompt/human%20CEO%20hero%20cape%20AI%20robot%20sidekick%20city%208k",
-cours:`<h3>1. Peur Fausse</h3><p>IA remplace ceux refusent IA.</p><h3>2. 3 Types</h3><ul><li><b>Remplacé:</b> Tâches 3s</li><li><b>Utilisateur:</b> ChatGPT</li><li><b>Maître:</b> Toi.Systèmes.</li></ul>
-<h3>3. Compétences</h3><p>1.Critique 2.Créa 3.Prompt 4.Éthique</p><h3>4. Mission</h3><p>Lance service IA Bénin 2026.</p><div class="astuce"><b>CEO:</b> Toi+LIA=Inarrêtable.</div>`,
-quiz:["Remplace?|Tous,Refusent,Prés,Enfants|1","Niv3?|Remplacé,User,Maître,Absent|2","Comp1?|Dormir,Critique,Manger,Courir|1","Idées?|Oui,Non Toi,Peut,Toujours|1","Mission?|Dormir,Lancer,Rire,Rien|1","2030?|0,1,3,10|2","Peur?|Vrai,Fausse,Peut,Magie|1","Maître?|Oui,Non,Peut,Magie|0","Encaisse?|Oui,Non,Peut,Magie|0","Inarrêtable?|Oui,Non,Peut,Magie|0"]}
-};
-
-// 3. NAVIGATION + QUIZ 10Q
-function ouvrir(n){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('c'+n).classList.add('active');
-  let d=COURS[n];
-  let html=`<h2>${d.titre}</h2><img src="${d.img}" class="cours-img" loading="lazy">${d.cours}<div class="quiz-box"><h3>📝 Quiz 10 Questions 20/20</h3><form id="q${n}">`;
-  d.quiz.forEach((q,i)=>{
-    let [text,opts,rep]=q.split('|');
-    html+=`<div class="question"><b>Q${i+1}: ${text}</b>`;
-    opts.split(',').forEach((o,j)=>{html+=`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`});
-    html+=`</div>`;
-  });
-  html+=`<button type="button" class="btn-quiz" onclick="corriger(${n})">Valider Quiz</button><div id="r${n}" class="resultat"></div></div>`;
-  document.getElementById('contenu-c'+n).innerHTML=html;
-  window.scrollTo(0,0);
-}
-function retour(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('home').classList.add('active');window.scrollTo(0,0);}
-function corriger(n){
-  let d=COURS[n]; let score=0;
-  d.quiz.forEach((q,i)=>{let s=document.querySelector(`#q${n} input[name="q${i}"]:checked`); if(s&&parseInt(s.value)===parseInt(q.split('|')[2]))score+=2});
-  let div=document.getElementById('r'+n);
-  div.style.background=score>=16?'rgba(105,240,174,.3)':'rgba(255,82,82,.3)';
-  div.textContent=`Score: ${score}/20 ${score>=16?'✅ Validé!':'❌ Refais'}`;
-}
-
-// 4. CHAT LIA
-function demander(){
-  let q=document.getElementById('input').value.toLowerCase();
-  let m=q.match(/leçon\s*(\d+)/);
-  if(m&&COURS[m[1]]){ouvrir(m[1]);document.getElementById('input').value='';return;}
-  let rep="🤔 Dis: Leçon 2 à 10. Ex: Explique Leçon 4";
-  if(q.includes('bonjour'))rep="👋 Coucou CEO! Prêt?";
-  if(q.includes('merci'))rep="😊 Avec plaisir!";
-  document.getElementById('destinReply').innerHTML=`<b>LIA ✨:</b> ${rep}`;
-  document.getElementById('input').value='';
-}
-</script>
-</body>
-</html>
+10:{titre:"Leçon 10: Stratégie Futur Humain+IA 🚀",img:"https://image.pollinations.ai/prompt/human%20CEO%20hero%20cape%20AI%20robot%20sidekick%20city%20top%20epic%208k",
+cours:`<h3>1. Myth vs Réalité</h3><p>Myth: IA vole travail. Réalité: IA vole travail de ceux sans IA. 2000: Internet tue commerce -> Faux.</p>
+<h3>2. 3 Catégories 2030</h3><ul><li><b>Remplacé:</b> Tâches répétitives 3s</li><li><b>Utilisateur:</b> ChatGPT occasionnel</li><li><b>Maître:</b> Construit systèmes IA, vend IA</li></ul>
+<h3>3. 4 Compétences Clés</h3><p>1.<b>Pensée critique:</b> Vérifier IA<br>2.<b>Créativité:</b> Idées = humain<br>3.<b>Prompting:</b> Parler à IA<br>4.<b>Éthique:</b> Quand dire non</p>
+<h3>4. Plan Action</h3><p>Finis 9 leçons -> Portfolio 3 projets IA -> Vends service -> 2000$ mois.</p>
+<div class="astuce"><b>CEO:</b> Pendant autres ont peur, toi tu encaisses.</div>`,
+quiz:["Myth?|IA vole,0,0,0|0","Réalité?|Sans IA,0,0,0|0","Cat 2030?|2,3,4,5|1","Maître?|Systèmes,0,0,0|0","Comp1?|Critique,0,0,0|0","Créa?|Humain,IA,0,0|0","Plan?|3 projets,0,0,0|0","2000$?|Mois,An,Jour,0|0","Peur?|Fausse,Vrai,0,0|0","Inarrêtable?|Toi+LIA,0,
