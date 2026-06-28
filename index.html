@@ -2,23 +2,16 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESTIN ACADEMIE V28</title>
+<title>DESTIN ACADEMIE MASTERCLASS</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'Segoe UI',system-ui,sans-serif;
-  color:#fff;
-  background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,.4) 0%, transparent 50%),
-              radial-gradient(ellipse at 80% 90%, rgba(255,215,0,.3) 0%, transparent 50%),
-              linear-gradient(135deg, #0a0f1e 0%, #1a1f3a 50%, #2a1a4a 100%);
-  min-height:100vh;
-}
-.app{width:100%;max-width:700px;margin:0 auto;padding:24px;min-height:100vh}
+body{font-family:'Segoe UI',system-ui,sans-serif;color:#fff;background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,.4) 0%, transparent 50%),radial-gradient(ellipse at 80% 90%, rgba(255,215,0,.3) 0%, transparent 50%),linear-gradient(135deg, #0a0f1e 0%, #1a1f3a 50%, #2a1a4a 100%);min-height:100vh}
+.app{width:100%;max-width:750px;margin:0 auto;padding:24px;min-height:100vh}
 .logo{width:90px;height:90px;margin:20px auto;background:linear-gradient(135deg,#FFD700 0%,#FFA500 100%);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#000;box-shadow:0 0 30px rgba(255,215,0,.6)}
 h1{text-align:center;font-size:1.8rem;margin:0 0 15px;background:linear-gradient(90deg,#FFD700,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-h2{font-size:1.5rem;color:#FFD700;margin:20px 0 10px;border-bottom:2px solid rgba(255,215,0,.3);padding-bottom:8px}
-h3{color:#9D7BFF;margin:20px 0 10px;font-size:1.2rem}
-input{width:100%;padding:16px;border-radius:14px;border:2px solid rgba(255,215,0,.4);font-size:1.05rem;font-weight:700;background:rgba(0,0,0,.5);color:#fff;text-align:center;margin-bottom:12px}
+h2{font-size:1.6rem;color:#FFD700;margin:25px 0 15px;border-bottom:3px solid rgba(255,215,0,.4);padding-bottom:10px}
+h3{color:#9D7BFF;margin:20px 0 12px;font-size:1.25rem}
+input{width:100%;padding:16px;border-radius:14px;border:2px solid rgba(255,215,0,.4);font-size:1.05rem;font-weight:700;background:rgba(0,0,0,.5);color:#fff;text-align:center;margin-bottom:12px;text-transform:uppercase}
 button{width:100%;padding:16px;border-radius:14px;border:0;font-size:1.1rem;font-weight:800;background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;cursor:pointer;margin-bottom:10px}
 button:active{transform:scale(.98)}
 .btn-back{width:auto;padding:12px 20px;background:rgba(255,255,255,.1);color:#fff;font-size:.95rem;border:1px solid rgba(255,255,255,.2)}
@@ -27,42 +20,53 @@ button:active{transform:scale(.98)}
 .page.active{display:block}
 .lock-box{background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1px solid rgba(255,215,0,.3);padding:30px;border-radius:24px;margin-top:40px}
 .lesson{background:linear-gradient(135deg,rgba(127,90,240,.35),rgba(0,0,0,.35));padding:18px;border-radius:14px;margin-top:12px;border:1px solid rgba(127,90,240,.5);cursor:pointer}
-.img-box{width:100%;height:200px;border-radius:16px;margin:15px 0;border:2px solid rgba(255,215,0,.4);display:flex;align-items:center;justify-content:center;font-size:5rem;background:linear-gradient(135deg,rgba(127,90,240,.3),rgba(255,215,0,.2))}
-.box{background:rgba(255,215,0,.1);padding:16px;border-radius:12px;border-left:4px solid #FFD700;margin:15px 0}
-.quiz-box{background:rgba(127,90,240,.2);padding:20px;border-radius:16px;border:1px solid rgba(127,90,240,.5);margin-top:25px}
-.question{margin-top:15px;padding:12px;background:rgba(0,0,0,.3);border-radius:10px}
-.question label{display:block;margin-top:8px;cursor:pointer;padding:8px;border-radius:8px}
-.resultat{font-size:1.3rem;font-weight:800;text-align:center;margin-top:15px;padding:15px;border-radius:12px}
-p,li{line-height:1.9;font-size:1.05rem;margin:10px 0}
-ul{padding-left:20px}
+.img-box{width:100%;height:220px;border-radius:16px;margin:18px 0;border:2px solid rgba(255,215,0,.4);display:flex;align-items:center;justify-content:center;font-size:6rem;background:linear-gradient(135deg,rgba(127,90,240,.3),rgba(255,215,0,.2))}
+.box{background:rgba(255,215,0,.1);padding:18px;border-radius:12px;border-left:5px solid #FFD700;margin:18px 0}
+.astuce{background:rgba(105,240,174,.15);padding:16px;border-radius:12px;border-left:5px solid #69F0AE;margin:18px 0}
+.erreur-box{background:rgba(255,82,82,.15);padding:16px;border-radius:12px;border-left:5px solid #FF5252;margin:18px 0}
+.quiz-box{background:rgba(127,90,240,.2);padding:25px;border-radius:16px;border:1px solid rgba(127,90,240,.5);margin-top:30px}
+.question{margin-top:18px;padding:15px;background:rgba(0,0,0,.3);border-radius:12px;border:1px solid rgba(255,255,255,.1)}
+.question.correct{border:2px solid #69F0AE;background:rgba(105,240,174,.1)}
+.question.wrong{border:2px solid #FF5252;background:rgba(255,82,82,.1)}
+.question label{display:block;margin-top:10px;cursor:pointer;padding:10px;border-radius:8px;transition:.2s}
+.question label:hover{background:rgba(127,90,240,.2)}
+.explication{display:none;margin-top:12px;padding:12px;border-radius:8px;font-size:.95rem;line-height:1.7}
+.explication.show{display:block}
+.correct .explication{background:rgba(105,240,174,.2)}
+.wrong .explication{background:rgba(255,82,82,.2)}
+.resultat{font-size:1.4rem;font-weight:900;text-align:center;margin-top:20px;padding:18px;border-radius:12px}
+p,li{line-height:2;font-size:1.08rem;margin:12px 0}
+ul{padding-left:22px}
 .chatbox{display:flex;gap:8px;margin-top:12px}
-.chatbox input{flex:1;text-align:left;border-color:#7F5AF0;margin-bottom:0}
+.chatbox input{flex:1;text-align:left;border-color:#7F5AF0;margin-bottom:0;text-transform:none}
 .chatbox button{width:auto;padding:16px 20px;background:linear-gradient(90deg,#7F5AF0,#9D7BFF);color:#fff;margin-bottom:0}
 #destinReply{background:rgba(0,0,0,.3);padding:18px;border-radius:16px;margin-top:15px;font-size:1.1rem;line-height:1.9;border:1px solid rgba(127,90,240,.4);min-height:80px}
 #destinReply b{color:#FFD700}
 .error{color:#FF5252;text-align:center;margin-top:8px;font-weight:700;display:none}
+.success{color:#69F0AE;text-align:center;margin-top:8px;font-weight:700;display:none}
+.prix{color:#FFD700;font-size:1.1rem;text-align:center;margin-bottom:15px}
+code{background:rgba(0,0,0,.4);padding:2px 6px;border-radius:4px;color:#FFD700}
 </style>
 </head>
 <body>
 <div class="app">
 
-  <!-- PAGE 1: LOCK - PAS DE FORM -->
   <div id="lock" class="page active">
     <div class="lock-box">
       <div class="logo">DP</div>
-      <h1>DESTIN ACADEMIE V28</h1>
-      <p style="text-align:center;opacity:.9;margin-bottom:15px">Code d'accès 👇</p>
-      <input id="code" placeholder="DESTIN-001" autocomplete="off">
-      <button onclick="activer()">Activer Mon Accès ✨</button>
-      <div id="error" class="error">Code incorrect. Tape: DESTIN-001</div>
+      <h1>DESTIN ACADEMIE PRO</h1>
+      <p class="prix">💰 Accès: 2000F - Contact CEO pour le code</p>
+      <input id="code" placeholder="Entre ton code licence" autocomplete="off">
+      <button onclick="activer()">Débloquer l’Accès ✨</button>
+      <div id="error" class="error"></div>
+      <div id="success" class="success">✅ Code validé. Bienvenue!</div>
     </div>
   </div>
 
-  <!-- PAGE 2: MENU -->
   <div id="home" class="page">
     <div class="logo" style="width:70px;height:70px;font-size:2.2rem">DP</div>
-    <h1>Bienvenue CEO ✨</h1>
-    <p style="text-align:center;opacity:.9;margin-bottom:15px">9 Leçons Masterclass + Quiz 20/20</p>
+    <h1>Bienvenue <span id="userCode"></span> ✨</h1>
+    <p style="text-align:center;opacity:.9;margin-bottom:15px">9 Leçons Masterclass + Quiz Corrigé 20/20</p>
     
     <div class="lesson" onclick="ouvrir(2)"><b>Leçon 2:</b> L’Apprentissage Machine 🍼</div>
     <div class="lesson" onclick="ouvrir(3)"><b>Leçon 3:</b> Machine Learning Avancé 📚</div>
@@ -74,14 +78,10 @@ ul{padding-left:20px}
     <div class="lesson" onclick="ouvrir(9)"><b>Leçon 9:</b> IA Bénin 🇧🇯</div>
     <div class="lesson" onclick="ouvrir(10)"><b>Leçon 10:</b> Futur 🚀</div>
 
-    <div id="destinReply"><b>LIA ✨:</b> Coucou! Tape `Leçon 3` ou clique une leçon.</div>
-    <div class="chatbox">
-      <input id="input" placeholder="Ex: Leçon 5">
-      <button onclick="demander()">Envoyer</button>
-    </div>
+    <div id="destinReply"><b>LIA ✨:</b> Coucou CEO! Tape `Leçon 3` ou clique.</div>
+    <div class="chatbox"><input id="input" placeholder="Ex: Leçon 5"><button onclick="demander()">Envoyer</button></div>
   </div>
 
-  <!-- PAGES COURS -->
   <div id="c2" class="page"><button class="btn-back" onclick="retour()">⬅ Retour Menu</button><div id="contenu-c2"></div></div>
   <div id="c3" class="page"><button class="btn-back" onclick="retour()">⬅ Retour Menu</button><div id="contenu-c3"></div></div>
   <div id="c4" class="page"><button class="btn-back" onclick="retour()">⬅ Retour Menu</button><div id="contenu-c4"></div></div>
@@ -95,75 +95,79 @@ ul{padding-left:20px}
 </div>
 
 <script>
-// 1. ACTIVER SANS FORM = IMPOSSIBLE À CASSER
+const CODES_VALABLES = ["DESTIN-001","DESTIN-002","DESTIN-003","DESTIN-004","DESTIN-005","DESTIN-006","DESTIN-007","DESTIN-008","DESTIN-009","DESTIN-010"];
 function activer(){
   let code = document.getElementById('code').value.trim().toUpperCase();
-  if(code === 'DESTIN-001'){
-    document.getElementById('lock').classList.remove('active');
-    document.getElementById('home').classList.add('active');
-    document.getElementById('error').style.display = 'none';
-  } else {
-    document.getElementById('error').style.display = 'block';
-  }
+  let error = document.getElementById('error'); let success = document.getElementById('success');
+  error.style.display='none'; success.style.display='none';
+  if(!CODES_VALABLES.includes(code)){error.textContent = "❌ Code invalide. Contacte le CEO.";error.style.display='block';return;}
+  let codeUtilise = localStorage.getItem('destin_code');
+  if(codeUtilise){if(codeUtilise === code){ouvrirHome(code);return;}else{error.textContent = "❌ Ce téléphone a déjà un code.";error.style.display='block';return;}}
+  let codesPris = JSON.parse(localStorage.getItem('destin_codes_pris') || '[]');
+  if(codesPris.includes(code)){error.textContent = "❌ Code déjà utilisé ailleurs.";error.style.display='block';return;}
+  localStorage.setItem('destin_code', code); codesPris.push(code);
+  localStorage.setItem('destin_codes_pris', JSON.stringify(codesPris)); success.style.display='block';
+  setTimeout(()=>ouvrirHome(code), 800);
 }
+function ouvrirHome(code){document.getElementById('userCode').textContent = code;document.getElementById('lock').classList.remove('active');document.getElementById('home').classList.add('active');}
+window.onload = function(){let code = localStorage.getItem('destin_code');if(code && CODES_VALABLES.includes(code)){ouvrirHome(code);}}
+document.getElementById('code').addEventListener('keypress', function(e){if(e.key === 'Enter') activer();});
 
-// Entrée = Activer aussi
-document.getElementById('code').addEventListener('keypress', function(e){
-  if(e.key === 'Enter') activer();
-});
-
-// 2. COURS DATA
+// 2. COURS 3X PLUS DÉTAILLÉS + CORRECTION QUIZ
 const COURS = {
-2:{titre:"Leçon 2: L’Apprentissage Machine 🍼",emoji:"🤖",cours:`<h3>1. Définition</h3><p>La machine apprend sans règles. On lui montre 10000 chats. Elle trouve la règle toute seule.</p><div class="box"><b>Mot clé:</b> Données = Manuel scolaire de l’IA</div><h3>2. Les 3 Types</h3><ul><li><b>Supervisé:</b> Prof + Réponses</li><li><b>Non Supervisé:</b> L’IA groupe seule</li><li><b>Renforcement:</b> Essai + Points</li></ul><h3>3. Cycle</h3><p>Collecte > Nettoyage > Entrainement > Test > Déploiement</p><h3>4. Exemple Bénin</h3><p>Tri noix de cajou: 5000 photos > IA trie 1000/min</p>`,quiz:[{q:"Q1: ML cest:",a:["Règles","Exemples","Dessin","Jeu"],b:1},{q:"Q2: Supervisé:",a:["Pas prof","Prof+Réponses","Dormir","Magie"],b:1},{q:"Q3: GIGO:",a:["Poubelle","Or","Rien","Tout"],b:0},{q:"Q4: Bénin:",a:["Cuisine","Tri noix","Danse","Chant"],b:1},{q:"Q5: Manuel:",a:["Code","Données","Bouton","Ecran"],b:1}]},
-3:{titre:"Leçon 3: Machine Learning Avancé 📚",emoji:"🏫",cours:`<h3>1. Analogie</h3><p>Maman montre A 100 fois. Le cerveau crée la règle. Machine pareil avec 1M exemples.</p><h3>2. Données</h3><ul><li><b>Structurées:</b> Excel</li><li><b>Non Structurées:</b> Photos, son</li><li><b>Étiquetées:</b> Avec réponse</li></ul><h3>3. Sur vs Sous</h3><p><b>Sous:</b> 2/20. Trop simple.<br><b>Sur:</b> 20/20 manuel, 3/20 test.<br><b>But:</b> 15/20</p><h3>4. Métriques</h3><p><b>Précision:</b> 100 prédictions<br><b>Rappel:</b> 100 vrais chats trouvés</p>`,quiz:[{q:"Q1: ML comme:",a:["Calcul","Enfant","Pierre","Eau"],b:1},{q:"Q2: Photos:",a:["Struct","Non Struct","Magie","Faux"],b:1},{q:"Q3: Sur:",a:["Bête","Par cœur","Dort","Mange"],b:1},{q:"Q4: Médical:",a:["Précision","Rappel","Vitesse","Couleur"],b:1},{q:"Q5: Sans:",a:["Super","Pas IA","Lente","Rouge"],b:1}]},
-4:{titre:"Leçon 4: Réseaux de Neurones 🧠",emoji:"🧠",cours:`<h3>1. Cerveau</h3><p>86 milliards neurones > Couches IA. Entrée > Cachées > Sortie.</p><h3>2. Neurone</h3><p>Reçoit nombres > Poids > Addition > Seuil > Active</p><h3>3. Deep</h3><p>50-100 couches = Deep Learning. Face ID, ChatGPT.</p><h3>4. Entrainement</h3><p>Erreur > Ajuster poids > Répéter 1M fois</p>`,quiz:[{q:"Q1: IA imite:",a:["Voiture","Cerveau","Banane","Livre"],b:1},{q:"Q2: Apprendre:",a:["Couleur","Poids","Heure","Nom"],b:1},{q:"Q3: Deep:",a:["1","Beaucoup","0","Rouge"],b:1},{q:"Q4: Gradient:",a:["Monter","Descendre","Dormir","Manger"],b:1},{q:"Q5: Face ID:",a:["Deep","Magie","Humain","Rien"],b:0}]},
-5:{titre:"Leçon 5: Les LLM 😊",emoji:"📚",cours:`<h3>1. LLM</h3><p>Large Language Model. Milliards mots. Job: Mot suivant.</p><h3>2. Tokens</h3><p>Morceaux de mots. "Intelligence"=2 tokens.</p><h3>3. Attention</h3><p>Lit phrase entière. "il"=chat</p><h3>4. Limites</h3><ul><li><b>Hallucination:</b> Invente</li><li><b>Mémoire:</b> Oublie</li><li><b>Corps:</b> Pas vécu</li></ul>`,quiz:[{q:"Q1: LLM:",a:["Little","Large Language","Long","Learn"],b:1},{q:"Q2: Job:",a:["Calcul","Mot suivant","Dessin","Cuisine"],b:1},{q:"Q3: Token:",a:["Mot","Morceau","Image","Son"],b:1},{q:"Q4: Hallu:",a:["Vrai","Invente","Dort","Chante"],b:1},{q:"Q5: Secret:",a:["Attention","Musique","Couleur","Chance"],b:0}]},
-6:{titre:"Leçon 6: IA Générative 👑",emoji:"🎨",cours:`<h3>1. Texte>Image</h3><p>Part bruit TV > Enlève bruit 50x > Image</p><h3>2. Étapes</h3><p><b>Entrainement:</b> 5 milliards<br><b>Génération:</b> Texte > Image</p><h3>3. Prompt</h3><p>"Chien"=nul. "Chien roi photoréaliste 8k"=Or</p><h3>4. Pro</h3><p>Logo, affiche. IA=main. Toi=idée.</p>`,quiz:[{q:"Q1: Part:",a:["Feuille","Bruit","Photo","Rien"],b:1},{q:"Q2: Sur:",a:["10","5 milliards","Tête","Magie"],b:1},{q:"Q3: 8k:",a:["Kilos","Qualité","Chiens","Couleurs"],b:1},{q:"Q4: Remplace:",a:["Idée","Main","Client","Argent"],b:1},{q:"Q5: Prompt:",a:["Inutile","Baguette","Interdit","Cher"],b:1}]},
-7:{titre:"Leçon 7: Biais IA 🍌",emoji:"⚠️",cours:`<h3>1. Miroir</h3><p>IA copie monde. Sexiste > IA sexiste.</p><h3>2. 3 Biais</h3><ul><li><b>Données:</b> Que jaune</li><li><b>Humain:</b> Avis étiquetteur</li><li><b>Code:</b> Algo favorise</li></ul><h3>3. Dangers</h3><p>Recrutement, police, crédit.</p><h3>4. Solution</h3><p>Diversité + Humain responsable</p>`,quiz:[{q:"Q1: IA:",a:["Miroir","Dieu","Magie","Parfait"],b:0},{q:"Q2: GIGO:",a:["Bon","Poubelle","Rien","Or"],b:1},{q:"Q3: Biais:",a:["Que jaune","Toutes","Pas","Rouge"],b:0},{q:"Q4: Resp:",a:["IA","PC","Humain","Pers"],b:2},{q:"Q5: Sol:",a:["Éteindre","Divers","Argent","Prière"],b:1}]},
-8:{titre:"Leçon 8: Prompting 🗣️",emoji:"💬",cours:`<h3>1. Prompt</h3><p>Instruction. Mauvais=nul. Bon=or.</p><h3>2. CORTEX</h3><p>C Contexte O Objectif Rôle Tâche E Exemple X Format</p><h3>3. Exemple</h3><p>Mauvais: Code site<br>Bon: Dev senior. Site pagnes Bénin. Or violet. 3 pages.</p><h3>4. Règle</h3><p>Précis + Poli + Exemple</p>`,quiz:[{q:"Q1: Prompt:",a:["Insulte","Instruction","Musique","Image"],b:1},{q:"Q2: C:",a:["Couleur","Contexte","Chat","Cuisine"],b:1},{q:"Q3: Mauvais:",a:["Détaillé","Code site","Poli","Exemple"],b:1},{q:"Q4: Métier:",a:["Boucher","Prompt","Pompier","Astro"],b:1},{q:"Q5: Règle:",a:["Vague","Précis","Crier","Mentir"],b:1}]},
-9:{titre:"Leçon 9: IA Bénin 🇧🇯",emoji:"🇧🇯",cours:`<h3>1. Égalisateur</h3><p>0F depuis Cotonou > Bats concurrence.</p><h3>2. 5 Cas</h3><ul><li><b>École:</b> SVT avec gari</li><li><b>Commerce:</b> Légendes Insta pagnes</li><li><b>Langue:</b> Fr<>Fon</li><li><b>Agri:</b> Feuille manioc</li><li><b>Admin:</b> Lettre MTN</li></ul><h3>3. Stratégie</h3><p>Produis. Agence 10 seul.</p><h3>4. Internet</h3><p>Télécharge. Hors ligne.</p>`,quiz:[{q:"Q1: IA:",a:["Rien","Égaliser","Dormir","Jouer"],b:1},{q:"Q2: Commerce:",a:["Insta","Dormir","Manger","Rire"],b:0},{q:"Q3: Strat:",a:["Conso","Produire","Dormir","Regarder"],b:1},{q:"Q4: Besoin:",a:["Lumière","Internet","Sucre","Silence"],b:1},{q:"Q5: Toi+IA:",a:["0","Agence","1","-1"],b:1}]},
-10:{titre:"Leçon 10: Futur 🚀",emoji:"🦸",cours:`<h3>1. Peur Fausse</h3><p>IA remplace ceux qui refusent IA.</p><h3>2. 3 Types</h3><ul><li><b>Remplacé:</b> Tâches 3s</li><li><b>Utilisateur:</b> ChatGPT</li><li><b>Maître:</b> Toi. Systèmes.</li></ul><h3>3. Compétences</h3><p>1.Critique 2.Créa 3.Prompt 4.Éthique</p><h3>4. Mission</h3><p>Lance service IA Bénin 2026.</p>`,quiz:[{q:"Q1: Remplace:",a:["Tous","Refusent","Prés","Enfants"],b:1},{q:"Q2: Niv3:",a:["Remplacé","User","Maître","Absent"],b:2},{q:"Q3: Comp1:",a:["Dormir","Critique","Manger","Courir"],b:1},{q:"Q4: Idées:",a:["Oui","Non Toi","Peut","Toujours"],b:1},{q:"Q5: Mission:",a:["Dormir","Lancer","Rire","Rien"],b:1}]}
-};
+2:{titre:"Leçon 2: L’Apprentissage Machine - De Zéro à Héros 🍼",emoji:"🤖",
+cours:`<h3>1. Définition Profonde</h3><p>Le Machine Learning ML est une branche de l’IA où la machine apprend une tâche à partir d’exemples, sans être programmée avec des règles manuelles. Au lieu de coder <code>if poils and moustaches then chat</code>, on donne 10 000 photos de chats et de chiens. La machine découvre elle-même la différence.</p><div class="box"><b>Image mentale:</b> Tu es le prof. La machine est l’élève. Les données sont le manuel.</div>
+<h3>2. Les 3 Familles d’Apprentissage</h3><ul><li><b>Supervisé:</b> Tu donnes X ET Y. Ex: Photo X = Etiquette Y "chat". But: Prédire Y. C’est 80% des IA.</li><li><b>Non Supervisé:</b> Tu donnes que X. La machine cherche des groupes. Ex: Regrouper clients qui achètent du riz + huile ensemble.</li><li><b>Renforcement:</b> La machine agit. Bonne action = +Points. Mauvaise = -Points. Ex: AlphaGo a battu le champion monde Go en jouant 1M parties contre lui-même.</li></ul>
+<h3>3. Le Cycle de Vie d’une IA</h3><p><b>1.Collecte:</b> Rassemble les données. Règle CEO: Plus c’est propre, plus c’est fort.<br><b>2.Nettoyage:</b> Supprime doublons, fautes. Une donnée sale = IA bête.<br><b>3.Entrainement:</b> La machine lit les données 100 à 1000 fois et ajuste son cerveau.<br><b>4.Test:</b> On lui donne des données jamais vues. Si elle réussit = elle est prête.<br><b>5.Déploiement:</b> On met l’IA dans une appli, un site, une caméra.</p>
+<h3>4. GIGO: La Loi N°1</h3><div class="erreur-box"><b>Garbage In, Garbage Out</b> = Poubelle dedans, Poubelle dehors. Si tu entraînes une IA avec des photos floues, elle sera floue. Si tu mets que des hommes, elle ne reconnaîtra pas les femmes.</div>
+<h3>5. Exemple Concret Bénin</h3><p>Problème: Trier noix de cajou bonnes/mauvaises. Solution CEO: 1. Prendre 5000 photos de noix. 2. Un humain étiquette "bonne" ou "mauvaise". 3. On entraîne l’IA. 4. Résultat: 1 caméra + IA = tri 1000 noix/minute, 24h/24, sans fatigue. 20 ouvriers remplacés.</p>
+<div class="astuce"><b>Astuce CEO:</b> Commence toujours petit. 100 bonnes photos > 10000 photos sales.</div>`,
+quiz:[{q:"Q1: Le ML apprend avec:",a:["Des règles codées","Des exemples","La magie","La prière"],b:1,exp:"Faux. Si on code les règles, ce n’est plus du ML. Le ML apprend des exemples."},{q:"Q2: Supervisé veut dire:",a:["Pas de prof","Prof + Réponses données","La machine dort","IA magique"],b:1,exp:"Vrai. Supervisé = On donne la question ET la bonne réponse à la machine."},{q:"Q3: GIGO signifie:",a:["Or In Or Out","Garbage In Garbage Out","Go In Go Out","Good In Good Out"],b:1,exp:"Vrai. Poubelle dedans = Poubelle dehors. La qualité des données = qualité de l’IA."},{q:"Q4: Exemple IA Bénin:",a:["Cuisiner le gari","Trier noix de cajou","Danser le tchingang","Chanter"],b:1,exp:"Vrai. Caméra + IA = tri automatique 1000 noix/min."},{q:"Q5: Le manuel de l’IA:",a:["Le code source","Les données","Le bouton ON","L’écran"],b:1,exp:"Vrai. Sans données, pas d’IA. Les données sont le manuel scolaire."}]},
 
-// 3. NAVIGATION
-function ouvrir(n){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('c'+n).classList.add('active');
-  let d = COURS[n];
-  let html = `<h2>${d.titre}</h2><div class="img-box">${d.emoji}</div>${d.cours}<div class="quiz-box"><h3>📝 Quiz 20/20</h3><form id="q${n}">`;
-  d.quiz.forEach((q,i)=>{
-    html += `<div class="question"><b>${q.q}</b>`;
-    q.a.forEach((r,j)=>{html += `<label><input type="radio" name="q${i}" value="${j}"> ${r}</label>`});
-    html += `</div>`;
-  });
-  html += `<button type="button" class="btn-quiz" onclick="corriger(${n})">Valider</button><div id="r${n}" class="resultat"></div></div>`;
-  document.getElementById('contenu-c'+n).innerHTML = html;
-  window.scrollTo(0,0);
-}
-function retour(){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('home').classList.add('active');
-  window.scrollTo(0,0);
-}
-function corriger(n){
-  let d = COURS[n], score=0;
-  d.quiz.forEach((q,i)=>{let s=document.querySelector(`#q${n} input[name="q${i}"]:checked`); if(s&&parseInt(s.value)===q.b)score+=4});
-  let div=document.getElementById('r'+n);
-  div.style.background = score>=16?'rgba(105,240,174,.3)':'rgba(255,82,82,.3)';
-  div.textContent = `Score: ${score}/20`;
-}
+3:{titre:"Leçon 3: Machine Learning Avancé - La Machine à l’École 📚",emoji:"🏫",
+cours:`<h3>1. Analogie École Humaine</h3><p>Maman te montre la lettre A. 1 fois, 10 fois, 100 fois, en majuscule, minuscule, écriture main. Ton cerveau crée une règle: <code>A = 2 traits + 1 barre au milieu</code>. Après tu reconnais A même mal écrit. La machine fait EXACTEMENT pareil, mais avec 1 million d’exemples.</p>
+<h3>2. Les 3 Types de Données</h3><ul><li><b>Structurées:</b> Tableaux Excel. Lignes et colonnes. Ex: Age, Prix, Ville. Facile pour l’IA.</li><li><b>Non Structurées:</b> Photos, sons, textes, vidéos. 80% des données du monde. C’est le plus dur et le plus puissant.</li><li><b>Étiquetées:</b> Données avec la bonne réponse. C’est ce qui coûte le plus cher. 1 photo "chat" étiquetée vaut 10 photos sans étiquette.</li></ul>
+<h3>3. Surapprentissage vs Sous-apprentissage</h3><p><b>Sous-apprentissage:</b> L’élève n’a pas révisé. Score: 2/20. La machine est trop simple, elle n’a rien appris.<br><b>Surapprentissage:</b> L’élève a appris le manuel par cœur. 20/20 au manuel, mais 3/20 au nouveau test. Il a mémorisé, pas compris.<br><b>But CEO:</b> 15/20 partout. On appelle ça la généralisation.</p>
+<h3>4. Comment On Note une IA: Métriques</h3><p><b>Précision:</b> Sur 100 prédictions, combien sont vraies? Ex: 90% = 90 bonnes sur 100.<br><b>Rappel:</b> Sur 100 vrais chats, combien l’IA a trouvé? Ex: 95% = elle a raté 5 chats.<br><b>CEO:</b> En médical, on préfère Rappel. Mieux vaut 1 faux alarme que rater 1 vrai cancer.</p>
+<div class="astuce"><b>Astuce CEO:</b> Divise toujours tes données: 70% Entrainement, 20% Test, 10% Validation.</div>`,
+quiz:[{q:"Q1: La machine apprend comme:",a:["Une calculatrice","Un enfant à l’école","Une pierre","L’eau"],b:1,exp:"Vrai. Répétition + exemples = règle dans le cerveau."},{q:"Q2: Les photos sont:",a:["Structurées","Non Structurées","Magiques","Fausses"],b:1,exp:"Vrai. Photos, sons = Non Structurées. Tableaux Excel = Structurées."},{q:"Q3: Surapprentissage:",a:["Trop bête","Appris par cœur sans comprendre","Dort en classe","Mange"],b:1,exp:"Vrai. Il connaît le manuel mais échoue au nouveau test."},{q:"Q4: En médical on vise:",a:["Précision","Rappel","Vitesse","Couleur"],b:1,exp:"Vrai. Mieux vaut alerter pour rien que rater un vrai malade."},{q:"Q5: Sans données:",a:["Super IA","Pas d’IA","IA lente","IA rouge"],b:1,exp:"Vrai. Pas de manuel = pas d’élève intelligent."}]},
 
-// 4. CHAT
-function demander(){
-  let q=document.getElementById('input').value.toLowerCase();
-  let m=q.match(/leçon\s*(\d+)/);
-  if(m&&COURS[m[1]]){ouvrir(m[1]);document.getElementById('input').value='';return;}
-  let rep="🤔 Dis: Leçon 2, Leçon 3... ou Bonjour.";
-  if(q.includes('bonjour'))rep="👋 Coucou CEO! Prêt Leçon 2?";
-  if(q.includes('merci'))rep="😊 Avec plaisir! Quelle leçon?";
-  document.getElementById('destinReply').innerHTML=`<b>LIA ✨:</b> ${rep}`;
-  document.getElementById('input').value='';
-}
-</script>
-</body>
-</html>
+4:{titre:"Leçon 4: Réseaux de Neurones - Le Cerveau Artificiel 🧠",emoji:"🧠",
+cours:`<h3>1. Inspiré du Cerveau Humain</h3><p>Ton cerveau: 86 milliards de neurones connectés. L’IA: Des couches de neurones artificiels. Structure: Couche Entrée > Couches Cachées > Couche Sortie. Chaque neurone est une petite équation.</p>
+<h3>2. Le Neurone Artificiel</h3><p>Étape 1: Il reçoit des nombres en entrée.<br>Étape 2: Il multiplie chaque nombre par un "poids".<br>Étape 3: Il additionne tout + un "biais".<br>Étape 4: Si le résultat > seuil, il s’active et envoie le signal.<br><b>Apprendre = Ajuster les poids.</b></p>
+<h3>3. Deep Learning = Profond</h3><p>Quand on empile 10, 50, 100 couches, on appelle ça Deep Learning. C’est ça qui fait: Face ID, Google Traduction, ChatGPT, Midjourney. Règle: Plus de couches = plus complexe = plus intelligent, mais plus lent.</p>
+<h3>4. Entraînement = Descente de Gradient</h3><p>La machine fait une erreur. Elle calcule: "De combien je me suis trompé?". Puis elle ajuste TOUS les poids un tout petit peu pour faire moins d’erreur. Elle répète 1 million de fois. C’est comme marcher dans le brouillard pour trouver le point le plus bas d’une montagne.</p>
+<div class="erreur-box"><b>Erreur débutant:</b> Trop de couches pour un petit problème = Surapprentissage garanti.</div>`,
+quiz:[{q:"Q1: L’IA imite:",a:["Une voiture","Le cerveau","Une banane","Un livre"],b:1,exp:"Vrai. Les réseaux de neurones copient le cerveau."},{q:"Q2: Apprendre veut dire:",a:["Changer couleurs","Changer poids","Changer heure","Changer nom"],b:1,exp:"Vrai. Les poids sont les boutons que la machine ajuste."},{q:"Q3: Deep Learning:",a:["1 couche","Beaucoup de couches","0 couche","Couche rouge"],b:1,exp:"Vrai. Deep = Profond = Beaucoup de couches."},{q:"Q4: Descente Gradient:",a:["Monter montagne","Descendre pour min erreur","Dormir","Manger"],b:1,exp:"Vrai. On cherche le minimum d’erreur."},{q:"Q5: Face ID utilise:",a:["Deep Learning","Magie","Un humain","Rien"],b:0,exp:"Vrai. Reconnaissance visage = Réseau de neurones profond."}]},
+
+5:{titre:"Leçon 5: Les LLM - Les Géants qui Parlent 😊",emoji:"📚",
+cours:`<h3>1. C’est Quoi un LLM ?</h3><p>LLM = Large Language Model. Entraîné sur des milliards de mots: livres, sites, articles. Son seul job: Prédire le mot suivant. "Le ciel est..." > "bleu". Avec 1 milliard de mots, ça devient de la magie.</p>
+<h3>2. Les Tokens</h3><p>Un LLM ne lit pas les mots. Il lit des "tokens". Un token = un morceau de mot. Ex: "Intelligence" = 2 tokens. C’est pour ça qu’il parle 100 langues. Il manipule des morceaux, pas des idées.</p>
+<h3>3. Attention is All You Need</h3><p>Révolution 2017. Au lieu de lire mot par mot, le LLM regarde toute la phrase en même temps et décide quels mots sont importants. Dans "Le chat a mangé la souris car il avait faim", il comprend que "il" = "chat".</p>
+<h3>4. Limites des LLM</h3><ul><li><b>Hallucination:</b> Il invente des faits avec confiance. C’est un perroquet intelligent, pas Google.</li><li><b>Pas de mémoire:</b> Il oublie tout après la conversation.</li><li><b>Pas de corps:</b> Il n’a jamais mangé une banane. Il lit juste sur les bananes.</li></ul>
+<div class="astuce"><b>Astuce CEO:</b> Traite toujours un LLM comme un stagiaire très intelligent mais qui ment parfois. Vérifie.</div>`,
+quiz:[{q:"Q1: LLM veut dire:",a:["Little Lazy Machine","Large Language Model","Long Love Message","Learn Loud Music"],b:1,exp:"Vrai. Large Language Model = Gros Modèle de Langage."},{q:"Q2: Job principal:",a:["Calculer","Prédire mot suivant","Dessiner","Cuisiner"],b:1,exp:"Vrai. Tout le reste est un effet secondaire."},{q:"Q3: Un token:",a:["Un mot entier","Un morceau de mot","Une image","Un son"],b:1,exp:"Vrai. C’est l’unité de base des LLM."},{q:"Q4: Hallucination:",a:["Dire vérité","Inventer des faits","Dormir","Chanter"],b:1,exp:"Vrai. Il invente car il prédit le mot le plus probable, pas le plus vrai."},{q:"Q5: Secret LLM:",a:["Attention","Musique","Couleur","Chance"],b:0,exp:"Vrai. Le mécanisme Attention lui permet de comprendre le contexte."}]},
+
+6:{titre:"Leçon 6: IA Générative d’Images 👑",emoji:"🎨",
+cours:`<h3>1. Du Texte à l’Image</h3><p>Les IA comme Midjourney ne dessinent pas. Elles "débruitent". On part d’un écran plein de neige TV. L’IA enlève le bruit petit à petit, guidée par ton texte: "un chien roi". Après 50 étapes, la neige devient un chien roi.</p>
+<h3>2. Le Processus en 2 Étapes</h3><ul><li><b>Entraînement:</b> L’IA a vu 5 milliards d’images + textes. Elle a appris: "Ce texte = Cette image".</li><li><b>Génération:</b> Tu donnes un texte. L’IA mélange tout ce qu’elle a vu et crée une nouvelle image qui n’a jamais existé.</li></ul>
+<h3>3. Le Prompt = Baguette Magique</h3><p>"Chien" = Dessin nul.<br>"Chien roi, photoréaliste, couronne en or, regard noble, studio lighting, 8k" = Chef d’œuvre.<br><b>Mots codes:</b> 8k, photoréaliste, lighting, cinematic = Qualité.</p>
+<h3>4. Usage Pro</h3><p>Logo, affiche, produit, film, jeu vidéo. Un designer gagne 10x plus vite. <b>Règle CEO:</b> L’IA remplace la main qui dessine. Elle ne remplace pas l’idée. L’idée vient toujours de toi.</p>
+<div class="erreur-box"><b>Erreur:</b> Croire que l’IA est créative. Non. Elle est une machine à remixer.</div>`,
+quiz:[{q:"Q1: L’IA image part de:",a:["Feuille blanche","Bruit TV","Une photo","Rien"],b:1,exp:"Vrai. Processus = Débruitage guidé par le texte."},{q:"Q2: Entraînée sur:",a:["10 images","5 milliards","Sa tête","Magie"],b:1,exp:"Vrai. Plus elle a vu, plus elle mélange bien."},{q:"Q3: 8k dans prompt:",a:["8 kilos","Très haute qualité","8 chiens","8 couleurs"],b:1,exp:"Vrai. C’est un mot code pour qualité."},{q:"Q4: IA remplace:",a:["L’idée","La main","Le client","L’argent"],b:1,exp:"Vrai. Toi tu donnes l’idée, l’IA exécute."},{q:"Q5: Le prompt:",a:["Inutile","Baguette magique","Interdit","Cher"],b:1,exp:"Vrai. La qualité du prompt = qualité de l’image."}]},
+
+7:{titre:"Leçon 7: Biais et Éthique IA 🍌",emoji:"⚠️",
+cours:`<h3>1. L’IA est un Miroir</h3><p>L’IA n’est pas intelligente. Elle copie le monde. Si tu lui montres un monde sexiste, raciste, injuste, elle devient sexiste, raciste, injuste. <b>Garbage In, Garbage Out.</b></p>
+<h3>2. Les 3 Grands Biais</h3><ul><li><b>Biais Données:</b> 1000 bananes jaunes = L’IA croit que bleue n’existe pas.</li><li><b>Biais Humain:</b> Ceux qui étiquettent ont leurs opinions. L’IA les apprend.</li><li><b>Biais Algo:</b> Le code lui-même peut favoriser un groupe.</li></ul>
+<h3>3. Conséquences Réelles</h3><p>IA recrutement qui rejette femmes. IA police qui cible quartier. IA crédit qui refuse pauvres. L’IA amplifie les problèmes si on ne fait pas attention.</p>
+<h3>4. La Solution: Toi CEO</h3><p>Il faut des données diverses, des équipes diverses, des tests réguliers. Et surtout, un humain responsable à la fin. L’IA est un outil. Toi tu es le patron éthique.</p>
+<div class="astuce"><b>Astuce CEO:</b> Avant de lancer une IA, demande: "Qui ça va blesser si ça se trompe?"</div>`,
+quiz:[{q:"Q1: L’IA est:",a:["Un miroir","Plus que Dieu","Magique","Parfaite"],b:0,exp:"Vrai. Elle reflète les données qu’on lui donne."},{q:"Q2: GIGO:",a:["Bon dedans bon dehors","Poubelle dedans poubelle dehors","Rien dedans","Or dedans"],b:1,exp:"Vrai. Qualité entrée = qualité sortie."},{q:"Q3: Biais données:",a:["Que bananes jaunes","Toutes couleurs","Pas banane","Rouge"],b:0,exp:"Vrai. Manque de diversité = biais."},{q:"Q4: Responsable:",a:["L’IA","L’ordinateur","L’humain","Personne"],b:2,exp:"Vrai. L’humain est toujours responsable à la fin."},{q:"Q5: Solution:",a:["Éteindre","Diversité","Plus argent","Prière"],b:1,exp:"Vrai. Données + équipes diverses = IA plus juste."}]},
+
+8:{titre:"Leçon 8: L’Art du Prompting 🗣️",emoji:"💬",
+cours:`<h3>1. Prompt = Instruction</h3><p>Un prompt est ta question à l’IA. Mauvais prompt = réponse nulle. Bon prompt = or. C’est le métier le plus demandé en 2025: Prompt Engineer.</p>
+<h3>2. La Formule CORTEX</h3><ul><li><b>C Contexte:</b> "Tu es un prof de maths pour 10 ans."</li><li><b>O Objectif:</b> "Explique les fractions."</li><li><b>R Rôle:</b> "Parle simple, exemple pizza."</li><li><b>T Tâche:</b> "Donne 3 exemples + 1 exo."</li><li><b>E Exemple:</b> "Ex: 1/2 pizza."</li><li><b>X Format:</b> "Réponds en 5 lignes."</li></ul>
+<h3>3. Mauvais vs Bon</h3><p><b>Mauvais:</b> "Code moi un site"<br><b>Bon:</b> "Tu es dev senior. Code site vitrine pagnes Bénin. Couleurs or violet. 3 pages: Accueil, Produits, Contact. HTML seul, commenté."</p>
+<h3>4. Règle d’Or</h3><p>Sois précis. Sois poli. Donne des exemples. L’IA n’est pas devin. Plus tu donnes, plus elle te rend.</p>
+<div class="astuce"><b>Astuce CEO:</b> Si la réponse est nulle, c’est 90% de ta faute de prompt.</div>`,
+quiz:[{q:"Q1: Prompt:",a:["Insulte","Instruction","Musique","Image"],b:1,exp:"Vrai. C’est l’ordre que tu donnes à l’IA."},{q:"Q2: C dans CORTEX:",a:["Couleur","Contexte","Chat","Cuisine"],b:1,exp:"Vrai. Contexte = Qui est l’IA."},{q:"Q3: Mauvais prompt:",a:["Détaillé","Code site","Poli","Exemple"],b:1,exp:"Vrai. Trop vague = réponse vague."},{q:"Q4: Métier 2025:",a:["Boucher","
