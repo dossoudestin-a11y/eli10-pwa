@@ -2,107 +2,75 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DESTIN ACADEMIE V21</title>
+<title>LIA ACADEMIE V22</title>
 <style>
 * {box-sizing: border-box;}
 body {
   margin:0;
   font-family:'Segoe UI', sans-serif;
   color:#fff;
-  /* FOND HYPER CLASSE CEO 👑 */
-  background: radial-gradient(ellipse at top, #1a1f3a 0%, #0a0f1e 70%),
-              linear-gradient(135deg, #0a0f1e 0%, #2a1a4a 50%, #1a0f2e 100%);
+  /* FOND HYPER CLASSE 👑 BLEU NUIT + OR + VIOLET */
+  background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,.4) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 90%, rgba(255,215,0,.3) 0%, transparent 50%),
+              linear-gradient(135deg, #0a0f1e 0%, #1a1f3a 50%, #2a1a4a 100%);
   min-height: 100vh;
 }
-.app{width:100%;max-width:500px;margin:20px auto;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1px solid rgba(255,215,0,.2);padding:24px;border-radius:24px;box-shadow:0 20px 60px rgba(127,90,240,.3)}
-.logo{width:90px;height:90px;margin:0 auto 15px;background:linear-gradient(135deg,#FFD700 0%,#FFA500 50%,#7F5AF0 100%);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#000;box-shadow:0 0 30px rgba(255,215,0,.5)}
-h1{text-align:center;font-size:1.6rem;margin:0 0 10px;background:linear-gradient(90deg,#FFD700,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-input,button{width:100%;padding:16px;margin-top:12px;border-radius:14px;border:0;font-size:1.05rem;font-weight:600}
-input{background:rgba(0,0,0,.4);color:#fff;border:1px solid rgba(255,215,0,.3);text-transform:uppercase;text-align:center}
-button{background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;cursor:pointer;transition:transform.2s}
-button:active{transform:scale(.98)}
+.app{width:100%;max-width:500px;margin:20px auto;background:rgba(255,255,255,.08);backdrop-filter:blur(20px);border:1px solid rgba(255,215,0,.3);padding:24px;border-radius:24px;box-shadow:0 20px 60px rgba(127,90,240,.4)}
+.logo{width:90px;height:90px;margin:0 auto 15px;background:linear-gradient(135deg,#FFD700 0%,#FFA500 100%);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:900;color:#000;box-shadow:0 0 30px rgba(255,215,0,.6)}
+h1{text-align:center;font-size:1.7rem;margin:0 0 10px;background:linear-gradient(90deg,#FFD700,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+form{display:grid;gap:12px}
+input{width:100%;padding:16px;border-radius:14px;border:2px solid rgba(255,215,0,.4);font-size:1.05rem;font-weight:700;background:rgba(0,0,0,.5);color:#fff;text-transform:uppercase;text-align:center}
+input:invalid{border-color:#FF5252}
+input:valid{border-color:#69F0AE}
+button{width:100%;padding:16px;border-radius:14px;border:0;font-size:1.1rem;font-weight:800;background:linear-gradient(90deg,#FFD700,#FFA500);color:#000;cursor:pointer}
+button:disabled{opacity:.4;cursor:not-allowed}
 .hidden{display:none}
-.lesson{background:linear-gradient(135deg,rgba(127,90,240,.3),rgba(0,0,0,.3));padding:16px;border-radius:14px;margin-top:12px;cursor:pointer;border:1px solid rgba(127,90,240,.4);transition:all.2s}
-.lesson:active{background:rgba(127,90,240,.5)}
-#destinReply{background:linear-gradient(135deg,rgba(127,90,240,.25),rgba(255,215,0,.1));padding:18px;border-radius:16px;margin-top:15px;font-size:1.15rem;line-height:1.9;border:1px solid rgba(127,90,240,.3)}
-#destinReply b{color:#FFD700;font-size:1.2rem}
-:target #lock{display:none}
-:target #app{display:block}
+/* LA MAGIE CEO : Si le form est VALIDE = On cache lock et on montre app */
+form:valid #lock{display:none}
+form:valid ~ #app{display:block}
 #app{display:none}
+.lesson{background:linear-gradient(135deg,rgba(127,90,240,.35),rgba(0,0,0,.35));padding:16px;border-radius:14px;margin-top:12px;border:1px solid rgba(127,90,240,.5)}
+#destinReply{background:linear-gradient(135deg,rgba(127,90,240,.25),rgba(255,215,0,.15));padding:18px;border-radius:16px;margin-top:15px;font-size:1.15rem;line-height:1.9;border:1px solid rgba(127,90,240,.4)}
+#destinReply b{color:#FFD700;font-size:1.2rem}
 </style>
 </head>
 <body>
 <div class="app">
 
-  <div id="lock">
-    <div class="logo">DP</div>
-    <h1>DESTIN ACADEMIE</h1>
-    <p style="text-align:center;opacity:.8;margin-bottom:15px">Entre ton code secret 👇</p>
-    <input id="code" placeholder="DESTIN-001" value="DESTIN-001">
-    <a href="#app" onclick="return verifCode()"><button>Activer Mon Accès ✨</button></a>
-    <p id="msg" style="text-align:center;margin-top:12px;font-weight:700"></p>
-  </div>
+  <form id="form" onsubmit="return false">
+    <div id="lock">
+      <div class="logo">DP</div>
+      <h1>LIA ACADEMIE</h1>
+      <p style="text-align:center;opacity:.9;margin:0">Code secret exact 👇</p>
+      <!-- PATTERN = Le code exact. Si c'est pas ça, le bouton reste mort -->
+      <input id="code" name="code" placeholder="DESTIN-001" required pattern="DESTIN-001" autocomplete="off">
+      <button type="submit" formaction="#app">Activer Mon Accès ✨</button>
+      <p style="text-align:center;margin-top:8px;font-size:.9rem;opacity:.7">Tape EXACTEMENT: DESTIN-001</p>
+    </div>
+  </form>
 
   <div id="app">
     <div class="logo" style="width:70px;height:70px;font-size:2.2rem">DP</div>
     <h1>Salut, je suis LIA ✨</h1>
-    <p style="text-align:center;opacity:.8">Clique une leçon ou écris en bas 👇</p>
+    <p style="text-align:center;opacity:.9">Clique une leçon 👇</p>
 
-    <div id="liste"></div>
-
-    <input id="input" placeholder="Ex: Leçon 3">
-    <button id="ask" style="background:linear-gradient(90deg,#7F5AF0,#9D7BFF);color:#fff" onclick="demander()">Demander à LIA</button>
-    <div id="destinReply">👋 Coucou! Écris `Leçon 2` pour commencer 😊</div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 👶 Coucou! Imagine un robot bébé 🍼. Si tu lui montres 100 photos de chats, il apprend! Après il dit tout seul: `Ah! Ça c’est un chat!` C’est ça l’IA.')"><b>Leçon 2</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 📚 Machine Learning = `La machine va à l’école`! Comme toi. Maman te montre la lettre `A` 50 fois. Après tu reconnais `A` partout.')"><b>Leçon 3</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 🧠 L’ordi a un `cerveau` plein d’ampoules 💡. Une crie `moustaches!`, une autre `miaule!`. Ensemble = `C’est un chat!`')"><b>Leçon 4</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 😊 Moi c’est LIA! J’ai lu tous les livres. Je devine le mot d’après quand tu parles. C’est un jeu!')"><b>Leçon 5</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 👑🐶 Tu me dis `dessine un chien roi` et POUF! J’ai vu des millions de dessins avant. Je suis une artiste magique.')"><b>Leçon 6</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 🍌 Attention! Si je vois seulement des bananes jaunes, je crois que toutes sont jaunes. L’IA copie bêtement.')"><b>Leçon 7</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 🗣️ Parle-moi comme à ton ami. Dis: `LIA s’il te plaît, dessine un soleil jaune qui rigole` 😊')"><b>Leçon 8</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 🇧🇯 Au Bénin je peux t’aider pour tes devoirs, écrire pour vendre, ou traduire Français <> Fon.')"><b>Leçon 9</b></div>
+    <div class="lesson" onclick="r('LIA ✨:</b> 🚀 L’IA ne prend PAS ta place! Mais toi + LIA = Tu deviens un super-héros de ta classe.')"><b>Leçon 10</b></div>
+    
+    <div id="destinReply">👋 Coucou! Clique `Leçon 2` pour commencer 😊</div>
   </div>
 </div>
 
 <script>
-const CODES = ["DESTIN-001","DESTIN-002","DESTIN-003","DESTIN-004","DESTIN-005"];
-// LIA PARLE COMME À UN ENFANT DE 5 ANS 👶
-const COURS = {
- 2:"👶 Coucou! Imagine un robot bébé 🍼. Si tu lui montres 100 photos de chats, il apprend! Après il dit tout seul: `Ah! Ça c’est un chat!` C’est ça l’IA.",
- 3:"📚 Machine Learning = `La machine va à l’école`! Comme toi. Maman te montre la lettre `A` 50 fois. Après tu reconnais `A` partout. La machine fait pareil.",
- 4:"🧠 L’ordi a un `cerveau` plein d’ampoules 💡. Une ampoule crie `moustaches!`, une autre crie `miaule!`. Quand toutes crient ensemble = `C’est un chat!`",
- 5:"😊 Moi c’est LIA! J’ai lu tous les livres du monde. Quand tu me parles, je devine le mot d’après. Comme un jeu! C’est pour ça que je parle bien.",
- 6:"👑🐶 Tu me dis `LIA dessine un chien roi` et POUF! Je dessine! J’ai regardé des millions de dessins avant. Je suis une artiste magique.",
- 7:"🍌 Attention! Si je vois seulement des bananes jaunes, je crois que toutes les bananes sont jaunes. L’IA copie bêtement ce qu’on lui montre.",
- 8:"🗣️ Parle-moi gentiment comme à ton ami. Pas `fais`. Dis plutôt: `LIA s’il te plaît, dessine un soleil jaune qui rigole fort` 😊",
- 9:"🇧🇯 Au Bénin LIA peut t’aider! Pour tes devoirs, pour écrire des messages pour vendre tes choses, ou pour traduire Français <> Fon. Je suis ton ami.",
- 10:"🚀 L’IA ne va PAS prendre ta place! Promis. Mais toi + LIA ensemble = Tu deviens un super-héros! Le plus fort de ta classe."
-};
-
-function verifCode(){
-  let code = document.getElementById('code').value.toUpperCase().trim();
-  let msg = document.getElementById('msg');
-  if(CODES.includes(code)){
-    msg.style.color = '#69F0AE';
-    msg.textContent = '✅ Code Bon! Bienvenue Patron!';
-    afficher(); // On charge les leçons avant de sauter
-    return true; // Laisse le lien #app te faire sauter
-  } else {
-    msg.style.color = '#FF5252';
-    msg.textContent = '❌ Code Faux. Essaye: DESTIN-001';
-    return false; // Bloque le saut si code faux
-  }
-}
-
-function afficher(){
-  let html = '';
-  for(let n in COURS){
-    html += `<div class="lesson" onclick="document.getElementById('destinReply').innerHTML='<b>LIA ✨:</b> ${COURS[n]}'">Leçon ${n}</div>`;
-  }
-  document.getElementById('liste').innerHTML = html;
-}
-
-function demander(){
-  let q = document.getElementById('input').value.toLowerCase();
-  let m = q.match(/leçon\s*(\d+)/);
-  if(m && COURS[m[1]]){
-    document.getElementById('destinReply').innerHTML = `<b>LIA ✨:</b> ${COURS[m[1]]}`;
-  } else {
-    document.getElementById('destinReply').innerHTML = `<b>LIA ✨:</b> Dis-moi `Leçon 3` mon ami 😊`;
-  }
-}
+// 1 SEULE LIGNE JS POUR LES LEÇONS. RIEN D'AUTRE. 
+function r(t){document.getElementById('destinReply').innerHTML=t}
 </script>
 </body>
 </html>
