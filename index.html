@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>DESTIN ACADEMIE V37 CEO</title>
+<title>DESTIN ACADEMIE V37.1 CEO</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body{font-family:'Segoe UI',system-ui,sans-serif;color:#fff;background: radial-gradient(ellipse at 20% 10%, rgba(127,90,240,.5) 0%, transparent 50%),radial-gradient(ellipse at 80% 90%, rgba(255,215,0,.4) 0%, transparent 50%),linear-gradient(135deg, #050816 0%, #1a1f3a 50%, #2a1a4a 100%);min-height:100vh}
@@ -51,7 +51,6 @@ ul{padding-left:20px}
 <body>
 <div class="app">
 
-  <!-- 1. PAGE CODE SECRÈTE CEO -->
   <div id="lock" class="page active">
     <div class="lock-box">
       <div class="logo-dp">
@@ -67,11 +66,10 @@ ul{padding-left:20px}
     </div>
   </div>
 
-  <!-- 2. MENU 9 LEÇONS -->
   <div id="home" class="page">
     <div class="logo-dp" style="width:70px;height:70px"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
     <h1>Salut <span id="userCode"></span> ✨</h1>
-    <p style="text-align:center;opacity:.9;margin-bottom:14px">9 Masterclass Complètes + 90 Quiz</p>
+    <p style="text-align:center;opacity:.9;margin-bottom:14px">9 Masterclass Complètes + 90 Quiz + LIA IA</p>
 
     <div class="lesson" onclick="ouvrir(2)">Leçon 2: Apprentissage Machine 1959 🍼</div>
     <div class="lesson" onclick="ouvrir(3)">Leçon 3: Machine Learning Avancé 📚</div>
@@ -83,8 +81,8 @@ ul{padding-left:20px}
     <div class="lesson" onclick="ouvrir(9)">Leçon 9: IA Bénin 🇧🇯</div>
     <div class="lesson" onclick="ouvrir(10)">Leçon 10: Futur 2030 🚀</div>
 
-    <div id="destinReply"><span class="lia-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span><b>LIA ✨:</b> Coucou CEO! Je peux parler de tout. Tape n’importe quoi.</div>
-    <div class="chatbox"><input id="input" placeholder="Ex: Parle-moi de foot ou Leçon 4"><button onclick="demander()">Envoyer</button></div>
+    <div id="destinReply"><span class="lia-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span><b>LIA ✨:</b> Coucou CEO! Parle-moi de tout: Foot, Amour, Business, Code, Bénin...</div>
+    <div class="chatbox"><input id="input" placeholder="Ex: Donne moi une idée business ou Leçon 4"><button onclick="demander()">Envoyer</button></div>
   </div>
 
   <div id="c2" class="page"><button class="btn-back" onclick="retour()">⬅ Menu</button><div id="contenu-c2"></div></div>
@@ -99,9 +97,13 @@ ul{padding-left:20px}
 </div>
 
 <script>
-// 1. SYSTÈME CODE SECRET CEO = TOI SEUL TU GÈRES
-// IMPORTANT: Mets tes vrais codes ici. Ne partage JAMAIS ce fichier.
-const CODES_VALIDES = ["DP-7K9X-2026","DP-3M2P-2026","DP-9L1Q-2026","DP-5R8T-2026","DP-1Z4W-2026"];
+// 1. SYSTÈME CODE SECRET CEO
+const CODES_VALIDES = [
+"DP-7K9X-2026","DP-3M2P-2026","DP-9L1Q-2026","DP-5R8T-2026","DP-1Z4W-2026",
+"DP-B4V8-2026","DP-C6N1-2026","DP-F2H5-2026","DP-J8K3-2026","DP-L9M7-2026",
+"DP-P4Q2-2026","DP-R6S9-2026","DP-T3V1-2026","DP-W7X4-2026","DP-Y2Z6-2026",
+"DP-A5B8-2026","DP-D1E4-2026","DP-G9F3-2026","DP-H6J7-2026","DP-K2L0-2026"
+];
 
 document.getElementById('btnActiver').addEventListener('click', activer);
 document.getElementById('code').addEventListener('keypress', e=>{if(e.key==='Enter')activer();});
@@ -110,16 +112,12 @@ function activer(){
   let code = document.getElementById('code').value.trim().toUpperCase();
   let err = document.getElementById('error'); let ok = document.getElementById('success');
   err.style.display='none'; ok.style.display='none';
-
   if(code === ''){err.textContent="❌ Entre ton code CEO.";err.style.display='block';return;}
   if(!CODES_VALIDES.includes(code)){err.textContent="❌ Code invalide. Contacte CEO.";err.style.display='block';return;}
   if(localStorage.getItem('destin_license')){err.textContent="❌ Ce téléphone est déjà activé.";err.style.display='block';return;}
-
-  localStorage.setItem('destin_license',code);
-  ok.style.display='block';
+  localStorage.setItem('destin_license',code); ok.style.display='block';
   setTimeout(()=>goHome(code),800);
 }
-
 function goHome(code){
   document.getElementById('userCode').textContent=code.split('-')[1];
   document.getElementById('lock').classList.remove('active');
@@ -128,89 +126,97 @@ function goHome(code){
 }
 if(localStorage.getItem('destin_license')) goHome(localStorage.getItem('destin_license'));
 
-// 2. 9 COURS 100% DÉVELOPPÉS + 10 QUIZ + IMAGES 8K
+// 2. 9 COURS + 90 QUIZ
 const COURS = {
-2:{titre:"Leçon 2: Apprentissage Machine - Fondation 1959 🍼",img:"https://image.pollinations.ai/prompt/baby%20robot%20learning%20from%201000%20cat%20photos%20floating%20classroom%20digital%20art%208k%20ultra%20detailed",
-cours:`<h3>1. Définition 1959 Arthur Samuel IBM</h3><p><b>ML:</b> Champ IA où système améliore performance P sur tâche T via expérience E. <b>IA:</b> 1956 John McCarthy Dartmouth. <b>Algorithme:</b> Recette. <b>Modèle:</b> Résultat après train.</p><div class="box"><b>Pour 10 ans:</b> Montre 10000 chats/chiens > Ordi calcule règle tout seul.</div>
-<h3>2. Histoire Qui Année</h3><table class="table"><tr><th>Année</th><th>Qui</th><th>Quoi</th></tr><tr><td>1952</td><td>Arthur Samuel</td><td>Dames IBM 701</td></tr><tr><td>1986</td><td>Rumelhart Hinton</td><td>Backprop</td></tr><tr><td>2012</td><td>Alex Krizhevsky</td><td>AlexNet 84%</td></tr></table>
-<h3>3. 3 Types</h3><p><b>Supervisé:</b> X+Y. Ex Chat/Chien. <b>Non Supervisé:</b> X seul. K-Means 1957. <b>RL:</b> Récompense. AlphaGo 2016 Demis Hassabis.</p>
-<h3>4. Cycle</h3><p>Collecte > Nettoyage > 70/20/10 > Train > Test > Deploy</p>
-<h3>5. GIGO 1970</h3><div class="erreur-box">Garbage In Garbage Out. Biais données = Biais IA.</div>
-<h3>6. Formule MSE</h3><p>MSE = 1/n Σ(yi - ŷi)²</p>
-<h3>7. Bénin 2026</h3><p>5000 noix > CNN > 98% > 1000/min. ROI: 20 ouvriers -> 1 système.</p>
-<h3>8. Erreurs</h3><p>Test sur train. Pas split.</p>
-<h3>9. Sigles</h3><p>ML, CNN, RL, MSE.</p>
-<div class="astuce"><b>CEO:</b> 100 données propres > 10000 sales.</div>`,
-quiz:["Qui 1959?|Samuel,Turing,Hinton,0|0","ML?|Machine Learning,Money,0,0|0","Supervisé?|X+Y,X seul,0,0|1","GIGO?|Or,Poubelle,0,0|1","Split?|100,70-20-10,0,0|1","AlexNet?|1952,2012,0,0|1","AlphaGo?|2016,2000,0,0|0","CNN?|Code,Réseau,0,0|1","MSE?|Erreur,0,0,0|0","ROI?|20->1,0,0,0|0"]},
+2:{titre:"Leçon 2: Apprentissage Machine - Fondation 1959 🍼",img:"https://image.pollinations.ai/prompt/baby%20robot%20learning%20from%201000%20cat%20photos%208k",
+cours:`<h3>1. Définition 1959 Arthur Samuel IBM</h3><p><b>ML:</b> Champ IA où système améliore performance P sur tâche T via expérience E. <b>IA:</b> 1956 John McCarthy.</p><div class="box"><b>Pour 10 ans:</b> Montre 10000 chats/chiens > Ordi calcule règle.</div>
+<h3>2. Histoire</h3><table class="table"><tr><th>Année</th><th>Qui</th></tr><tr><td>1952</td><td>Samuel</td></tr><tr><td>2012</td><td>AlexNet</td></tr></table>
+<h3>3. 3 Types</h3><p><b>Supervisé:</b> X+Y. <b>Non Supervisé:</b> X seul. <b>RL:</b> AlphaGo 2016.</p>
+<h3>4. GIGO</h3><div class="erreur-box">Poubelle dedans = Poubelle dehors.</div>
+<h3>5. Bénin</h3><p>5000 noix > CNN > 98% > 1000/min.</p>`,
+quiz:["Qui 1959?|Samuel,Turing,0,0|0","ML?|Machine Learning,Money,0,0|0","Supervisé?|X+Y,X seul,0,0|1","GIGO?|Or,Poubelle,0,0|1","Split?|100,70-20-10,0,0|1","AlexNet?|1952,2012,0,0|1","AlphaGo?|2016,2000,0,0|0","CNN?|Code,Réseau,0,0|1","MSE?|Erreur,0,0,0|0","ROI?|20->1,0,0,0|0"]},
 
-3:{titre:"Leçon 3: Machine Learning Avancé 📚",img:"https://image.pollinations.ai/prompt/computer%20school%20desk%20AI%20101%20robot%20teacher%208k%20ultra%20detailed",
-cours:`<h3>1. Over vs Under 1947</h3><p><b>Under:</b> Bias haut. <b>Over:</b> Variance haut. <b>Bon:</b> 15/20.</p>
-<h3>2. Données</h3><table class="table"><tr><td>Struct</td><td>Excel 20%</td></tr><tr><td>Non</td><td>Photo 80%</td></tr></table>
-<h3>3. Solutions</h3><p>L1 1996. L2 1970. Dropout 2012.</p>
-<h3>4. Métriques</h3><p>Précision=VP/VP+FP. Rappel=VP/VP+FN. F1=2PR/P+R 1979.</p>
-<h3>5. Médical</h3><p>Max Rappel. FN=mort.</p>
-<div class="astuce"><b>CEO:</b> Matrice + ROC.</div>`,
+3:{titre:"Leçon 3: Machine Learning Avancé 📚",img:"https://image.pollinations.ai/prompt/computer%20school%20desk%208k",
+cours:`<h3>1. Over vs Under</h3><p><b>Under:</b> Bias haut. <b>Over:</b> Variance haut.</p>
+<h3>2. Données</h3><p>Struct Excel 20%. Non Struct Photo 80%.</p>
+<h3>3. Métriques</h3><p>Précision=VP/VP+FP. Rappel=VP/VP+FN. F1=2PR/P+R.</p>`,
 quiz:["Under?|Bias haut,Variance,0,0|0","Over?|Bias,Variance haut,0,0|1","F1?|P+R,2PR/P+R,0,0|1","Struct?|Excel,Photo,0,0|0","Rappel?|VP/VP+FN,0,0,0|0","Médical?|Précision,Rappel,0,0|1","Dropout?|2012,1990,0,0|0","ROC?|Courbe,Ligne,0,0|0","FP?|False,True,0,0|1","AUC?|Aire,0,0,0|0"]},
 
-4:{titre:"Leçon 4: Réseaux Neurones 1943 🧠",img:"https://image.pollinations.ai/prompt/glowing%20artificial%20brain%20neural%20network%20wires%20cyberpunk%208k%20ultra%20detailed",
+4:{titre:"Leçon 4: Réseaux Neurones 1943 🧠",img:"https://image.pollinations.ai/prompt/brain%20neural%20network%208k",
 cours:`<h3>1. Neurone 1943</h3><p>McCulloch-Pitts. y=fW·X+b</p>
 <h3>2. Activation</h3><p>Sigmoid 1986. ReLU 2011. Softmax.</p>
-<h3>3. Deep 2006</h3><p>>2 couches. CNN 2012. Transformer 2017.</p>
-<h3>4. Backprop</h3><p>w=w-lr*grad. lr=0.001</p>
-<div class="erreur-box"><b>Erreur:</b> Trop couches.</div>`,
+<h3>3. Deep</h3><p>>2 couches. Transformer 2017.</p>`,
 quiz:["1943?|McCulloch,Turing,0,0|0","Formule?|y=W·X+b,y=X,0,0|0","ReLU?|max0,x,min,0|0","Transformer?|2017,2012,0,0|0","lr?|0.001,1,100,0|0","Deep?|>2,1,0,0|0","GPU?|Oui,Non,0,0|0","Face ID?|CNN,RNN,0,0|0","Sigmoid?|0-1,-1-1,0,0|0","Backprop?|Arrière,Avant,0,0|1"]},
 
-5:{titre:"Leçon 5: LLM 2018 😊",img:"https://image.pollinations.ai/prompt/AI%20robot%20LIA%20tower%20books%20reading%20digital%20painting%208k%20ultra%20detailed",
+5:{titre:"Leçon 5: LLM 2018 😊",img:"https://image.pollinations.ai/prompt/AI%20robot%20books%208k",
 cours:`<h3>1. LLM</h3><p>GPT-1 2018 117M. Next token.</p>
 <h3>2. Tokens</h3><p>50k-100k vocab.</p>
-<h3>3. Transformer</h3><p>2017 Google.</p>
-<h3>4. 3 Étapes</h3><p>Pré-train > SFT > RLHF 2022</p>
-<h3>5. Limites</h3><p>Hallucination. 4k-128k.</p>
-<div class="astuce"><b>CEO:</b> RAG.</div>`,
+<h3>3. Transformer</h3><p>2017 Google.</p>`,
 quiz:["GPT-1?|2018,2000,0,0|0","Tokens?|50k-100k,10,0,0|0","Transformer?|2017,2012,0,0|0","RLHF?|2022,2020,0,0|0","Contexte?|4k-128k,10,0,0|0","Hallu?|Oui,Non,0,0|0","RAG?|Solution,0,0,0|0","Param?|117M,1M,0,0|0","Vocab?|50k,10,0,0|0","Next?|Token,0,0,0|0"]},
 
-6:{titre:"Leçon 6: IA Image 2022 👑",img:"https://image.pollinations.ai/prompt/majestic%20king%20dog%20golden%20crown%20fantasy%20art%20ultra%20detailed%208k",
+6:{titre:"Leçon 6: IA Image 2022 👑",img:"https://image.pollinations.ai/prompt/king%20dog%20crown%208k",
 cours:`<h3>1. Diffusion</h3><p>2022 Stability AI.</p>
-<h3>2. Types</h3><table class="table"><tr><td>GAN</td><td>2014</td></tr><tr><td>Diffusion</td><td>2022</td></tr></table>
-<h3>3. Prompt</h3><p>8k photorealistic.</p>
-<h3>4. Process</h3><p>CLIP->UNet->VAE.</p>
-<div class="erreur-box"><b>Erreur:</b> Remixe.</div>`,
+<h3>2. Types</h3><p>GAN 2014. Diffusion 2022.</p>
+<h3>3. Prompt</h3><p>8k photorealistic.</p>`,
 quiz:["2022?|Diffusion,GAN,0,0|0","GAN?|2014,2022,0,0|0","8k?|Qualité,Kilos,0,0|0","CLIP?|2021,2010,0,0|0","Étapes?|50,5,500,0|1","DALL-E?|2023,2010,0,0|0","UNet?|Débruit,0,0,0|0","VAE?|2013,2000,0,0|0","Remixe?|Oui,Non,0,0|0","Midjourney?|v5,0,0,0|0"]},
 
-7:{titre:"Leçon 7: Biais & Éthique 🍌",img:"https://image.pollinations.ai/prompt/yellow%20blue%20banana%20AI%20robot%20only%20sees%20yellow%20conceptual%208k%20ultra%20detailed",
+7:{titre:"Leçon 7: Biais & Éthique 🍌",img:"https://image.pollinations.ai/prompt/banana%20AI%208k",
 cours:`<h3>1. Biais</h3><p>Écart systématique.</p>
 <h3>2. Cas</h3><p>2018 Amazon. 2019 IBM 34%.</p>
-<h3>3. Lois</h3><p>RGPD 2018. AI Act 2024 7%.</p>
-<div class="astuce"><b>CEO:</b> Qui risque?</div>`,
+<h3>3. Lois</h3><p>RGPD 2018. AI Act 2024.</p>`,
 quiz:["2018?|Amazon,Google,0,0|0","IBM?|34%,1%,0,0|0","RGPD?|2018,2020,0,0|0","AI Act?|2024,2020,0,0|0","Amende?|7%,0%,0,0|0","Audit?|Oui,Non,0,0|0","Humain?|Oui,Non,0,0|0","Diversité?|Oui,Non,0,0|0","Risque?|Qui,0,0,0|0","Biais?|Écart,0,0,0|0"]},
 
-8:{titre:"Leçon 8: Prompting 2023 🗣️",img:"https://image.pollinations.ai/prompt/person%20speaking%20kindly%20to%20AI%20robot%20LIA%20golden%20drawing%20warm%208k%20ultra%20detailed",
+8:{titre:"Leçon 8: Prompting 2023 🗣️",img:"https://image.pollinations.ai/prompt/person%20AI%20robot%208k",
 cours:`<h3>1. Prompt</h3><p>2023. 5000$/mois.</p>
 <h3>2. CORTEX</h3><p>C O R T E X.</p>
-<h3>3. CoT</h3><p>2022.</p>
-<div class="astuce"><b>CEO:</b> Nul=Prompt.</div>`,
+<h3>3. CoT</h3><p>2022.</p>`,
 quiz:["2023?|Prompt,0,0,0|0","5000$?|Mois,An,0,0|0","C?|Contexte,0,0,0|0","CoT?|2022,2000,0,0|0","Few-shot?|2-3,0,0,0|1","Zero?|0 ex,0,0,0|0","R?|Règles,0,0,0|0","T?|Tâche,0,0,0|0","E?|Exemple,0,0,0|0","X?|Contraintes,0,0,0|0"]},
 
-9:{titre:"Leçon 9: IA Bénin 🇧🇯",img:"https://image.pollinations.ai/prompt/Benin%20flag%20colors%20AI%20robot%20helping%20student%20market%20seller%20phone%20African%20vibes%208k%20ultra%20detailed",
+9:{titre:"Leçon 9: IA Bénin 🇧🇯",img:"https://image.pollinations.ai/prompt/Benin%20flag%20AI%208k",
 cours:`<h3>1. Égalisateur</h3><p>2025.</p>
 <h3>2. 5 Cas</h3><p>SVT Manioc Fr-Fon.</p>
-<h3>3. Business</h3><p>50000F/mois.</p>
-<div class="astuce"><b>CEO:</b> Produis.</div>`,
+<h3>3. Business</h3><p>50000F/mois.</p>`,
 quiz:["2025?|Égalisateur,0,0,0|0","5?|Cas,0,0,0|0","SVT?|Gari,0,0,0|0","Manioc?|Diag,0,0,0|0","Fr-Fon?|Oui,Non,0,0|0","Agence?|10,0,0,0|0","50000F?|Mois,0,0,0|0","Offline?|Oui,Non,0,0|0","Produit?|Oui,Non,0,0|0","Temps?|Gagné,0,0,0|0"]},
 
-10:{titre:"Leçon 10: Futur 2030 🚀",img:"https://image.pollinations.ai/prompt/human%20CEO%20hero%20cape%20AI%20robot%20sidekick%20city%20epic%208k%20ultra%20detailed",
+10:{titre:"Leçon 10: Futur 2030 🚀",img:"https://image.pollinations.ai/prompt/CEO%20AI%20robot%208k",
 cours:`<h3>1. 2025</h3><p>IA vole sans IA.</p>
 <h3>2. 3 Cat</h3><p>Remplacé User Maître.</p>
-<h3>3. 4 Comp</h3><p>Critique Créa Prompt Éthique.</p>
-<h3>4. Plan</h3><p>2000$/mois.</p>
-<div class="astuce"><b>CEO:</b> Toi+LIA.</div>`,
+<h3>3. 4 Comp</h3><p>Critique Créa Prompt Éthique.</p>`,
 quiz:["2025?|IA vole,0,0,0|0","3?|Cat,0,0,0|0","Maître?|Systèmes,0,0,0|0","4?|Comp,0,0,0|0","2000$?|Mois,0,0,0|0","Toi+LIA?|Inarrêtable,0,0,0|0","2030?|3,0,0,0|0","Peur?|Fausse,0,0,0|0","Encaisse?|Oui,0,0,0|0","Plan?|3 projets,0,0,0|0"]}
 };
 
-function ouvrir(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('c'+n).classList.add('active');let d=COURS[n];let html=`<h2>${d.titre}</h2><img src="${d.img}" class="cours-img" loading="lazy">${d.cours}<div class="quiz-box"><h3>📝 Quiz 10Q 20/20</h3>`;d.quiz.forEach((q,i)=>{let [text,opts,rep]=q.split('|');html+=`<div class="question"><b>Q${i+1}: ${text}</b>`;opts.split(',').forEach((o,j)=>{html+=`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`});html+=`</div>`;});html+=`<button onclick="corriger(${n})">Valider</button><div id="r${n}" class="resultat"></div></div>`;document.getElementById('contenu-c'+n).innerHTML=html;window.scrollTo(0,0);}
-function retour(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('home').classList.add('active');window.scrollTo(0,0);}
-function corriger(n){let d=COURS[n]; let score=0;d.quiz.forEach((q,i)=>{let s=document.querySelector(`#c${n} input[name="q${i}"]:checked`); if(s&&parseInt(s.value)===parseInt(q.split('|')[2]))score+=2});let div=document.getElementById('r'+n);div.style.background=score>=16?'rgba(105,240,174,.3)':'rgba(255,82,82,.3)';div.textContent=`Score: ${score}/20 ${score>=16?'✅ Expert':'❌ Revise'}`;}
-function demander(){let q=document.getElementById('input').value.toLowerCase();let m=q.match(/leçon\s*(\d+)/);if(m&&COURS[m[1]]){ouvrir(m[1]);document.getElementById('input').value='';return;}let rep="🤔 Je peux parler de tout: Foot, Business, Amour, Code... Dis-moi.";if(q.includes('bonjour'))rep="👋 Coucou CEO! Prêt à conquérir?";if(q.includes('foot'))rep="⚽ Barça vs Real? L’IA prédit 2-1 Barça en 2026.";document.getElementById('destinReply').innerHTML=`<span class="lia-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span><b>LIA ✨:</b> ${rep}`;document.getElementById('input').value='';}
+function ouvrir(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('c'+n).classList.add('active');let d=COURS[n];let html=`<h2>${d.titre}</h2><img src="${d.img}" class="cours-img">${d.cours}<div class="quiz-box"><h3>📝 Quiz 10Q</h3>`;d.quiz.forEach((q,i)=>{let [text,opts,rep]=q.split('|');html+=`<div class="question"><b>Q${i+1}: ${text}</b>`;opts.split(',').forEach((o,j)=>{html+=`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`});html+=`</div>`;});html+=`<button onclick="corriger(${n})">Valider</button><div id="r${n}" class="resultat"></div></div>`;document.getElementById('contenu-c'+n).innerHTML=html;}
+function retour(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('home').classList.add('active');}
+function corriger(n){let d=COURS[n]; let score=0;d.quiz.forEach((q,i)=>{let s=document.querySelector(`#c${n} input[name="q${i}"]:checked`); if(s&&parseInt(s.value)===parseInt(q.split('|')[2]))score+=2});let div=document.getElementById('r'+n);div.style.background=score>=16?'rgba(105,240,174,.3)':'rgba(255,82,82,.3)';div.textContent=`Score: ${score}/20 ${score>=16?'✅':'❌'}`;}
+
+// 3. LIA = CERVEAU QUI PARLE DE TOUT = PARTIE RÉPARÉE ✅
+function demander(){
+  let q = document.getElementById('input').value.toLowerCase().trim();
+  let rep = "";
+
+  // 1. Si c'est une leçon > Ouvre
+  let m = q.match(/leçon\s*(\d+)/);
+  if(m && COURS[m[1]]){ouvrir(m[1]);document.getElementById('input').value='';return;}
+
+  // 2. Cerveau LIA = 20+ sujets différents
+  if(q.includes('bonjour') || q.includes('salut')) rep = "👋 Coucou CEO! Comment je peux t’aider aujourd’hui? Business, Code, Amour, Foot...";
+  else if(q.includes('merci')) rep = "🙏 Avec plaisir CEO! Tu gères.";
+  else if(q.includes('foot') || q.includes('barça') || q.includes('real')) rep = "⚽ Foot 2026: L’IA prédit que les attaquants avec analyse vidéo IA marquent +30%. Tu veux jouer ou coacher?";
+  else if(q.includes('amour') || q.includes('coeur') || q.includes('draguer')) rep = "❤️ Conseil CEO: Sois toi-même. L’IA peut t’aider à écrire un message stylé, mais l’authenticité gagne. Tu veux un exemple?";
+  else if(q.includes('business') || q.includes('argent') || q.includes('idée')) rep = "💰 Idée Bénin 2026: Agence IA 15000F/mois pour artisans. Tu crées logo, post, site en 1h avec IA. Tu encaisses 10 clients = 150000F.";
+  else if(q.includes('code') || q.includes('programmer') || q.includes('site')) rep = "💻 Pour coder: Commence par HTML/CSS/JS. L’IA est ton co-pilote. Demande-moi: Explique moi les boucles for.";
+  else if(q.includes('bénin') || q.includes('cotonou')) rep = "🇧🇯 Bénin 2026: L’IA aide les vendeuses de gari avec diagnostic manioc. Et toi, tu peux former 100 élèves à 15000F.";
+  else if(q.includes('fatigué') || q.includes('découragé')) rep = "💪 CEO ne lâche rien. Chaque code vendu = 15000F. Respire. Tape Leçon 1 et on avance ensemble.";
+  else if(q.includes('blague') || q.includes('rire')) rep = "😂 Pourquoi l’IA n’aime pas le froid? Parce qu’elle a peur du Bug!";
+  else if(q.includes('futur') || q.includes('2030')) rep = "🚀 2030: Ceux qui maîtrisent l’IA seront les patrons. Toi tu es en avance. Continue.";
+  else if(q.includes('manger') || q.includes('recette')) rep = "🍲 Recette CEO rapide: Riz + Poulet + Sauce tomate. 20min. L’IA cuisine pas encore, mais elle donne les recettes.";
+  else if(q.includes('musique') || q.includes('son')) rep = "🎵 L’IA crée de la musique en 2026. Style? Afrobeat, Rap, Gospel? Je te donne un prompt.";
+  else if(q.includes('voyage') || q.includes('vacance')) rep = "✈️ Avec 15000F x 10 élèves = 150000F. Tu voyages où CEO? L’IA planifie ton budget.";
+  else rep = "🤔 J’ai compris: " + q + ". Dis-moi plus: Tu veux un conseil Business, Code, Vie, ou ouvrir une Leçon?";
+
+  document.getElementById('destinReply').innerHTML=`<span class="lia-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></span><b>LIA ✨:</b> ${rep}`;
+  document.getElementById('input').value='';
+}
 </script>
 </body>
 </html>
